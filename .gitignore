@@ -1,0 +1,79 @@
+# eclipse
+bin
+*.launch
+.settings
+.metadata
+.classpath
+.project
+
+# idea
+out
+*.ipr
+*.iws
+*.iml
+.idea
+
+# gradle
+build
+.gradle
+
+# other
+eclipse
+run
+
+
+/download
+/eclipseBin
+
+## gradle
+**/.gradle
+**/build
+
+## ForgeGradle
+/run
+/*/run
+/*.launch
+/*/*.launch
+
+## eclipse
+/eclipse
+**/.settings
+**/.metadata
+**/.classpath
+**/.project
+**/bin
+
+## intellij
+/out
+/.idea
+/*.iml
+/*.ipr
+/*.iws
+/atlassian-ide-plugin.xml
+/classes
+
+## gedit
+*~
+## most Windows editors
+*.bak
+## OSX
+.DS_Store
+
+## local user properties
+user.properties
+
+build\.sh
+
+CoFHCore-1\.12\.2-4\.5\.2\.19-universal\.jar
+
+buildcraft-7\.99\.17\.jar
+
+EnderCore-0\.5\.36\.jar
+
+EnderIO-5\.0\.590\.jar
+
+RedstoneArsenal-2\.5\.1\.13\.jar
+
+RedstoneFlux-1\.12-2\.0\.2\.3-universal\.jar
+
+Baubles-1\.5\.2\.jar
