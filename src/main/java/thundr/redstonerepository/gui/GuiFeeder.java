@@ -116,5 +116,11 @@ public class GuiFeeder extends GuiContainerCore {
         GuiFeeder.playClickSound((float)0.7f);
     }
 
+	@Override
+	protected void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
 
