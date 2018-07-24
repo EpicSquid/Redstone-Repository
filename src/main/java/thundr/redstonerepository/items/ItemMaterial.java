@@ -24,9 +24,8 @@ import net.minecraftforge.registries.IForgeRegistryEntry;
 import thundr.redstonerepository.RedstoneRepository;
 import thundr.redstonerepository.proxies.CommonProxy;
 
-public class ItemMaterial
-extends ItemMulti
-implements IInitializer {
+public class ItemMaterial extends ItemMulti implements IInitializer {
+	
     public static ItemStack dustGelidEnderium;
     public static ItemStack ingotGelidEnderium;
     public static ItemStack nuggetGelidEnderium;

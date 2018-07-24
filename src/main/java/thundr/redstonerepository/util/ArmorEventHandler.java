@@ -1,20 +1,3 @@
-/*
- * Decompiled with CFR 0_123.
- * 
- * Could not load the following classes:
- *  cofh.core.util.ConfigHandler
- *  net.minecraft.entity.Entity
- *  net.minecraft.entity.EntityLivingBase
- *  net.minecraft.entity.player.EntityPlayer
- *  net.minecraft.inventory.EntityEquipmentSlot
- *  net.minecraft.item.Item
- *  net.minecraft.item.ItemStack
- *  net.minecraft.util.DamageSource
- *  net.minecraft.world.World
- *  net.minecraftforge.event.entity.living.LivingAttackEvent
- *  net.minecraftforge.event.entity.living.LivingFallEvent
- *  net.minecraftforge.fml.common.eventhandler.SubscribeEvent
- */
 package thundr.redstonerepository.util;
 
 import cofh.core.util.ConfigHandler;

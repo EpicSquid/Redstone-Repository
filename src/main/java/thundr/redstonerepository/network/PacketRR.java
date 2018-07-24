@@ -13,8 +13,8 @@ import thundr.redstonerepository.RedstoneRepository;
 import thundr.redstonerepository.gui.ContainerFeeder;
 import thundr.redstonerepository.items.ItemFeeder;
 
-public class PacketRR
-extends PacketBase {
+public class PacketRR extends PacketBase {
+	
     public void handlePacket(EntityPlayer player, boolean isServer) {
         try {
             byte type = this.getByte();

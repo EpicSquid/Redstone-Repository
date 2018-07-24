@@ -12,8 +12,7 @@ import net.minecraftforge.fml.client.config.GuiConfig;
 import net.minecraftforge.fml.client.config.IConfigElement;
 import thundr.redstonerepository.RedstoneRepository;
 
-public class ConfigGui
-extends GuiConfig {
+public class ConfigGui extends GuiConfig {
     public ConfigGui(GuiScreen parentScreen) {
         super(parentScreen, ConfigGui.getConfigElements(parentScreen), "redstonerepository", false, false, GuiConfig.getAbridgedConfigPath((String)RedstoneRepository.CONFIG.getConfiguration().toString()));
     }

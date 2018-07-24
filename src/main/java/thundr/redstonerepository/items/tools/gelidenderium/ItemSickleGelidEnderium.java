@@ -1,13 +1,3 @@
-/*
- * Decompiled with CFR 0_123.
- * 
- * Could not load the following classes:
- *  cofh.redstonearsenal.item.tool.ItemSickleFlux
- *  net.minecraft.item.EnumRarity
- *  net.minecraft.item.Item
- *  net.minecraft.item.Item$ToolMaterial
- *  net.minecraft.item.ItemStack
- */
 package thundr.redstonerepository.items.tools.gelidenderium;
 
 import cofh.redstonearsenal.item.tool.ItemSickleFlux;
@@ -16,8 +6,8 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import thundr.redstonerepository.items.tools.gelidenderium.GelidEnderiumEnergy;
 
-public class ItemSickleGelidEnderium
-extends ItemSickleFlux {
+public class ItemSickleGelidEnderium extends ItemSickleFlux {
+	
     public ItemSickleGelidEnderium(Item.ToolMaterial toolMaterial) {
         super(toolMaterial);
         this.maxEnergy = GelidEnderiumEnergy.maxEnergy;

@@ -1,15 +1,3 @@
-/*
- * Decompiled with CFR 0_123.
- * 
- * Could not load the following classes:
- *  cofh.core.util.core.IInitializer
- *  net.minecraft.item.crafting.IRecipe
- *  net.minecraftforge.common.MinecraftForge
- *  net.minecraftforge.event.RegistryEvent
- *  net.minecraftforge.event.RegistryEvent$Register
- *  net.minecraftforge.fml.common.eventhandler.EventBus
- *  net.minecraftforge.fml.common.eventhandler.SubscribeEvent
- */
 package thundr.redstonerepository.init;
 
 import cofh.core.util.core.IInitializer;

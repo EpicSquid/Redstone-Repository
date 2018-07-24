@@ -23,8 +23,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.IPlantable;
 import thundr.redstonerepository.items.tools.gelidenderium.GelidEnderiumEnergy;
 
-public class ItemShovelGelidEnderium
-extends ItemShovelFlux {
+public class ItemShovelGelidEnderium extends ItemShovelFlux {
+	
     public ItemShovelGelidEnderium(Item.ToolMaterial toolMaterial) {
         super(toolMaterial);
         this.maxEnergy = GelidEnderiumEnergy.maxEnergy;

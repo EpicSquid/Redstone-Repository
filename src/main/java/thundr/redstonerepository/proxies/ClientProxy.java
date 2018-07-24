@@ -1,12 +1,3 @@
-/*
- * Decompiled with CFR 0_123.
- * 
- * Could not load the following classes:
- *  cofh.core.render.IModelRegister
- *  net.minecraftforge.fml.common.event.FMLInitializationEvent
- *  net.minecraftforge.fml.common.event.FMLPostInitializationEvent
- *  net.minecraftforge.fml.common.event.FMLPreInitializationEvent
- */
 package thundr.redstonerepository.proxies;
 
 import cofh.core.render.IModelRegister;
@@ -16,8 +7,8 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import thundr.redstonerepository.proxies.CommonProxy;
 
-public class ClientProxy
-extends CommonProxy {
+public class ClientProxy extends CommonProxy {
+	
     private static ArrayList<IModelRegister> modelList = new ArrayList();
 
     @Override

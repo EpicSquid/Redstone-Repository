@@ -8,8 +8,7 @@ import net.minecraftforge.fml.common.network.IGuiHandler;
 import thundr.redstonerepository.gui.ContainerFeeder;
 import thundr.redstonerepository.gui.GuiFeeder;
 
-public class GuiHandler
-implements IGuiHandler {
+public class GuiHandler implements IGuiHandler {
     public static final int FEEDER_ID = 0;
 
     public Object getClientGuiElement(int id, EntityPlayer player, World world, int x, int y, int z) {

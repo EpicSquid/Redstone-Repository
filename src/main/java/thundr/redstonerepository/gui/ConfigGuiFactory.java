@@ -6,8 +6,7 @@ import net.minecraft.client.gui.GuiScreen;
 import net.minecraftforge.fml.client.IModGuiFactory;
 import thundr.redstonerepository.gui.ConfigGui;
 
-public class ConfigGuiFactory
-implements IModGuiFactory {
+public class ConfigGuiFactory implements IModGuiFactory {
     public void initialize(Minecraft minecraftInstance) {
     }
 

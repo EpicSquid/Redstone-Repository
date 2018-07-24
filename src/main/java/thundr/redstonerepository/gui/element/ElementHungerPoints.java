@@ -1,16 +1,3 @@
-/*
- * Decompiled with CFR 0_123.
- * 
- * Could not load the following classes:
- *  cofh.core.gui.GuiContainerCore
- *  cofh.core.gui.element.ElementBase
- *  cofh.core.util.helpers.MathHelper
- *  cofh.core.util.helpers.RenderHelper
- *  cofh.core.util.helpers.StringHelper
- *  net.minecraft.item.Item
- *  net.minecraft.item.ItemStack
- *  net.minecraft.util.ResourceLocation
- */
 package thundr.redstonerepository.gui.element;
 
 import cofh.core.gui.GuiContainerCore;
@@ -24,8 +11,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import thundr.redstonerepository.api.IHungerStorageItem;
 
-public class ElementHungerPoints
-extends ElementBase {
+public class ElementHungerPoints extends ElementBase {
+	
     public static final ResourceLocation DEFAULT_TEXTURE = new ResourceLocation("redstonerepository:textures/gui/hunger.png");
     public static final int DEFAULT_SCALE = 56;
     protected IHungerStorageItem storage;

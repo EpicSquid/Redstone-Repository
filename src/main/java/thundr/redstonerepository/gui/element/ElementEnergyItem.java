@@ -11,8 +11,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 
-public class ElementEnergyItem
-extends ElementBase {
+public class ElementEnergyItem extends ElementBase {
     public static final ResourceLocation DEFAULT_TEXTURE = new ResourceLocation("redstonerepository:textures/gui/energy.png");
     public static final int DEFAULT_SCALE = 56;
     protected IEnergyContainerItem storage;

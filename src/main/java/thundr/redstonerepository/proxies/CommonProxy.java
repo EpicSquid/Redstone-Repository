@@ -1,14 +1,3 @@
-/*
- * Decompiled with CFR 0_123.
- * 
- * Could not load the following classes:
- *  cofh.core.render.IModelRegister
- *  net.minecraftforge.common.MinecraftForge
- *  net.minecraftforge.fml.common.event.FMLInitializationEvent
- *  net.minecraftforge.fml.common.event.FMLPostInitializationEvent
- *  net.minecraftforge.fml.common.event.FMLPreInitializationEvent
- *  net.minecraftforge.fml.common.eventhandler.EventBus
- */
 package thundr.redstonerepository.proxies;
 
 import cofh.core.render.IModelRegister;
