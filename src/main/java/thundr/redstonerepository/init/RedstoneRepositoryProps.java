@@ -1,15 +1,3 @@
-/*
- * Decompiled with CFR 0_123.
- * 
- * Could not load the following classes:
- *  cofh.core.gui.CreativeTabCore
- *  net.minecraft.creativetab.CreativeTabs
- *  net.minecraft.item.Item
- *  net.minecraft.item.ItemStack
- *  net.minecraft.util.ResourceLocation
- *  net.minecraftforge.fml.relauncher.Side
- *  net.minecraftforge.fml.relauncher.SideOnly
- */
 package thundr.redstonerepository.init;
 
 import cofh.core.gui.CreativeTabCore;
@@ -42,7 +30,7 @@ public class RedstoneRepositoryProps {
         RedstoneRepository.tabCommon = new CreativeTabCore("redstonerepository"){
 
             @SideOnly(value=Side.CLIENT)
-            public ItemStack func_151244_d() {
+            public ItemStack getIcon() {
                 return new ItemStack((Item)RedstoneRepositoryEquipment.ToolSet.GELID.itemSword);
             }
         };
