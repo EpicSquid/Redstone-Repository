@@ -38,11 +38,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-@Optional.Interface(iface="baubles.api.IBauble", modid="baubles")
+@Optional.Interface(iface = "baubles.api.IBauble", modid = "baubles")
 public class ItemCapacitorAmulet extends ItemCoreRF implements IBauble, IEnergyContainerItem, IEnchantableItem, INBTCopyIngredient {
-	
-    @CapabilityInject(value=IBaublesItemHandler.class)
-    private static Capability<IBaublesItemHandler> CAPABILITY_BAUBLES = null;
+
+    @CapabilityInject(value = IBaublesItemHandler.class)
+    private static final Capability<IBaublesItemHandler> CAPABILITY_BAUBLES = null;
 
     public ItemCapacitorAmulet(int capacity, int transfer) {
         super("redstonerepository");
@@ -54,6 +54,21 @@ public class ItemCapacitorAmulet extends ItemCoreRF implements IBauble, IEnergyC
         this.addPropertyOverride(new ResourceLocation("active"), (stack, world, entity) -> this.isActive(stack) ? 1.0f : 0.0f);
     }
 
+    private static Iterable<ItemStack> getBaubles(Entity entity) {
+        if (CAPABILITY_BAUBLES == null) {
+            return Collections.emptyList();
+        } else {
+            IBaublesItemHandler handler = entity.getCapability(CAPABILITY_BAUBLES, null);
+            if (handler == null) {
+                return Collections.emptyList();
+            } else {
+                IntStream var10000 = IntStream.range(0, handler.getSlots());
+                handler.getClass();
+                return var10000.mapToObj(handler::getStackInSlot).filter((stack) -> !stack.isEmpty()).collect(Collectors.toList());
+            }
+        }
+    }
+
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         if (StringHelper.displayShiftForDetail && !StringHelper.isShiftKeyDown()) {
             tooltip.add(StringHelper.shiftForDetails());
@@ -61,42 +76,44 @@ public class ItemCapacitorAmulet extends ItemCoreRF implements IBauble, IEnergyC
         if (!StringHelper.isShiftKeyDown()) {
             return;
         }
-        tooltip.add(StringHelper.getInfoText((String)"info.redstonerepository.capacitor.title"));
+        tooltip.add(StringHelper.getInfoText("info.redstonerepository.capacitor.title"));
         if (this.isActive(stack)) {
-            tooltip.add(StringHelper.getDeactivationText((String)"info.redstonerepository.capacitor.deactivate"));
+            tooltip.add(StringHelper.getDeactivationText("info.redstonerepository.capacitor.deactivate"));
         } else {
-            tooltip.add(StringHelper.getActivationText((String)"info.redstonerepository.capacitor.activate"));
+            tooltip.add(StringHelper.getActivationText("info.redstonerepository.capacitor.activate"));
         }
         if (!RedstoneRepositoryEquipment.EquipmentInit.enable[0]) {
             tooltip.add("\u00a74Baubles not loaded: Recipe disabled.");
         }
-        tooltip.add(StringHelper.localize((String)"info.cofh.charge") + ": " + StringHelper.getScaledNumber((long)this.getEnergyStored(stack)) + " / " + StringHelper.getScaledNumber((long)this.getCapacity(stack)) + " RF");
-        tooltip.add(StringHelper.localize((String)"info.cofh.send") + "/" + StringHelper.localize((String)"info.cofh.receive") + ": " + StringHelper.formatNumber((long)this.maxTransfer) + "/" + StringHelper.formatNumber((long)this.maxTransfer) + " RF/t");
+        tooltip.add(StringHelper.localize("info.cofh.charge") + ": " + StringHelper.getScaledNumber(this.getEnergyStored(stack)) + " / " + StringHelper.getScaledNumber(this.getCapacity(stack)) + " RF");
+        tooltip.add(StringHelper.localize("info.cofh.send") + "/" + StringHelper.localize("info.cofh.receive") + ": " + StringHelper.formatNumber(this.maxTransfer) + "/" + StringHelper.formatNumber(this.maxTransfer) + " RF/t");
     }
 
     @Override
     public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
         if (this.isInCreativeTab(tab)) {
-            items.add((ItemStack)EnergyHelper.setDefaultEnergyTag((ItemStack)new ItemStack((Item)this, 1, 0), (int)0));
-            items.add((ItemStack)EnergyHelper.setDefaultEnergyTag((ItemStack)new ItemStack((Item)this, 1, 0), (int)this.maxEnergy));
+            items.add(EnergyHelper.setDefaultEnergyTag(new ItemStack(this, 1, 0), 0));
+            items.add(EnergyHelper.setDefaultEnergyTag(new ItemStack(this, 1, 0), this.maxEnergy));
         }
     }
 
-    @Optional.Method(modid="baubles")
+    @Optional.Method(modid = "baubles")
     public void onWornTick(ItemStack cap, EntityLivingBase player) {
-        if (!this.isActive(cap) || player.world.isRemote || CoreUtils.isFakePlayer((Entity)player) || !(player instanceof EntityPlayer)) {
+        if (!this.isActive(cap) || player.world.isRemote || CoreUtils.isFakePlayer(player) || !(player instanceof EntityPlayer)) {
             return;
         }
-        EntityPlayer entityPlayer = (EntityPlayer)player;
+        EntityPlayer entityPlayer = (EntityPlayer) player;
         Iterable<ItemStack> playerItems = Iterables.concat(entityPlayer.inventory.armorInventory, entityPlayer.inventory.mainInventory, entityPlayer.inventory.offHandInventory, ItemCapacitorAmulet.getBaubles(entityPlayer));
         for (ItemStack playerItem : playerItems) {
             IEnergyStorage handler;
-            if (playerItem.isEmpty() || playerItem.equals(cap) || playerItem.getItem() instanceof ItemCapacitorAmulet) continue;
+            if (playerItem.isEmpty() || playerItem.equals(cap) || playerItem.getItem() instanceof ItemCapacitorAmulet)
+                continue;
             if (EnergyHelper.isEnergyContainerItem(playerItem)) {
-                this.extractEnergy(cap, ((IEnergyContainerItem)playerItem.getItem()).receiveEnergy(playerItem, Math.min(this.getEnergyStored(cap), this.maxTransfer), false), false);
+                this.extractEnergy(cap, ((IEnergyContainerItem) playerItem.getItem()).receiveEnergy(playerItem, Math.min(this.getEnergyStored(cap), this.maxTransfer), false), false);
                 continue;
             }
-            if (!EnergyHelper.isEnergyHandler(playerItem) || (handler = EnergyHelper.getEnergyHandler(playerItem)) == null) continue;
+            if (!EnergyHelper.isEnergyHandler(playerItem) || (handler = EnergyHelper.getEnergyHandler(playerItem)) == null)
+                continue;
             this.extractEnergy(cap, handler.receiveEnergy(Math.min(this.getEnergyStored(cap), this.maxTransfer), false), false);
         }
     }
@@ -134,7 +151,7 @@ public class ItemCapacitorAmulet extends ItemCoreRF implements IBauble, IEnergyC
     }
 
     protected int getCapacity(ItemStack stack) {
-        int enchant = EnchantmentHelper.getEnchantmentLevel((Enchantment)CoreEnchantments.holding, (ItemStack)stack);
+        int enchant = EnchantmentHelper.getEnchantmentLevel(CoreEnchantments.holding, stack);
         return this.maxEnergy + this.maxEnergy * enchant / 2;
     }
 
@@ -143,22 +160,7 @@ public class ItemCapacitorAmulet extends ItemCoreRF implements IBauble, IEnergyC
         return this.getCapacity(stack);
     }
 
-    private static Iterable<ItemStack> getBaubles(Entity entity) {
-        if (CAPABILITY_BAUBLES == null) {
-            return Collections.emptyList();
-        } else {
-            IBaublesItemHandler handler = entity.getCapability(CAPABILITY_BAUBLES, null);
-            if (handler == null) {
-                return Collections.emptyList();
-            } else {
-                IntStream var10000 = IntStream.range(0, handler.getSlots());
-                handler.getClass();
-                return var10000.mapToObj(handler::getStackInSlot).filter((stack) -> !stack.isEmpty()).collect(Collectors.toList());
-            }
-        }
-    }
-
-    @Optional.Method(modid="baubles")
+    @Optional.Method(modid = "baubles")
     public BaubleType getBaubleType(ItemStack itemstack) {
         return BaubleType.AMULET;
     }
@@ -166,9 +168,9 @@ public class ItemCapacitorAmulet extends ItemCoreRF implements IBauble, IEnergyC
     @Override
     public double getDurabilityForDisplay(ItemStack stack) {
         if (stack.getTagCompound() == null) {
-            EnergyHelper.setDefaultEnergyTag((ItemStack)stack, (int)0);
+            EnergyHelper.setDefaultEnergyTag(stack, 0);
         }
-        return 1.0 - (double)stack.getTagCompound().getInteger("Energy") / (double)this.getCapacity(stack);
+        return 1.0 - (double) stack.getTagCompound().getInteger("Energy") / (double) this.getCapacity(stack);
     }
 
     public boolean setMode(ItemStack stack, int mode) {

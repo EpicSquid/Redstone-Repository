@@ -57,7 +57,7 @@ public class ItemPickaxeGelidEnderium extends ItemPickaxeFlux {
                 stack.getTagCompound().setInteger("CoordZ", z);
                 stack.getTagCompound().setInteger("DimID", world.provider.getDimension());
                 stack.getTagCompound().setInteger("Side", facing.getIndex());
-                player.sendStatusMessage((ITextComponent)new TextComponentString(new TextComponentTranslation("info.redstonerepository.chat.boundto.txt", new Object[0]).getFormattedText() + " x: " + x + " y: " + y + " z: " + z), false);
+                player.sendStatusMessage(new TextComponentString(new TextComponentTranslation("info.redstonerepository.chat.boundto.txt").getFormattedText() + " x: " + x + " y: " + y + " z: " + z), false);
                 return EnumActionResult.SUCCESS;
             }
             stack.getTagCompound().setBoolean("Bound", false);
@@ -66,13 +66,13 @@ public class ItemPickaxeGelidEnderium extends ItemPickaxeFlux {
             stack.getTagCompound().setInteger("CoordZ", 0);
             stack.getTagCompound().setInteger("DimID", 0);
             stack.getTagCompound().setInteger("Side", 0);
-            player.sendStatusMessage((ITextComponent)new TextComponentString(new TextComponentTranslation("info.redstonerepository.chat.unbound.txt", new Object[0]).getFormattedText()), false);
+            player.sendStatusMessage(new TextComponentString(new TextComponentTranslation("info.redstonerepository.chat.unbound.txt").getFormattedText()), false);
             return EnumActionResult.PASS;
         }
         return EnumActionResult.FAIL;
     }
 
-    @SideOnly(value=Side.CLIENT)
+    @SideOnly(value = Side.CLIENT)
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add("\u00a7aSneak right click to bind an inventory when empowered.");
         super.addInformation(stack, worldIn, tooltip, flagIn);
@@ -98,16 +98,16 @@ public class ItemPickaxeGelidEnderium extends ItemPickaxeFlux {
             if (tags.hasKey("Bound")) {
                 isBound = tags.getBoolean("Bound");
             }
-            String sideString = EnumFacing.getFront((int)values[4]).getName().toLowerCase();
+            String sideString = EnumFacing.getFront(values[4]).getName().toLowerCase();
             if (StringHelper.isControlKeyDown()) {
                 if (isBound) {
-                    tooltip.add(StringHelper.localize((String)("\u00a7a" + StringHelper.localize((String)"info.redstonerepository.tooltip.bound") + "\u00a77" + " " + values[0] + ", " + values[1] + ", " + values[2] + ". DimID: " + values[3])));
-                    tooltip.add(StringHelper.localize((String)("\u00a7b" + StringHelper.localize((String)"info.redstonerepository.tooltip.side") + "\u00a77" + " " + Character.toUpperCase(sideString.charAt(0)) + sideString.substring(1))));
+                    tooltip.add(StringHelper.localize("\u00a7a" + StringHelper.localize("info.redstonerepository.tooltip.bound") + "\u00a77" + " " + values[0] + ", " + values[1] + ", " + values[2] + ". DimID: " + values[3]));
+                    tooltip.add(StringHelper.localize("\u00a7b" + StringHelper.localize("info.redstonerepository.tooltip.side") + "\u00a77" + " " + Character.toUpperCase(sideString.charAt(0)) + sideString.substring(1)));
                 } else {
                     tooltip.add("\u00a7aNot Bound to an Inventory");
                 }
             } else {
-                tooltip.add(StringHelper.localize((String)"info.redstonerepository.tooltip.hold") + " " + "\u00a7e" + "\u00a7o" + StringHelper.localize((String)"info.redstonerepository.tooltip.control") + " " + "\u00a77" + StringHelper.localize((String)"info.redstonerepository.tooltip.forDetails"));
+                tooltip.add(StringHelper.localize("info.redstonerepository.tooltip.hold") + " " + "\u00a7e" + "\u00a7o" + StringHelper.localize("info.redstonerepository.tooltip.control") + " " + "\u00a77" + StringHelper.localize("info.redstonerepository.tooltip.forDetails"));
             }
         }
     }
@@ -124,12 +124,12 @@ public class ItemPickaxeGelidEnderium extends ItemPickaxeFlux {
             }
             return false;
         }
-        world.playEvent(2001, pos, Block.getStateId((IBlockState)state));
+        world.playEvent(2001, pos, Block.getStateId(state));
         float refStrength = state.getPlayerRelativeBlockHardness(player, world, pos);
         if (refStrength != 0.0f) {
             boolean used = false;
             if (this.isEmpowered(stack) && this.canHarvestBlock(state, stack)) {
-                RayTraceResult traceResult = RayTracer.retrace((EntityPlayer)player, (boolean)false);
+                RayTraceResult traceResult = RayTracer.retrace(player, false);
                 if (traceResult == null || traceResult.sideHit == null) {
                     return false;
                 }
@@ -138,7 +138,7 @@ public class ItemPickaxeGelidEnderium extends ItemPickaxeFlux {
                 int z = pos.getZ();
                 int radius = 1;
                 switch (traceResult.sideHit) {
-                    case DOWN: 
+                    case DOWN:
                     case UP: {
                         for (int i = x - radius; i <= x + radius; ++i) {
                             for (int k = z - radius; k <= z + radius; ++k) {
@@ -151,7 +151,7 @@ public class ItemPickaxeGelidEnderium extends ItemPickaxeFlux {
                         }
                         break;
                     }
-                    case NORTH: 
+                    case NORTH:
                     case SOUTH: {
                         for (int i = x - radius; i <= x + radius; ++i) {
                             for (int j = y - radius; j <= y + radius; ++j) {
@@ -164,7 +164,7 @@ public class ItemPickaxeGelidEnderium extends ItemPickaxeFlux {
                         }
                         break;
                     }
-                    case WEST: 
+                    case WEST:
                     case EAST: {
                         for (int j = y - radius; j <= y + radius; ++j) {
                             for (int k = z - radius; k <= z + radius; ++k) {
@@ -189,7 +189,7 @@ public class ItemPickaxeGelidEnderium extends ItemPickaxeFlux {
     public ImmutableList<BlockPos> getAOEBlocks(ItemStack stack, BlockPos pos, EntityPlayer player) {
         ArrayList<BlockPos> area = new ArrayList<BlockPos>();
         World world = player.getEntityWorld();
-        RayTraceResult traceResult = RayTracer.retrace((EntityPlayer)player, (boolean)false);
+        RayTraceResult traceResult = RayTracer.retrace(player, false);
         if (traceResult == null || traceResult.sideHit == null || !this.isEmpowered(stack) || !this.canHarvestBlock(world.getBlockState(pos), stack)) {
             return ImmutableList.copyOf(area);
         }
@@ -198,34 +198,37 @@ public class ItemPickaxeGelidEnderium extends ItemPickaxeFlux {
         int z = pos.getZ();
         int radius = 1;
         switch (traceResult.sideHit) {
-            case DOWN: 
+            case DOWN:
             case UP: {
                 for (int i = x - radius; i <= x + radius; ++i) {
                     for (int k = z - radius; k <= z + radius; ++k) {
                         BlockPos harvestPos;
-                        if (i == x && k == z || !this.canHarvestBlock(world.getBlockState(harvestPos = new BlockPos(i, y, k)), stack)) continue;
+                        if (i == x && k == z || !this.canHarvestBlock(world.getBlockState(harvestPos = new BlockPos(i, y, k)), stack))
+                            continue;
                         area.add(harvestPos);
                     }
                 }
                 break;
             }
-            case NORTH: 
+            case NORTH:
             case SOUTH: {
                 for (int i = x - radius; i <= x + radius; ++i) {
                     for (int j = y - radius; j <= y + radius; ++j) {
                         BlockPos harvestPos;
-                        if (i == x && j == y || !this.canHarvestBlock(world.getBlockState(harvestPos = new BlockPos(i, j, z)), stack)) continue;
+                        if (i == x && j == y || !this.canHarvestBlock(world.getBlockState(harvestPos = new BlockPos(i, j, z)), stack))
+                            continue;
                         area.add(harvestPos);
                     }
                 }
                 break;
             }
-            case WEST: 
+            case WEST:
             case EAST: {
                 for (int j = y - radius; j <= y + radius; ++j) {
                     for (int k = z - radius; k <= z + radius; ++k) {
                         BlockPos harvestPos;
-                        if (j == y && k == z || !this.canHarvestBlock(world.getBlockState(harvestPos = new BlockPos(x, j, k)), stack)) continue;
+                        if (j == y && k == z || !this.canHarvestBlock(world.getBlockState(harvestPos = new BlockPos(x, j, k)), stack))
+                            continue;
                         area.add(harvestPos);
                     }
                 }

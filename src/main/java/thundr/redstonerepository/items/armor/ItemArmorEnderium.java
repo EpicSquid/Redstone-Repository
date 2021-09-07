@@ -16,8 +16,8 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 public class ItemArmorEnderium
-extends ItemArmorFlux
-implements IArmorEnderium {
+        extends ItemArmorFlux
+        implements IArmorEnderium {
     public ItemArmorEnderium(ItemArmor.ArmorMaterial material, EntityEquipmentSlot type) {
         super(material, type);
         this.setNoRepair();
@@ -40,10 +40,10 @@ implements IArmorEnderium {
             return;
         }
         if (stack.getTagCompound() == null) {
-            EnergyHelper.setDefaultEnergyTag((ItemStack)stack, (int)0);
+            EnergyHelper.setDefaultEnergyTag(stack, 0);
         }
         tooltip.add("\u00a7bFull Set: \u00a78Fire Damage ineffective, but drains energy. ");
-        tooltip.add(StringHelper.localize((String)"info.cofh.charge") + ": " + StringHelper.formatNumber((long)stack.getTagCompound().getInteger("Energy")) + " / " + StringHelper.formatNumber((long)this.getMaxEnergyStored(stack)) + " RF");
+        tooltip.add(StringHelper.localize("info.cofh.charge") + ": " + StringHelper.formatNumber(stack.getTagCompound().getInteger("Energy")) + " / " + StringHelper.formatNumber(this.getMaxEnergyStored(stack)) + " RF");
     }
 
     public EnumRarity getRarity(ItemStack stack) {

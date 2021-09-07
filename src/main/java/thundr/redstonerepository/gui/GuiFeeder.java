@@ -21,7 +21,7 @@ import thundr.redstonerepository.util.HungerHelper;
 import java.io.IOException;
 
 public class GuiFeeder extends GuiContainerCore {
-	
+
     ElementButton addFood;
     ElementEnergyItem energy;
     ElementHungerPoints hungerPoints;
@@ -31,13 +31,13 @@ public class GuiFeeder extends GuiContainerCore {
     ContainerFeeder containerFeeder;
 
     public GuiFeeder(InventoryPlayer inventoryPlayer, ContainerFeeder containerFeeder) {
-        super((Container)containerFeeder);
+        super(containerFeeder);
         this.name = containerFeeder.getInventoryName();
         this.xSize = 176;
         this.ySize = 148;
         this.texture = RedstoneRepositoryProps.FEEDER_GUI_STORAGE;
         this.feederStack = containerFeeder.getContainerStack();
-        this.baseFeeder = (ItemFeeder)containerFeeder.getContainerStack().getItem();
+        this.baseFeeder = (ItemFeeder) containerFeeder.getContainerStack().getItem();
         this.containerFeeder = containerFeeder;
         this.generateInfo("tab.redstonerepository.feeder");
     }
@@ -45,15 +45,15 @@ public class GuiFeeder extends GuiContainerCore {
     public void initGui() {
         super.initGui();
         if (!this.myInfo.isEmpty()) {
-            this.addTab((TabBase)new TabInfo((GuiContainerCore)this, this.myInfo));
+            this.addTab(new TabInfo(this, this.myInfo));
         }
-        this.addFood = new ElementButton((GuiContainerCore)this, 101, 26, "AddFood", 177, 64, 177, 80, 177, 96, 16, 16, this.PATH_BUTTON);
-        this.energy = new ElementEnergyItem(this, 151, 6, ((ContainerFeeder)this.inventorySlots).getContainerStack());
-        this.hungerPoints = new ElementHungerPoints(this, 160, 6, ((ContainerFeeder)this.inventorySlots).getContainerStack());
-        this.addElement((ElementBase)this.addFood);
-        this.addElement((ElementBase)this.energy);
-        this.addElement((ElementBase)this.hungerPoints);
-        Keyboard.enableRepeatEvents((boolean)true);
+        this.addFood = new ElementButton(this, 101, 26, "AddFood", 177, 64, 177, 80, 177, 96, 16, 16, this.PATH_BUTTON);
+        this.energy = new ElementEnergyItem(this, 151, 6, ((ContainerFeeder) this.inventorySlots).getContainerStack());
+        this.hungerPoints = new ElementHungerPoints(this, 160, 6, ((ContainerFeeder) this.inventorySlots).getContainerStack());
+        this.addElement(this.addFood);
+        this.addElement(this.energy);
+        this.addElement(this.hungerPoints);
+        Keyboard.enableRepeatEvents(true);
     }
 
     protected void mouseClicked(int mX, int mY, int mButton) throws IOException {
@@ -61,7 +61,7 @@ public class GuiFeeder extends GuiContainerCore {
     }
 
     protected void updateButtons() {
-        ItemStack tmpStack = ((Slot)this.containerFeeder.inventorySlots.get(this.containerFeeder.inventorySlots.size() - 1)).getStack().copy();
+        ItemStack tmpStack = this.containerFeeder.inventorySlots.get(this.containerFeeder.inventorySlots.size() - 1).getStack().copy();
         if (tmpStack.isEmpty() || HungerHelper.findHungerValueSingle(tmpStack) > this.baseFeeder.getMaxHungerPoints(this.feederStack) - this.baseFeeder.getHungerPoints(this.feederStack)) {
             this.addFood.setDisabled();
         } else {
@@ -70,16 +70,16 @@ public class GuiFeeder extends GuiContainerCore {
     }
 
     protected void drawGuiContainerForegroundLayer(int x, int y) {
-        ItemStack tmpStack = ((Slot)this.containerFeeder.inventorySlots.get(this.containerFeeder.inventorySlots.size() - 1)).getStack().copy();
+        ItemStack tmpStack = this.containerFeeder.inventorySlots.get(this.containerFeeder.inventorySlots.size() - 1).getStack().copy();
         if (this.drawTitle & this.name != null) {
-            this.fontRenderer.drawString(StringHelper.localize((String)this.name), 6, 6, 4210752);
+            this.fontRenderer.drawString(StringHelper.localize(this.name), 6, 6, 4210752);
         }
         if (this.drawInventory) {
-            this.fontRenderer.drawString(StringHelper.localize((String)"container.inventory"), 8, this.ySize - 96 + 3, 4210752);
+            this.fontRenderer.drawString(StringHelper.localize("container.inventory"), 8, this.ySize - 96 + 3, 4210752);
         }
         if (!tmpStack.isEmpty()) {
-            this.fontRenderer.drawString(StringHelper.localize((String)"gui.redstonerepository.food.1") + " " + HungerHelper.findHungerValueSingle(tmpStack), 65, 48, 47104);
-            this.fontRenderer.drawString(StringHelper.localize((String)"gui.redstonerepository.food.2") + " " + HungerHelper.findHungerValues(tmpStack), 65, 56, 47104);
+            this.fontRenderer.drawString(StringHelper.localize("gui.redstonerepository.food.1") + " " + HungerHelper.findHungerValueSingle(tmpStack), 65, 48, 47104);
+            this.fontRenderer.drawString(StringHelper.localize("gui.redstonerepository.food.2") + " " + HungerHelper.findHungerValues(tmpStack), 65, 56, 47104);
         }
         this.drawElements(0.0f, true);
         this.drawTabs(0.0f, true);
@@ -87,7 +87,7 @@ public class GuiFeeder extends GuiContainerCore {
     }
 
     public void handleElementButtonClick(String button, int mouseButton) {
-        ItemStack tmpStack = ((Slot)this.containerFeeder.inventorySlots.get(this.containerFeeder.inventorySlots.size() - 1)).getStack().copy();
+        ItemStack tmpStack = this.containerFeeder.inventorySlots.get(this.containerFeeder.inventorySlots.size() - 1).getStack().copy();
         if (mouseButton == 0) {
             tmpStack.setCount(1);
             int hunger = HungerHelper.findHungerValues(tmpStack);
@@ -109,14 +109,14 @@ public class GuiFeeder extends GuiContainerCore {
                 PacketRR.sendAddFood(hungerPerItem * stacksToDelete, stacksToDelete);
             }
         }
-        GuiFeeder.playClickSound((float)0.7f);
+        GuiFeeder.playClickSound(0.7f);
     }
 
-	@Override
-	protected void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY) {
-		// TODO Auto-generated method stub
-		
-	}
+    @Override
+    protected void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY) {
+        // TODO Auto-generated method stub
+
+    }
 
 }
 

@@ -24,11 +24,11 @@ public class RedstoneRepositoryProps {
     }
 
     private static void configClient() {
-        RedstoneRepository.tabCommon = new CreativeTabCore("redstonerepository"){
+        RedstoneRepository.tabCommon = new CreativeTabCore("redstonerepository") {
 
-            @SideOnly(value=Side.CLIENT)
+            @SideOnly(value = Side.CLIENT)
             public ItemStack getIcon() {
-                return new ItemStack((Item)RedstoneRepositoryEquipment.ToolSet.GELID.itemSword);
+                return new ItemStack(RedstoneRepositoryEquipment.ToolSet.GELID.itemSword);
             }
         };
     }

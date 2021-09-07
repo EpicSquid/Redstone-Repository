@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ItemSwordGelidEnderium extends ItemSwordFlux {
-	
+
     public int radius = 8;
 
     public ItemSwordGelidEnderium(Item.ToolMaterial toolMaterial) {
@@ -35,21 +35,21 @@ public class ItemSwordGelidEnderium extends ItemSwordFlux {
         if (stack.getItemDamage() > 0) {
             stack.setItemDamage(0);
         }
-        EntityPlayer thePlayer = (EntityPlayer)player;
+        EntityPlayer thePlayer = (EntityPlayer) player;
         if (thePlayer.capabilities.isCreativeMode || this.getEnergyStored(stack) >= this.energyPerUse) {
             AxisAlignedBB bb;
             List<EntityMob> entities;
             int fluxDamage = this.isEmpowered(stack) ? this.damageCharged : 1;
             float potionDamage = 1.0f;
             if (player.isPotionActive(MobEffects.STRENGTH)) {
-                potionDamage += (float)player.getActivePotionEffect(MobEffects.STRENGTH).getAmplifier() * 1.3f;
+                potionDamage += (float) player.getActivePotionEffect(MobEffects.STRENGTH).getAmplifier() * 1.3f;
             }
-            entity.attackEntityFrom(DamageHelper.causePlayerFluxDamage((EntityPlayer)thePlayer), (float)fluxDamage * potionDamage);
+            entity.attackEntityFrom(DamageHelper.causePlayerFluxDamage(thePlayer), (float) fluxDamage * potionDamage);
             int toExtract = this.isEmpowered(stack) ? this.energyPerUseCharged : this.energyPerUse;
             this.extractEnergy(stack, toExtract, thePlayer.capabilities.isCreativeMode);
-            if (this.isEmpowered(stack) && (entities = new ArrayList(thePlayer.world.getEntitiesWithinAABB(EntityMob.class, bb = new AxisAlignedBB(entity.posX - (double)this.radius, entity.posY - (double)this.radius, entity.posZ - (double)this.radius, entity.posX + (double)this.radius, entity.posY + (double)this.radius, entity.posZ + (double)this.radius)))).size() > 1 && this.getEnergyStored(stack) >= this.energyPerUseCharged * entities.size()) {
+            if (this.isEmpowered(stack) && (entities = new ArrayList(thePlayer.world.getEntitiesWithinAABB(EntityMob.class, bb = new AxisAlignedBB(entity.posX - (double) this.radius, entity.posY - (double) this.radius, entity.posZ - (double) this.radius, entity.posX + (double) this.radius, entity.posY + (double) this.radius, entity.posZ + (double) this.radius)))).size() > 1 && this.getEnergyStored(stack) >= this.energyPerUseCharged * entities.size()) {
                 for (EntityMob i : entities) {
-                    i.attackEntityFrom(DamageHelper.causePlayerFluxDamage((EntityPlayer)thePlayer), (float)fluxDamage * potionDamage);
+                    i.attackEntityFrom(DamageHelper.causePlayerFluxDamage(thePlayer), (float) fluxDamage * potionDamage);
                 }
                 this.extractEnergy(stack, this.energyPerUseCharged * entities.size(), thePlayer.capabilities.isCreativeMode);
             }

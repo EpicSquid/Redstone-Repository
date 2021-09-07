@@ -8,8 +8,8 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import java.util.ArrayList;
 
 public class ClientProxy extends CommonProxy {
-	
-    private static ArrayList<IModelRegister> modelList = new ArrayList();
+
+    private static final ArrayList<IModelRegister> modelList = new ArrayList();
 
     @Override
     public void preInit(FMLPreInitializationEvent event) {

@@ -27,7 +27,7 @@ import thundr.redstonerepository.util.ToolEventHandler;
 
 import java.io.File;
 
-@Mod(modid="redstonerepository", name="Redstone Repository", version="1.3.2", dependencies="required-after:redstonearsenal@[2.3.11,);required-after:cofhcore@[4.3.11,);required-after:thermalfoundation@[2.3.11,);required-after:thermalexpansion@[5.3.11,);after:baubles;", guiFactory="thundr.redstonerepository.gui.ConfigGuiFactory", acceptedMinecraftVersions="[1.12.2]")
+@Mod(modid = "redstonerepository", name = "Redstone Repository", version = "1.3.2", dependencies = "required-after:redstonearsenal@[2.3.11,);required-after:cofhcore@[4.3.11,);required-after:thermalfoundation@[2.3.11,);required-after:thermalexpansion@[5.3.11,);after:baubles;", guiFactory = "thundr.redstonerepository.gui.ConfigGuiFactory", acceptedMinecraftVersions = "[1.12.2]")
 public class RedstoneRepository {
     public static final String NAME = "Redstone Repository";
     public static final String ID = "redstonerepository";
@@ -36,14 +36,20 @@ public class RedstoneRepository {
     public static final String REQUIRED = "required-after:redstonearsenal@[2.3.11,);required-after:cofhcore@[4.3.11,);required-after:thermalfoundation@[2.3.11,);required-after:thermalexpansion@[5.3.11,);after:baubles;";
     public static final String CLIENTPROXY = "thundr.redstonerepository.proxies.ClientProxy";
     public static final String COMMONPROXY = "thundr.redstonerepository.proxies.CommonProxy";
-    @Mod.Instance(value="redstonerepository")
-    public static RedstoneRepository instance;
-    @SidedProxy(clientSide="thundr.redstonerepository.proxies.ClientProxy", serverSide="thundr.redstonerepository.proxies.CommonProxy")
-    public static CommonProxy proxy;
     public static final Logger LOG;
     public static final ConfigHandler CONFIG;
     public static final ConfigHandler CONFIG_CLIENT;
+    @Mod.Instance(value = "redstonerepository")
+    public static RedstoneRepository instance;
+    @SidedProxy(clientSide = "thundr.redstonerepository.proxies.ClientProxy", serverSide = "thundr.redstonerepository.proxies.CommonProxy")
+    public static CommonProxy proxy;
     public static CreativeTabs tabCommon;
+
+    static {
+        LOG = LogManager.getLogger("redstonerepository");
+        CONFIG = new ConfigHandler("1.3.2");
+        CONFIG_CLIENT = new ConfigHandler("1.3.2");
+    }
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
@@ -56,7 +62,7 @@ public class RedstoneRepository {
         ArmorEventHandler.preInit();
         ToolEventHandler.preInit();
         PacketHandler.INSTANCE.registerPacket(PacketRR.class);
-        NetworkRegistry.INSTANCE.registerGuiHandler((Object)instance, (IGuiHandler)new GuiHandler());
+        NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandler());
         proxy.preInit(event);
     }
 
@@ -75,12 +81,6 @@ public class RedstoneRepository {
         CONFIG.cleanUp(false, true);
         CONFIG_CLIENT.cleanUp(false, true);
         LOG.info("Redstone Repository: Loaded.");
-    }
-
-    static {
-        LOG = LogManager.getLogger((String)"redstonerepository");
-        CONFIG = new ConfigHandler("1.3.2");
-        CONFIG_CLIENT = new ConfigHandler("1.3.2");
     }
 }
 

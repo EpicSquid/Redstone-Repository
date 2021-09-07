@@ -18,7 +18,7 @@ import net.minecraftforge.oredict.OreDictionary;
 import thundr.redstonerepository.RedstoneRepository;
 
 public class ItemMaterial extends ItemMulti implements IInitializer {
-	
+
     public static ItemStack dustGelidEnderium;
     public static ItemStack ingotGelidEnderium;
     public static ItemStack nuggetGelidEnderium;
@@ -37,7 +37,7 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 
     public boolean preInit() {
         ForgeRegistries.ITEMS.register(this.setRegistryName("material"));
-        RedstoneRepository.proxy.addIModelRegister((IModelRegister)this);
+        RedstoneRepository.proxy.addIModelRegister(this);
         dustGelidEnderium = this.addOreDictItem(0, "dustGelidEnderium", EnumRarity.RARE);
         ingotGelidEnderium = this.addOreDictItem(1, "ingotGelidEnderium", EnumRarity.RARE);
         nuggetGelidEnderium = this.addOreDictItem(2, "nuggetGelidEnderium", EnumRarity.RARE);
@@ -51,19 +51,19 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
     }
 
     public boolean initialize() {
-        RecipeHelper.addTwoWayStorageRecipe((ItemStack)ingotGelidEnderium, (String)"ingotGelidEnderium", (ItemStack)nuggetGelidEnderium, (String)"nuggetGelidEnderium");
-        RecipeHelper.addReverseStorageRecipe((ItemStack)ingotGelidEnderium, (String)"blockGelidEnderium");
-        RecipeHelper.addReverseStorageRecipe((ItemStack)gemGelid, (String)"blockGelidGem");
-        RecipeHelper.addGearRecipe((ItemStack)gearGelidEnderium, (String)"ingotGelidEnderium");
-        RecipeHelper.addShapedRecipe((ItemStack)rodGelid, (Object[])new Object[]{"  O", " B ", "O  ", Character.valueOf('B'), cofh.redstonearsenal.item.ItemMaterial.rodObsidian, Character.valueOf('O'), "gemGelid"});
-        RecipeHelper.addShapedRecipe((ItemStack)plateArmorGelidEnderium, (Object[])new Object[]{" I ", "IGI", " I ", Character.valueOf('G'), "gemGelid", Character.valueOf('I'), "plateGelidEnderium"});
-        ItemStack dustEnderium = ItemHelper.cloneStack((ItemStack)((ItemStack)OreDictionary.getOres((String)"dustEnderium", (boolean)false).get(0)), (int)1);
-        FluidStack fluidCryotheum = new FluidStack(FluidRegistry.getFluid((String)"cryotheum"), 1000);
-        FluidStack fluidRedstone = new FluidStack(FluidRegistry.getFluid((String)"redstone"), 200);
-        ThermalExpansionHelper.addSmelterRecipe((int)4000, (ItemStack)dustGelidEnderium, (ItemStack)new ItemStack((Block)Blocks.SAND), (ItemStack)ingotGelidEnderium);
-        ThermalExpansionHelper.addTransposerFill((int)4000, (ItemStack)dustEnderium, (ItemStack)dustGelidEnderium, (FluidStack)fluidCryotheum, (boolean)false);
-        ThermalExpansionHelper.addTransposerFill((int)4000, (ItemStack)new ItemStack(Items.EMERALD), (ItemStack)gemGelid, (FluidStack)fluidCryotheum, (boolean)false);
-        ThermalExpansionHelper.addTransposerFill((int)2000, (ItemStack)new ItemStack(Items.STRING), (ItemStack)stringFluxed, (FluidStack)fluidRedstone, (boolean)false);
+        RecipeHelper.addTwoWayStorageRecipe(ingotGelidEnderium, "ingotGelidEnderium", nuggetGelidEnderium, "nuggetGelidEnderium");
+        RecipeHelper.addReverseStorageRecipe(ingotGelidEnderium, "blockGelidEnderium");
+        RecipeHelper.addReverseStorageRecipe(gemGelid, "blockGelidGem");
+        RecipeHelper.addGearRecipe(gearGelidEnderium, "ingotGelidEnderium");
+        RecipeHelper.addShapedRecipe(rodGelid, new Object[]{"  O", " B ", "O  ", Character.valueOf('B'), cofh.redstonearsenal.item.ItemMaterial.rodObsidian, Character.valueOf('O'), "gemGelid"});
+        RecipeHelper.addShapedRecipe(plateArmorGelidEnderium, new Object[]{" I ", "IGI", " I ", Character.valueOf('G'), "gemGelid", Character.valueOf('I'), "plateGelidEnderium"});
+        ItemStack dustEnderium = ItemHelper.cloneStack(OreDictionary.getOres("dustEnderium", false).get(0), 1);
+        FluidStack fluidCryotheum = new FluidStack(FluidRegistry.getFluid("cryotheum"), 1000);
+        FluidStack fluidRedstone = new FluidStack(FluidRegistry.getFluid("redstone"), 200);
+        ThermalExpansionHelper.addSmelterRecipe(4000, dustGelidEnderium, new ItemStack(Blocks.SAND), ingotGelidEnderium);
+        ThermalExpansionHelper.addTransposerFill(4000, dustEnderium, dustGelidEnderium, fluidCryotheum, false);
+        ThermalExpansionHelper.addTransposerFill(4000, new ItemStack(Items.EMERALD), gemGelid, fluidCryotheum, false);
+        ThermalExpansionHelper.addTransposerFill(2000, new ItemStack(Items.STRING), stringFluxed, fluidRedstone, false);
         return true;
     }
 }

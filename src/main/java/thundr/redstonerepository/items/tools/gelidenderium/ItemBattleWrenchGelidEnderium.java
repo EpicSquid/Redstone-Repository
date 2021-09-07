@@ -33,17 +33,17 @@ public class ItemBattleWrenchGelidEnderium extends ItemBattleWrenchFlux {
         ItemStack held = player.getHeldItem(hand);
         BlockPos pos = player.getPosition();
         if (!world.isRemote && hand == EnumHand.MAIN_HAND && this.isEmpowered(held)) {
-            List<EntityItem> items = new ArrayList(world.getEntitiesWithinAABB(EntityItem.class, new AxisAlignedBB((double)(pos.getX() - this.radius), (double)(pos.getY() - this.radius), (double)(pos.getZ() - this.radius), (double)(pos.getX() + this.radius), (double)(pos.getY() + this.radius), (double)(pos.getZ() + this.radius))));
+            List<EntityItem> items = new ArrayList(world.getEntitiesWithinAABB(EntityItem.class, new AxisAlignedBB(pos.getX() - this.radius, pos.getY() - this.radius, pos.getZ() - this.radius, pos.getX() + this.radius, pos.getY() + this.radius, pos.getZ() + this.radius)));
             if (items.size() > 0 && this.getEnergyStored(held) >= this.energyPerUseCharged * items.size()) {
                 for (EntityItem i : items) {
-                    i.setPosition((double)pos.getX(), (double)pos.getY(), (double)pos.getZ());
+                    i.setPosition(pos.getX(), pos.getY(), pos.getZ());
                 }
                 this.extractEnergy(held, this.energyPerUseCharged * items.size(), player.capabilities.isCreativeMode);
             }
             player.swingArm(EnumHand.MAIN_HAND);
-            return new ActionResult(EnumActionResult.SUCCESS, (Object)player.getHeldItem(hand));
+            return new ActionResult(EnumActionResult.SUCCESS, player.getHeldItem(hand));
         }
-        return new ActionResult(EnumActionResult.FAIL, (Object)player.getHeldItem(hand));
+        return new ActionResult(EnumActionResult.FAIL, player.getHeldItem(hand));
     }
 
     public EnumRarity getRarity(ItemStack stack) {

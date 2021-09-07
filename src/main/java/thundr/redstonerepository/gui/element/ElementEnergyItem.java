@@ -21,7 +21,7 @@ public class ElementEnergyItem extends ElementBase {
 
     public ElementEnergyItem(GuiContainerCore gui, int posX, int posY, ItemStack stack) {
         super(gui, posX, posY);
-        this.storage = (IEnergyContainerItem)stack.getItem();
+        this.storage = (IEnergyContainerItem) stack.getItem();
         this.stack = stack;
         this.texture = DEFAULT_TEXTURE;
         this.sizeX = 9;
@@ -42,7 +42,7 @@ public class ElementEnergyItem extends ElementBase {
 
     public void drawBackground(int mouseX, int mouseY, float gameTicks) {
         int amount = this.getScaled();
-        RenderHelper.bindTexture((ResourceLocation)this.texture);
+        RenderHelper.bindTexture(this.texture);
         this.drawTexturedModalRect(this.posX, this.posY, 0, 0, this.sizeX, this.sizeY);
         this.drawTexturedModalRect(this.posX, this.posY + 56 - amount, 17, 56 - amount, this.sizeX, amount);
     }
@@ -54,7 +54,7 @@ public class ElementEnergyItem extends ElementBase {
         if (this.isInfinite) {
             list.add("Infinite RF");
         } else {
-            list.add(StringHelper.formatNumber((long)this.storage.getEnergyStored(this.stack)) + " / " + StringHelper.formatNumber((long)this.storage.getMaxEnergyStored(this.stack)) + " RF");
+            list.add(StringHelper.formatNumber(this.storage.getEnergyStored(this.stack)) + " / " + StringHelper.formatNumber(this.storage.getMaxEnergyStored(this.stack)) + " RF");
         }
     }
 
@@ -62,8 +62,8 @@ public class ElementEnergyItem extends ElementBase {
         if (this.storage.getMaxEnergyStored(this.stack) <= 0) {
             return this.sizeY;
         }
-        long fraction = (long)this.storage.getEnergyStored(this.stack) * (long)this.sizeY / (long)this.storage.getMaxEnergyStored(this.stack);
-        return this.alwaysShowMinimum && this.storage.getEnergyStored(this.stack) > 0 ? Math.max(1, MathHelper.round((double)fraction)) : MathHelper.round((double)fraction);
+        long fraction = (long) this.storage.getEnergyStored(this.stack) * (long) this.sizeY / (long) this.storage.getMaxEnergyStored(this.stack);
+        return this.alwaysShowMinimum && this.storage.getEnergyStored(this.stack) > 0 ? Math.max(1, MathHelper.round((double) fraction)) : MathHelper.round((double) fraction);
     }
 }
 

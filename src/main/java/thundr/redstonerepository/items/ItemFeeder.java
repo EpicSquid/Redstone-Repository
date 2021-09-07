@@ -27,9 +27,9 @@ import thundr.redstonerepository.util.HungerHelper;
 import javax.annotation.Nullable;
 import java.util.List;
 
-@Optional.Interface(iface="baubles.api.IBauble", modid="baubles")
+@Optional.Interface(iface = "baubles.api.IBauble", modid = "baubles")
 public class ItemFeeder extends ItemCoreRF implements IBauble, IInventoryContainerItem, IHungerStorageItem {
-	
+
     public int hungerPointsMax;
     private int saturationFillMax;
 
@@ -52,15 +52,15 @@ public class ItemFeeder extends ItemCoreRF implements IBauble, IInventoryContain
         this.addPropertyOverride(new ResourceLocation("active"), (stack, world, entity) -> this.getMode(stack) == MODE.ENABLED.getValue() ? 1.0f : 0.0f);
     }
 
-    @Optional.Method(modid="baubles")
+    @Optional.Method(modid = "baubles")
     public void onWornTick(ItemStack feeder, EntityLivingBase player) {
         if (player.isServerWorld() && this.getMode(feeder) == MODE.ENABLED.getValue() && this.getHungerPoints(feeder) > 0 && this.getEnergyStored(feeder) >= this.getEnergyPerUse(feeder) && player instanceof EntityPlayer) {
-            EntityPlayer ePlayer = (EntityPlayer)player;
+            EntityPlayer ePlayer = (EntityPlayer) player;
             if (ePlayer.getFoodStats().needFood()) {
                 HungerHelper.addHunger(ePlayer, 1);
                 this.useHungerPoints(feeder, 1, ePlayer);
                 this.useEnergy(feeder, 1, false);
-            } else if (ePlayer.getFoodStats().getSaturationLevel() < (float)this.saturationFillMax) {
+            } else if (ePlayer.getFoodStats().getSaturationLevel() < (float) this.saturationFillMax) {
                 HungerHelper.addSaturation(ePlayer, 1);
                 this.useHungerPoints(feeder, 1, ePlayer);
                 this.useEnergy(feeder, 1, false);
@@ -73,24 +73,24 @@ public class ItemFeeder extends ItemCoreRF implements IBauble, IInventoryContain
             tooltip.add(StringHelper.shiftForDetails());
         }
         if (!StringHelper.isShiftKeyDown()) {
-            tooltip.add(StringHelper.getInfoText((String)"info.redstonerepository.feeder.short"));
+            tooltip.add(StringHelper.getInfoText("info.redstonerepository.feeder.short"));
             return;
         }
-        tooltip.add(StringHelper.getInfoText((String)"info.redstonerepository.feeder.title"));
+        tooltip.add(StringHelper.getInfoText("info.redstonerepository.feeder.title"));
         if (this.getMode(stack) == MODE.ENABLED.getValue()) {
-            tooltip.add(StringHelper.localizeFormat((String)"info.redstonerepository.feeder.active", (Object[])new Object[]{"\u00a7a", "\u00a7r", StringHelper.getKeyName((int)KeyBindingItemMultiMode.INSTANCE.getKey())}));
+            tooltip.add(StringHelper.localizeFormat("info.redstonerepository.feeder.active", new Object[]{"\u00a7a", "\u00a7r", StringHelper.getKeyName(KeyBindingItemMultiMode.INSTANCE.getKey())}));
         } else {
-            tooltip.add(StringHelper.localizeFormat((String)"info.redstonerepository.feeder.disabled", (Object[])new Object[]{"\u00a7c", "\u00a7r", StringHelper.getKeyName((int)KeyBindingItemMultiMode.INSTANCE.getKey())}));
+            tooltip.add(StringHelper.localizeFormat("info.redstonerepository.feeder.disabled", new Object[]{"\u00a7c", "\u00a7r", StringHelper.getKeyName(KeyBindingItemMultiMode.INSTANCE.getKey())}));
         }
         if (!RedstoneRepositoryEquipment.EquipmentInit.enable[1]) {
             tooltip.add("\u00a74Baubles not loaded: Recipe disabled.");
         }
-        tooltip.add(StringHelper.localize((String)"info.redstonerepository.hungerPoints") + ": " + "\u00a76" + StringHelper.getScaledNumber((long)this.getHungerPoints(stack)) + " / " + StringHelper.getScaledNumber((long)this.getMaxHungerPoints(stack)));
-        tooltip.add(StringHelper.localize((String)"info.cofh.charge") + ": " + "\u00a74" + StringHelper.getScaledNumber((long)this.getEnergyStored(stack)) + " / " + StringHelper.getScaledNumber((long)this.getCapacity(stack)) + " RF");
+        tooltip.add(StringHelper.localize("info.redstonerepository.hungerPoints") + ": " + "\u00a76" + StringHelper.getScaledNumber(this.getHungerPoints(stack)) + " / " + StringHelper.getScaledNumber(this.getMaxHungerPoints(stack)));
+        tooltip.add(StringHelper.localize("info.cofh.charge") + ": " + "\u00a74" + StringHelper.getScaledNumber(this.getEnergyStored(stack)) + " / " + StringHelper.getScaledNumber(this.getCapacity(stack)) + " RF");
     }
 
     protected int getCapacity(ItemStack stack) {
-        int enchant = EnchantmentHelper.getEnchantmentLevel((Enchantment)CoreEnchantments.holding, (ItemStack)stack);
+        int enchant = EnchantmentHelper.getEnchantmentLevel(CoreEnchantments.holding, stack);
         return this.maxEnergy + this.maxEnergy * enchant / 2;
     }
 
@@ -110,20 +110,20 @@ public class ItemFeeder extends ItemCoreRF implements IBauble, IInventoryContain
     @Override
     public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
         if (this.isInCreativeTab(tab)) {
-            items.add((ItemStack)EnergyHelper.setDefaultEnergyTag((ItemStack)new ItemStack((Item)this, 1, 0), (int)0));
-            items.add((ItemStack)EnergyHelper.setDefaultEnergyTag((ItemStack)new ItemStack((Item)this, 1, 0), (int)this.maxEnergy));
+            items.add(EnergyHelper.setDefaultEnergyTag(new ItemStack(this, 1, 0), 0));
+            items.add(EnergyHelper.setDefaultEnergyTag(new ItemStack(this, 1, 0), this.maxEnergy));
         }
     }
 
-    @Optional.Method(modid="baubles")
+    @Optional.Method(modid = "baubles")
     public BaubleType getBaubleType(ItemStack itemstack) {
         return BaubleType.BELT;
     }
 
     public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
         ItemStack stack = player.getHeldItem(hand);
-        player.openGui((Object)RedstoneRepository.instance, 0, world, 0, 0, 0);
-        return new ActionResult(EnumActionResult.SUCCESS, (Object)stack);
+        player.openGui(RedstoneRepository.instance, 0, world, 0, 0, 0);
+        return new ActionResult(EnumActionResult.SUCCESS, stack);
     }
 
     public int getSizeInventory(ItemStack container) {
@@ -161,17 +161,17 @@ public class ItemFeeder extends ItemCoreRF implements IBauble, IInventoryContain
 
     @Override
     public int getMaxHungerPoints(ItemStack container) {
-        int enchant = EnchantmentHelper.getEnchantmentLevel((Enchantment)CoreEnchantments.holding, (ItemStack)container);
+        int enchant = EnchantmentHelper.getEnchantmentLevel(CoreEnchantments.holding, container);
         return this.hungerPointsMax + this.hungerPointsMax * enchant / 2;
     }
 
-    public static enum MODE {
+    public enum MODE {
         DISABLED(0),
         ENABLED(1);
-        
+
         private final int value;
 
-        private MODE(int newValue) {
+        MODE(int newValue) {
             this.value = newValue;
         }
 

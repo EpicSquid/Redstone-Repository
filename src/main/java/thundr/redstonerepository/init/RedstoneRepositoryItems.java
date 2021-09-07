@@ -11,8 +11,8 @@ import java.util.ArrayList;
 
 public class RedstoneRepositoryItems {
     public static final RedstoneRepositoryItems INSTANCE = new RedstoneRepositoryItems();
-    static ArrayList<IInitializer> initList = new ArrayList();
     public static ItemMaterial itemMaterial;
+    static ArrayList<IInitializer> initList = new ArrayList();
 
     private RedstoneRepositoryItems() {
     }
@@ -23,7 +23,7 @@ public class RedstoneRepositoryItems {
         for (IInitializer init : initList) {
             init.preInit();
         }
-        MinecraftForge.EVENT_BUS.register((Object)INSTANCE);
+        MinecraftForge.EVENT_BUS.register(INSTANCE);
     }
 
     @SubscribeEvent

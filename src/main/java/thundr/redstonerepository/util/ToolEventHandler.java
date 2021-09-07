@@ -31,7 +31,7 @@ public class ToolEventHandler {
         World world = event.getWorld();
         if (!world.isRemote && event.getHarvester() != null && !event.getHarvester().getHeldItem(EnumHand.MAIN_HAND).isEmpty() && event.getHarvester().getHeldItem(EnumHand.MAIN_HAND).getItem() instanceof ItemPickaxeGelidEnderium) {
             ItemStack stack = event.getHarvester().getHeldItem(EnumHand.MAIN_HAND);
-            ItemPickaxeGelidEnderium pickaxe = (ItemPickaxeGelidEnderium)event.getHarvester().getHeldItem(EnumHand.MAIN_HAND).getItem();
+            ItemPickaxeGelidEnderium pickaxe = (ItemPickaxeGelidEnderium) event.getHarvester().getHeldItem(EnumHand.MAIN_HAND).getItem();
             if (this.isEmpowered(stack)) {
                 if (stack.getTagCompound() == null) {
                     stack.setTagCompound(new NBTTagCompound());
@@ -44,16 +44,16 @@ public class ToolEventHandler {
                 int side = tag.getInteger("Side");
                 boolean isBound = tag.getBoolean("Bound");
                 if (isBound) {
-                    WorldServer boundWorld = DimensionManager.getWorld((int)dimID);
+                    WorldServer boundWorld = DimensionManager.getWorld(dimID);
                     if (event.getWorld().getBlockState(event.getPos()) != boundWorld.getBlockState(new BlockPos(coordX, coordY, coordZ))) {
                         EnumFacing dir;
                         TileEntity bound = boundWorld.getTileEntity(new BlockPos(coordX, coordY, coordZ));
-                        if (!bound.hasCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, dir = EnumFacing.getFront((int)side))) {
+                        if (!bound.hasCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, dir = EnumFacing.getFront(side))) {
                             return;
                         }
-                        IItemHandler inventory = (IItemHandler)bound.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, dir);
+                        IItemHandler inventory = bound.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, dir);
                         for (int drop = 0; drop < event.getDrops().size(); ++drop) {
-                            ItemStack returned = ItemHandlerHelper.insertItemStacked((IItemHandler)inventory, (ItemStack)((ItemStack)event.getDrops().get(drop)), (boolean)false);
+                            ItemStack returned = ItemHandlerHelper.insertItemStacked(inventory, event.getDrops().get(drop), false);
                             int temp = this.drainEnergyByDistance(event.getPos(), new BlockPos(coordX, coordY, coordZ), dimID != event.getHarvester().dimension);
                             pickaxe.extractEnergy(stack, temp, false);
                             if (!returned.isEmpty()) {
@@ -69,13 +69,13 @@ public class ToolEventHandler {
 
     private int drainEnergyByDistance(BlockPos from, BlockPos to, boolean interdim) {
         if (!interdim) {
-            return (int)(Math.sqrt(Math.pow(from.getX() - to.getX(), 2.0) + Math.pow(from.getY() - to.getY(), 2.0) + Math.pow(from.getX() - to.getX(), 2.0)) * (double)pickaxeDistanceFactor);
+            return (int) (Math.sqrt(Math.pow(from.getX() - to.getX(), 2.0) + Math.pow(from.getY() - to.getY(), 2.0) + Math.pow(from.getX() - to.getX(), 2.0)) * (double) pickaxeDistanceFactor);
         }
         return pickaxeDimensionFactor;
     }
 
     public boolean isEmpowered(ItemStack stack) {
-        ItemPickaxeGelidEnderium pick = (ItemPickaxeGelidEnderium)stack.getItem();
+        ItemPickaxeGelidEnderium pick = (ItemPickaxeGelidEnderium) stack.getItem();
         return pick.getMode(stack) == 1 && pick.getEnergyStored(stack) >= pick.getEnergyPerUseCharged();
     }
 }

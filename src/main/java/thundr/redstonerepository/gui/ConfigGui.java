@@ -12,7 +12,7 @@ import java.util.List;
 
 public class ConfigGui extends GuiConfig {
     public ConfigGui(GuiScreen parentScreen) {
-        super(parentScreen, ConfigGui.getConfigElements(parentScreen), "redstonerepository", false, false, GuiConfig.getAbridgedConfigPath((String)RedstoneRepository.CONFIG.getConfiguration().toString()));
+        super(parentScreen, ConfigGui.getConfigElements(parentScreen), "redstonerepository", false, false, GuiConfig.getAbridgedConfigPath(RedstoneRepository.CONFIG.getConfiguration().toString()));
     }
 
     private static List<IConfigElement> getConfigElements(GuiScreen parent) {
@@ -20,7 +20,7 @@ public class ConfigGui extends GuiConfig {
         for (String section : RedstoneRepository.CONFIG.getCategoryNames()) {
             ConfigCategory category = RedstoneRepository.CONFIG.getCategory(section);
             if (category.isChild()) continue;
-            list.add((IConfigElement)new ConfigElement(category));
+            list.add(new ConfigElement(category));
         }
         return list;
     }

@@ -24,8 +24,8 @@ public class CommonProxy {
     }
 
     private void registerEventHandlers() {
-        MinecraftForge.EVENT_BUS.register((Object)new ArmorEventHandler());
-        MinecraftForge.EVENT_BUS.register((Object)new ToolEventHandler());
+        MinecraftForge.EVENT_BUS.register(new ArmorEventHandler());
+        MinecraftForge.EVENT_BUS.register(new ToolEventHandler());
     }
 }
 

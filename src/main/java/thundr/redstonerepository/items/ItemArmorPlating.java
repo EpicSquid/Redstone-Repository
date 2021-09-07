@@ -11,7 +11,7 @@ import thundr.redstonerepository.RedstoneRepository;
 import java.util.List;
 
 public class ItemArmorPlating extends Item {
-	
+
     private static final String[] names = new String[]{"enderium", "power.empty", "power.full"};
 
     public ItemArmorPlating() {
@@ -24,9 +24,9 @@ public class ItemArmorPlating extends Item {
         return this.getUnlocalizedName() + "." + names[stack.getItemDamage() % names.length];
     }
 
-    @SideOnly(value=Side.CLIENT)
+    @SideOnly(value = Side.CLIENT)
     public void getSubItems(Item item, CreativeTabs creativeTabs, List list) {
-        list.add(new ItemStack((Item)this, 1, 0));
+        list.add(new ItemStack(this, 1, 0));
     }
 
     public EnumRarity getRarity(ItemStack stack) {

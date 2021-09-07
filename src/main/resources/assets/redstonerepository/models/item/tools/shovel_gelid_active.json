@@ -1,6 +1,6 @@
 {
-	"parent": "redstonerepository:item/tools/shovel_gelid",
-	"textures": {
-		"layer0": "redstonerepository:items/tool/shovel_gelid_active"
-	}
+  "parent": "redstonerepository:item/tools/shovel_gelid",
+  "textures": {
+    "layer0": "redstonerepository:items/tool/shovel_gelid_active"
+  }
 }

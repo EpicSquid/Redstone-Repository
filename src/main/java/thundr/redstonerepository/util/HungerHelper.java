@@ -26,8 +26,8 @@ public class HungerHelper {
         if (!(food.getItem() instanceof ItemFood)) {
             return 0;
         }
-        ItemFood itemFood = (ItemFood)food.getItem();
-        return Math.max(1, (int)((float)itemFood.getHealAmount(food) * itemFood.getSaturationModifier(food) * 2.0f + (float)itemFood.getHealAmount(food)));
+        ItemFood itemFood = (ItemFood) food.getItem();
+        return Math.max(1, (int) ((float) itemFood.getHealAmount(food) * itemFood.getSaturationModifier(food) * 2.0f + (float) itemFood.getHealAmount(food)));
     }
 
     public static void addHunger(EntityPlayer player, int amount) {

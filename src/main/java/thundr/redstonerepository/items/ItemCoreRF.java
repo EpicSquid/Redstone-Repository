@@ -19,7 +19,7 @@ import net.minecraft.util.NonNullList;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
 
 public class ItemCoreRF extends ItemCore implements IMultiModeItem, IEnergyContainerItem, IEnchantableItem {
-	
+
     protected int maxEnergy = 32000;
     protected int maxTransfer = 1000;
     protected int energyPerUse = 200;
@@ -45,9 +45,9 @@ public class ItemCoreRF extends ItemCore implements IMultiModeItem, IEnergyConta
     public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
         if (this.isInCreativeTab(tab) && this.showInCreative) {
             if (!this.isCreative) {
-                items.add((ItemStack)EnergyHelper.setDefaultEnergyTag((ItemStack)new ItemStack((Item)this, 1, 0), (int)0));
+                items.add(EnergyHelper.setDefaultEnergyTag(new ItemStack(this, 1, 0), 0));
             }
-            items.add((ItemStack)EnergyHelper.setDefaultEnergyTag((ItemStack)new ItemStack((Item)this, 1, 0), (int)this.maxEnergy));
+            items.add(EnergyHelper.setDefaultEnergyTag(new ItemStack(this, 1, 0), this.maxEnergy));
         }
     }
 
@@ -85,16 +85,16 @@ public class ItemCoreRF extends ItemCore implements IMultiModeItem, IEnergyConta
 
     public double getDurabilityForDisplay(ItemStack stack) {
         if (stack.getTagCompound() == null) {
-            EnergyHelper.setDefaultEnergyTag((ItemStack)stack, (int)0);
+            EnergyHelper.setDefaultEnergyTag(stack, 0);
         }
-        return 1.0 - (double)stack.getTagCompound().getInteger("Energy") / (double)this.getMaxEnergyStored(stack);
+        return 1.0 - (double) stack.getTagCompound().getInteger("Energy") / (double) this.getMaxEnergyStored(stack);
     }
 
     protected int getEnergyPerUse(ItemStack stack) {
         if (this.isCreative) {
             return 0;
         }
-        int unbreakingLevel = MathHelper.clamp((int)EnchantmentHelper.getEnchantmentLevel((Enchantment)Enchantments.UNBREAKING, (ItemStack)stack), (int)0, (int)4);
+        int unbreakingLevel = MathHelper.clamp(EnchantmentHelper.getEnchantmentLevel(Enchantments.UNBREAKING, stack), 0, 4);
         return this.energyPerUse * (5 - unbreakingLevel) / 5;
     }
 
@@ -106,13 +106,13 @@ public class ItemCoreRF extends ItemCore implements IMultiModeItem, IEnergyConta
         if (this.isCreative) {
             return 0;
         }
-        int unbreakingLevel = MathHelper.clamp((int)EnchantmentHelper.getEnchantmentLevel((Enchantment)Enchantments.UNBREAKING, (ItemStack)stack), (int)0, (int)4);
+        int unbreakingLevel = MathHelper.clamp(EnchantmentHelper.getEnchantmentLevel(Enchantments.UNBREAKING, stack), 0, 4);
         return this.extractEnergy(stack, count * this.energyPerUse * (5 - unbreakingLevel) / 5, simulate);
     }
 
     public int receiveEnergy(ItemStack container, int maxReceive, boolean simulate) {
         if (container.getTagCompound() == null) {
-            EnergyHelper.setDefaultEnergyTag((ItemStack)container, (int)0);
+            EnergyHelper.setDefaultEnergyTag(container, 0);
         }
         int stored = Math.min(container.getTagCompound().getInteger("Energy"), this.getMaxEnergyStored(container));
         int receive = Math.min(maxReceive, Math.min(this.getMaxEnergyStored(container) - stored, this.getTransfer(container)));
@@ -124,7 +124,7 @@ public class ItemCoreRF extends ItemCore implements IMultiModeItem, IEnergyConta
 
     public int extractEnergy(ItemStack container, int maxExtract, boolean simulate) {
         if (container.getTagCompound() == null) {
-            EnergyHelper.setDefaultEnergyTag((ItemStack)container, (int)0);
+            EnergyHelper.setDefaultEnergyTag(container, 0);
         }
         if (this.isCreative) {
             return maxExtract;
@@ -139,13 +139,13 @@ public class ItemCoreRF extends ItemCore implements IMultiModeItem, IEnergyConta
 
     public int getEnergyStored(ItemStack container) {
         if (container.getTagCompound() == null) {
-            EnergyHelper.setDefaultEnergyTag((ItemStack)container, (int)0);
+            EnergyHelper.setDefaultEnergyTag(container, 0);
         }
         return Math.min(container.getTagCompound().getInteger("Energy"), this.getMaxEnergyStored(container));
     }
 
     public int getMaxEnergyStored(ItemStack container) {
-        int enchant = EnchantmentHelper.getEnchantmentLevel((Enchantment)CoreEnchantments.holding, (ItemStack)container);
+        int enchant = EnchantmentHelper.getEnchantmentLevel(CoreEnchantments.holding, container);
         return this.maxEnergy + this.maxEnergy * enchant / 2;
     }
 
@@ -154,7 +154,7 @@ public class ItemCoreRF extends ItemCore implements IMultiModeItem, IEnergyConta
     }
 
     public ICapabilityProvider initCapabilities(ItemStack stack, NBTTagCompound nbt) {
-        return new EnergyContainerItemWrapper(stack, (IEnergyContainerItem)this);
+        return new EnergyContainerItemWrapper(stack, this);
     }
 }
 

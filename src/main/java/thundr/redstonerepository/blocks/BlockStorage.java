@@ -35,8 +35,8 @@ import thundr.redstonerepository.items.blocks.ItemBlockStorage;
 import java.util.Locale;
 
 public class BlockStorage extends BlockCore implements IInitializer, IModelRegister {
-	
-    public static final PropertyEnum<Type> VARIANT = PropertyEnum.create((String)"type", Type.class);
+
+    public static final PropertyEnum<Type> VARIANT = PropertyEnum.create("type", Type.class);
     public static ItemStack blockGelidEnderium;
     public static ItemStack blockGelidGem;
 
@@ -52,12 +52,12 @@ public class BlockStorage extends BlockCore implements IInitializer, IModelRegis
     }
 
     protected BlockStateContainer createBlockState() {
-        return new BlockStateContainer((Block)this, new IProperty[]{VARIANT});
+        return new BlockStateContainer(this, VARIANT);
     }
 
     public void getSubBlocks(CreativeTabs tab, NonNullList<ItemStack> items) {
         for (int i = 0; i < METADATA_LOOKUP.length; ++i) {
-            items.add((ItemStack)new ItemStack((Block)this, 1, i));
+            items.add(new ItemStack(this, 1, i));
         }
     }
 
@@ -66,11 +66,11 @@ public class BlockStorage extends BlockCore implements IInitializer, IModelRegis
     }
 
     public int getMetaFromState(IBlockState state) {
-        return ((Type)((Object)state.getValue(VARIANT))).getMetadata();
+        return state.getValue(VARIANT).getMetadata();
     }
 
     public int damageDropped(IBlockState state) {
-        return ((Type)((Object)state.getValue(VARIANT))).getMetadata();
+        return state.getValue(VARIANT).getMetadata();
     }
 
     public boolean canCreatureSpawn(IBlockState state, IBlockAccess world, BlockPos pos, EntityLiving.SpawnPlacementType type) {
@@ -86,51 +86,61 @@ public class BlockStorage extends BlockCore implements IInitializer, IModelRegis
     }
 
     public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos) {
-        return ((Type)((Object)state.getValue(VARIANT))).getLight();
+        return state.getValue(VARIANT).getLight();
     }
 
     public float getBlockHardness(IBlockState state, World world, BlockPos pos) {
-        return ((Type)((Object)state.getValue(VARIANT))).getHardness();
+        return state.getValue(VARIANT).getHardness();
     }
 
     public float getExplosionResistance(World world, BlockPos pos, Entity exploder, Explosion explosion) {
         IBlockState state = world.getBlockState(pos);
-        return ((Type)((Object)state.getValue(VARIANT))).getResistance();
+        return state.getValue(VARIANT).getResistance();
     }
 
-    @SideOnly(value=Side.CLIENT)
+    @SideOnly(value = Side.CLIENT)
     public void registerModels() {
         for (int i = 0; i < Type.values().length; ++i) {
-            ModelLoader.setCustomModelResourceLocation((Item)Item.getItemFromBlock((Block)this), (int)i, (ModelResourceLocation)new ModelResourceLocation("redstonerepository:" + this.name, "type=" + Type.byMetadata(i).getName()));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), i, new ModelResourceLocation("redstonerepository:" + this.name, "type=" + Type.byMetadata(i).getName()));
         }
     }
 
     public boolean preInit() {
         this.setRegistryName("storage");
         ForgeRegistries.BLOCKS.register(this);
-        ItemBlockStorage itemBlock = new ItemBlockStorage((Block)this);
+        ItemBlockStorage itemBlock = new ItemBlockStorage(this);
         itemBlock.setRegistryName(this.getRegistryName());
         ForgeRegistries.ITEMS.register(itemBlock);
-        blockGelidEnderium = new ItemStack((Block)this, 1, Type.GELID_ENDERIUM.getMetadata());
-        blockGelidGem = new ItemStack((Block)this, 1, Type.GELID_GEM.getMetadata());
-        ItemHelper.registerWithHandlers((String)"blockGelidEnderium", (ItemStack)blockGelidEnderium);
-        ItemHelper.registerWithHandlers((String)"blockGelidGem", (ItemStack)blockGelidGem);
+        blockGelidEnderium = new ItemStack(this, 1, Type.GELID_ENDERIUM.getMetadata());
+        blockGelidGem = new ItemStack(this, 1, Type.GELID_GEM.getMetadata());
+        ItemHelper.registerWithHandlers("blockGelidEnderium", blockGelidEnderium);
+        ItemHelper.registerWithHandlers("blockGelidGem", blockGelidGem);
         RedstoneRepository.proxy.addIModelRegister(this);
         return true;
     }
 
     public boolean initialize() {
-        RecipeHelper.addStorageRecipe((ItemStack)blockGelidEnderium, (String)"ingotGelidEnderium");
-        RecipeHelper.addStorageRecipe((ItemStack)blockGelidGem, (String)"gemGelid");
+        RecipeHelper.addStorageRecipe(blockGelidEnderium, "ingotGelidEnderium");
+        RecipeHelper.addStorageRecipe(blockGelidGem, "gemGelid");
         return true;
     }
 
-    public static enum Type implements IStringSerializable
-    {
+    public enum Type implements IStringSerializable {
         GELID_ENDERIUM(0, "blockGelidEnderium", BlockStorage.blockGelidEnderium, 7),
         GELID_GEM(1, "blockGelidGem", BlockStorage.blockGelidGem);
-        
+
         private static final Type[] METADATA_LOOKUP;
+
+        static {
+            METADATA_LOOKUP = new Type[Type.values().length];
+            Type[] arrtype = Type.values();
+            int n = arrtype.length;
+            for (int i = 0; i < n; ++i) {
+                Type type;
+                Type.METADATA_LOOKUP[type.getMetadata()] = type = arrtype[i];
+            }
+        }
+
         private final int metadata;
         private final String name;
         private final ItemStack stack;
@@ -139,7 +149,7 @@ public class BlockStorage extends BlockCore implements IInitializer, IModelRegis
         private final float resistance;
         private final EnumRarity rarity;
 
-        private Type(int metadata, String name, ItemStack stack, int light, float hardness, float resistance, EnumRarity rarity) {
+        Type(int metadata, String name, ItemStack stack, int light, float hardness, float resistance, EnumRarity rarity) {
             this.metadata = metadata;
             this.name = name;
             this.stack = stack;
@@ -149,20 +159,27 @@ public class BlockStorage extends BlockCore implements IInitializer, IModelRegis
             this.rarity = rarity;
         }
 
-        private Type(int metadata, String name, ItemStack stack, int light, float hardness, float resistance) {
+        Type(int metadata, String name, ItemStack stack, int light, float hardness, float resistance) {
             this(metadata, name, stack, light, hardness, resistance, EnumRarity.RARE);
         }
 
-        private Type(int metadata, String name, ItemStack stack, float hardness, float resistance) {
+        Type(int metadata, String name, ItemStack stack, float hardness, float resistance) {
             this(metadata, name, stack, 0, hardness, resistance, EnumRarity.RARE);
         }
 
-        private Type(int metadata, String name, ItemStack stack, int light) {
+        Type(int metadata, String name, ItemStack stack, int light) {
             this(metadata, name, stack, light, 25.0f, 120.0f, EnumRarity.RARE);
         }
 
-        private Type(int metadata, String name, ItemStack stack) {
+        Type(int metadata, String name, ItemStack stack) {
             this(metadata, name, stack, 0, 25.0f, 120.0f, EnumRarity.RARE);
+        }
+
+        public static Type byMetadata(int metadata) {
+            if (metadata < 0 || metadata >= METADATA_LOOKUP.length) {
+                metadata = 0;
+            }
+            return METADATA_LOOKUP[metadata];
         }
 
         public int getMetadata() {
@@ -195,23 +212,6 @@ public class BlockStorage extends BlockCore implements IInitializer, IModelRegis
 
         public EnumRarity getRarity() {
             return this.rarity;
-        }
-
-        public static Type byMetadata(int metadata) {
-            if (metadata < 0 || metadata >= METADATA_LOOKUP.length) {
-                metadata = 0;
-            }
-            return METADATA_LOOKUP[metadata];
-        }
-
-        static {
-            METADATA_LOOKUP = new Type[Type.values().length];
-            Type[] arrtype = Type.values();
-            int n = arrtype.length;
-            for (int i = 0; i < n; ++i) {
-                Type type;
-                Type.METADATA_LOOKUP[type.getMetadata()] = type = arrtype[i];
-            }
         }
     }
 

@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 public class ItemShovelGelidEnderium extends ItemShovelFlux {
-	
+
     public ItemShovelGelidEnderium(Item.ToolMaterial toolMaterial) {
         super(toolMaterial);
         this.maxEnergy = GelidEnderiumEnergy.maxEnergy;
@@ -35,7 +35,7 @@ public class ItemShovelGelidEnderium extends ItemShovelFlux {
     public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         ItemStack stack = player.getHeldItem(hand);
         if (!player.isSneaking() && stack.getItem() instanceof ItemShovelGelidEnderium) {
-            ItemShovelGelidEnderium shovel = (ItemShovelGelidEnderium)stack.getItem();
+            ItemShovelGelidEnderium shovel = (ItemShovelGelidEnderium) stack.getItem();
             if (!player.canPlayerEdit(pos, facing, stack)) {
                 return EnumActionResult.FAIL;
             }

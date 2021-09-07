@@ -6,7 +6,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
 public class ItemSickleGelidEnderium extends ItemSickleFlux {
-	
+
     public ItemSickleGelidEnderium(Item.ToolMaterial toolMaterial) {
         super(toolMaterial);
         this.maxEnergy = GelidEnderiumEnergy.maxEnergy;

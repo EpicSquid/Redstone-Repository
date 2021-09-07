@@ -28,9 +28,9 @@ public class ArmorEventHandler {
     public void onFall(LivingFallEvent event) {
         if (event.getEntity() instanceof EntityPlayer) {
             ArmorSummary summary;
-            EntityPlayer player = (EntityPlayer)event.getEntityLiving();
+            EntityPlayer player = (EntityPlayer) event.getEntityLiving();
             if (!player.world.isRemote && (summary = new ArmorSummary().getSummary(player)) != null && summary.enderiumPieces.containsKey("Boots")) {
-                int toDrain = (int)(event.getDistance() * (float)fallDrainFactor);
+                int toDrain = (int) (event.getDistance() * (float) fallDrainFactor);
                 if (summary.energyStored.get("Boots") >= toDrain) {
                     ItemStack boots = player.getItemStackFromSlot(EntityEquipmentSlot.FEET);
                     event.setDamageMultiplier(0.0f);
@@ -43,15 +43,15 @@ public class ArmorEventHandler {
     @SubscribeEvent
     public void onPlayerAttacked(LivingAttackEvent event) {
         if (event.getEntity() instanceof EntityPlayer) {
-            EntityPlayer player = (EntityPlayer)event.getEntityLiving();
+            EntityPlayer player = (EntityPlayer) event.getEntityLiving();
             if (!player.world.isRemote) {
                 ArmorSummary summary = new ArmorSummary().getSummary(player);
                 if (summary.isFullSet) {
                     if (event.getSource().isFireDamage()) {
-                        if (this.doFullArmorDrain((int)event.getAmount() * fireDrainFactor, summary, player)) {
+                        if (this.doFullArmorDrain((int) event.getAmount() * fireDrainFactor, summary, player)) {
                             event.setCanceled(true);
                         }
-                    } else if (event.getSource().getDamageType().contains("flux") && this.doFullArmorDrain((int)event.getAmount() * fluxDrainFactor, summary, player)) {
+                    } else if (event.getSource().getDamageType().contains("flux") && this.doFullArmorDrain((int) event.getAmount() * fluxDrainFactor, summary, player)) {
                         event.setCanceled(true);
                     }
                 }
@@ -63,8 +63,8 @@ public class ArmorEventHandler {
         if (summary.totalEnergyStored >= toDrain) {
             Iterator armor = player.getArmorInventoryList().iterator();
             summary.enderiumPieces.forEach((key, value) -> {
-                value.extractEnergy((ItemStack)armor.next(), toDrain / 4, false);
-            }
+                        value.extractEnergy((ItemStack) armor.next(), toDrain / 4, false);
+                    }
             );
             return true;
         }
@@ -74,9 +74,9 @@ public class ArmorEventHandler {
     public static class ArmorSummary {
         public LinkedHashMap<String, Integer> energyStored = new LinkedHashMap();
         public int totalEnergyStored = 0;
-        ArrayList<ItemStack> armorStacks = new ArrayList();
         public LinkedHashMap<String, IArmorEnderium> enderiumPieces = new LinkedHashMap();
         public boolean isFullSet = false;
+        ArrayList<ItemStack> armorStacks = new ArrayList();
 
         public ArmorSummary getSummary(EntityPlayer player) {
             this.energyStored.put("Boots", 0);
@@ -93,7 +93,7 @@ public class ArmorEventHandler {
                     ++iter;
                     continue;
                 }
-                IArmorEnderium armor = (IArmorEnderium)i.getItem();
+                IArmorEnderium armor = (IArmorEnderium) i.getItem();
                 int energy = armor.getEnergyStored(i);
                 switch (iter) {
                     case 0: {
