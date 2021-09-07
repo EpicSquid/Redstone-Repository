@@ -1,13 +1,13 @@
 package thundr.redstonerepository.init;
 
 import cofh.core.util.core.IInitializer;
-import java.util.ArrayList;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.fml.common.eventhandler.EventBus;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import thundr.redstonerepository.items.ItemMaterial;
+
+import java.util.ArrayList;
 
 public class RedstoneRepositoryItems {
     public static final RedstoneRepositoryItems INSTANCE = new RedstoneRepositoryItems();

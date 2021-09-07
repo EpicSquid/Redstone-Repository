@@ -7,8 +7,6 @@ import cofh.core.init.CoreEnchantments;
 import cofh.core.key.KeyBindingItemMultiMode;
 import cofh.core.util.helpers.EnergyHelper;
 import cofh.core.util.helpers.StringHelper;
-import java.util.List;
-import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.enchantment.Enchantment;
@@ -16,26 +14,18 @@ import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
-import net.minecraft.item.IItemPropertyGetter;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.EnumActionResult;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.FoodStats;
-import net.minecraft.util.NonNullList;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.SoundCategory;
-import net.minecraft.util.SoundEvent;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.*;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.Optional;
 import thundr.redstonerepository.RedstoneRepository;
 import thundr.redstonerepository.api.IHungerStorageItem;
 import thundr.redstonerepository.init.RedstoneRepositoryEquipment;
-import thundr.redstonerepository.items.ItemCoreRF;
 import thundr.redstonerepository.util.HungerHelper;
+
+import javax.annotation.Nullable;
+import java.util.List;
 
 @Optional.Interface(iface="baubles.api.IBauble", modid="baubles")
 public class ItemFeeder extends ItemCoreRF implements IBauble, IInventoryContainerItem, IHungerStorageItem {

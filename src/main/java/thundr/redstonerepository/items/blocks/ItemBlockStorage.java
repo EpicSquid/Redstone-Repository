@@ -4,7 +4,6 @@ import cofh.core.block.ItemBlockCore;
 import cofh.core.util.helpers.ItemHelper;
 import net.minecraft.block.Block;
 import net.minecraft.item.EnumRarity;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import thundr.redstonerepository.blocks.BlockStorage;
 

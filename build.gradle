@@ -88,8 +88,7 @@ dependencies {
     runtime "curse.maven:thermal-foundation-222880:2926428"
     runtime "curse.maven:thermal-dynamics-227443:2920505"
     runtime "curse.maven:thermal-expansion-69163:2926431"
-    runtime "curse.maven:redstone-arsenal-70631:2939416"
-
+    compile "curse.maven:redstone-arsenal-70631:2939416"
 }
 
 processResources {

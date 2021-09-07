@@ -2,13 +2,9 @@ package thundr.redstonerepository.network;
 
 import cofh.core.network.PacketBase;
 import cofh.core.network.PacketHandler;
-import java.util.List;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.Container;
 import net.minecraft.inventory.Slot;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import org.apache.logging.log4j.Logger;
 import thundr.redstonerepository.RedstoneRepository;
 import thundr.redstonerepository.gui.ContainerFeeder;
 import thundr.redstonerepository.items.ItemFeeder;

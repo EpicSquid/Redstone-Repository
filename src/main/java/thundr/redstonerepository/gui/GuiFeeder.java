@@ -6,23 +6,19 @@ import cofh.core.gui.element.ElementButton;
 import cofh.core.gui.element.tab.TabBase;
 import cofh.core.gui.element.tab.TabInfo;
 import cofh.core.util.helpers.StringHelper;
-import java.io.IOException;
-import java.util.List;
-import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.Slot;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
 import org.lwjgl.input.Keyboard;
-import thundr.redstonerepository.gui.ContainerFeeder;
 import thundr.redstonerepository.gui.element.ElementEnergyItem;
 import thundr.redstonerepository.gui.element.ElementHungerPoints;
 import thundr.redstonerepository.init.RedstoneRepositoryProps;
 import thundr.redstonerepository.items.ItemFeeder;
 import thundr.redstonerepository.network.PacketRR;
 import thundr.redstonerepository.util.HungerHelper;
+
+import java.io.IOException;
 
 public class GuiFeeder extends GuiContainerCore {
 	

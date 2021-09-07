@@ -2,25 +2,20 @@ package thundr.redstonerepository.items.tools.gelidenderium;
 
 import cofh.core.util.helpers.DamageHelper;
 import cofh.redstonearsenal.item.tool.ItemSwordFlux;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.PlayerCapabilities;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.world.World;
-import thundr.redstonerepository.items.tools.gelidenderium.GelidEnderiumEnergy;
+
+import javax.annotation.Nullable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ItemSwordGelidEnderium extends ItemSwordFlux {
 	

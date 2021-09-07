@@ -3,7 +3,6 @@ package thundr.redstonerepository;
 import cofh.core.init.CoreProps;
 import cofh.core.network.PacketHandler;
 import cofh.core.util.ConfigHandler;
-import java.io.File;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.Mod;
@@ -25,6 +24,8 @@ import thundr.redstonerepository.network.PacketRR;
 import thundr.redstonerepository.proxies.CommonProxy;
 import thundr.redstonerepository.util.ArmorEventHandler;
 import thundr.redstonerepository.util.ToolEventHandler;
+
+import java.io.File;
 
 @Mod(modid="redstonerepository", name="Redstone Repository", version="1.3.2", dependencies="required-after:redstonearsenal@[2.3.11,);required-after:cofhcore@[4.3.11,);required-after:thermalfoundation@[2.3.11,);required-after:thermalexpansion@[5.3.11,);after:baubles;", guiFactory="thundr.redstonerepository.gui.ConfigGuiFactory", acceptedMinecraftVersions="[1.12.2]")
 public class RedstoneRepository {

@@ -3,20 +3,17 @@ package thundr.redstonerepository.items.armor;
 import cofh.core.util.helpers.EnergyHelper;
 import cofh.core.util.helpers.StringHelper;
 import cofh.redstonearsenal.item.armor.ItemArmorFlux;
-import java.util.List;
-import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.EnumRarity;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import thundr.redstonerepository.RedstoneRepository;
 import thundr.redstonerepository.api.IArmorEnderium;
+
+import javax.annotation.Nullable;
+import java.util.List;
 
 public class ItemArmorEnderium
 extends ItemArmorFlux

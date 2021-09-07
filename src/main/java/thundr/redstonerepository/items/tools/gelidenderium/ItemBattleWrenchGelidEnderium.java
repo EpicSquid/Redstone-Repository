@@ -1,12 +1,8 @@
 package thundr.redstonerepository.items.tools.gelidenderium;
 
 import cofh.redstonearsenal.item.tool.ItemBattleWrenchFlux;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.PlayerCapabilities;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -16,7 +12,9 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import thundr.redstonerepository.items.tools.gelidenderium.GelidEnderiumEnergy;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ItemBattleWrenchGelidEnderium extends ItemBattleWrenchFlux {
     public int radius = 10;

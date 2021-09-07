@@ -11,16 +11,6 @@ import cofh.core.util.helpers.EnergyHelper;
 import cofh.core.util.helpers.StringHelper;
 import cofh.redstoneflux.api.IEnergyContainerItem;
 import com.google.common.collect.Iterables;
-import java.lang.invoke.LambdaMetafactory;
-import java.util.Collections;
-import java.util.List;
-import java.util.function.IntFunction;
-import java.util.function.Predicate;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
-import java.util.stream.Stream;
-import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.enchantment.Enchantment;
@@ -28,21 +18,11 @@ import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.EnumRarity;
-import net.minecraft.item.IItemPropertyGetter;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.EnumActionResult;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.NonNullList;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.SoundCategory;
-import net.minecraft.util.SoundEvent;
+import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.common.capabilities.Capability;
@@ -51,6 +31,12 @@ import net.minecraftforge.energy.IEnergyStorage;
 import net.minecraftforge.fml.common.Optional;
 import thundr.redstonerepository.init.RedstoneRepositoryEquipment;
 import thundr.redstonerepository.items.ItemCoreRF;
+
+import javax.annotation.Nullable;
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 @Optional.Interface(iface="baubles.api.IBauble", modid="baubles")
 public class ItemCapacitorAmulet extends ItemCoreRF implements IBauble, IEnergyContainerItem, IEnchantableItem, INBTCopyIngredient {
@@ -102,23 +88,23 @@ public class ItemCapacitorAmulet extends ItemCoreRF implements IBauble, IEnergyC
             return;
         }
         EntityPlayer entityPlayer = (EntityPlayer)player;
-        Iterable playerItems = Iterables.concat((Iterable)entityPlayer.inventory.armorInventory, (Iterable)entityPlayer.inventory.mainInventory, (Iterable)entityPlayer.inventory.offHandInventory, ItemCapacitorAmulet.getBaubles((Entity)entityPlayer));
+        Iterable<ItemStack> playerItems = Iterables.concat(entityPlayer.inventory.armorInventory, entityPlayer.inventory.mainInventory, entityPlayer.inventory.offHandInventory, ItemCapacitorAmulet.getBaubles(entityPlayer));
         for (ItemStack playerItem : playerItems) {
             IEnergyStorage handler;
-            if (playerItem.isEmpty() || playerItem.equals((Object)cap) || playerItem.getItem() instanceof ItemCapacitorAmulet) continue;
-            if (EnergyHelper.isEnergyContainerItem((ItemStack)playerItem)) {
+            if (playerItem.isEmpty() || playerItem.equals(cap) || playerItem.getItem() instanceof ItemCapacitorAmulet) continue;
+            if (EnergyHelper.isEnergyContainerItem(playerItem)) {
                 this.extractEnergy(cap, ((IEnergyContainerItem)playerItem.getItem()).receiveEnergy(playerItem, Math.min(this.getEnergyStored(cap), this.maxTransfer), false), false);
                 continue;
             }
-            if (!EnergyHelper.isEnergyHandler((ItemStack)playerItem) || (handler = EnergyHelper.getEnergyHandler((ItemStack)playerItem)) == null) continue;
+            if (!EnergyHelper.isEnergyHandler(playerItem) || (handler = EnergyHelper.getEnergyHandler(playerItem)) == null) continue;
             this.extractEnergy(cap, handler.receiveEnergy(Math.min(this.getEnergyStored(cap), this.maxTransfer), false), false);
         }
     }
 
     public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
         ItemStack stack = player.getHeldItem(hand);
-        if (CoreUtils.isFakePlayer((Entity)player)) {
-            return new ActionResult(EnumActionResult.FAIL, (Object)stack);
+        if (CoreUtils.isFakePlayer(player)) {
+            return new ActionResult(EnumActionResult.FAIL, stack);
         }
         if (player.isSneaking() && this.setActiveState(stack, !this.isActive(stack))) {
             if (this.isActive(stack)) {
@@ -127,7 +113,7 @@ public class ItemCapacitorAmulet extends ItemCoreRF implements IBauble, IEnergyC
                 player.world.playSound(null, player.getPosition(), SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP, SoundCategory.PLAYERS, 0.2f, 0.5f);
             }
         }
-        return new ActionResult(EnumActionResult.SUCCESS, (Object)stack);
+        return new ActionResult(EnumActionResult.SUCCESS, stack);
     }
 
     public EnumActionResult onItemUse(EntityPlayer playerIn, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
@@ -160,12 +146,16 @@ public class ItemCapacitorAmulet extends ItemCoreRF implements IBauble, IEnergyC
     private static Iterable<ItemStack> getBaubles(Entity entity) {
         if (CAPABILITY_BAUBLES == null) {
             return Collections.emptyList();
+        } else {
+            IBaublesItemHandler handler = entity.getCapability(CAPABILITY_BAUBLES, null);
+            if (handler == null) {
+                return Collections.emptyList();
+            } else {
+                IntStream var10000 = IntStream.range(0, handler.getSlots());
+                handler.getClass();
+                return var10000.mapToObj(handler::getStackInSlot).filter((stack) -> !stack.isEmpty()).collect(Collectors.toList());
+            }
         }
-        IBaublesItemHandler handler = (IBaublesItemHandler)entity.getCapability(CAPABILITY_BAUBLES, null);
-        if (handler == null) {
-            return Collections.emptyList();
-        }
-        return IntStream.range(0, handler.getSlots()).mapToObj((IntFunction<ItemStack>)LambdaMetafactory.metafactory(null, null, null, (I)Ljava/lang/Object;, getStackInSlot(int ), (I)Lnet/minecraft/item/ItemStack;)((IBaublesItemHandler)handler)).filter(stack -> !stack.isEmpty()).collect(Collectors.toList());
     }
 
     @Optional.Method(modid="baubles")

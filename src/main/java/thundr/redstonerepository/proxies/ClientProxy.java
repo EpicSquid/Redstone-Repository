@@ -1,11 +1,11 @@
 package thundr.redstonerepository.proxies;
 
 import cofh.core.render.IModelRegister;
-import java.util.ArrayList;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import thundr.redstonerepository.proxies.CommonProxy;
+
+import java.util.ArrayList;
 
 public class ClientProxy extends CommonProxy {
 	

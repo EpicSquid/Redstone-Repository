@@ -1,7 +1,6 @@
 package thundr.redstonerepository.gui;
 
 import cofh.core.gui.container.ContainerInventoryItem;
-import cofh.core.gui.container.InventoryContainerItemWrapper;
 import cofh.core.gui.slot.ISlotValidator;
 import cofh.core.gui.slot.SlotLocked;
 import cofh.core.gui.slot.SlotValidated;
@@ -10,7 +9,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 

@@ -1,12 +1,8 @@
 package thundr.redstonerepository.gui;
 
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.IGuiHandler;
-import thundr.redstonerepository.gui.ContainerFeeder;
-import thundr.redstonerepository.gui.GuiFeeder;
 
 public class GuiHandler implements IGuiHandler {
     public static final int FEEDER_ID = 0;

@@ -7,22 +7,15 @@ import cofh.core.util.core.IInitializer;
 import cofh.core.util.helpers.ItemHelper;
 import cofh.core.util.helpers.RecipeHelper;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockSand;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.EnumRarity;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.oredict.OreDictionary;
-import net.minecraftforge.registries.IForgeRegistry;
-import net.minecraftforge.registries.IForgeRegistryEntry;
 import thundr.redstonerepository.RedstoneRepository;
-import thundr.redstonerepository.proxies.CommonProxy;
 
 public class ItemMaterial extends ItemMulti implements IInitializer {
 	

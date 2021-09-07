@@ -5,11 +5,11 @@ import cofh.core.gui.element.ElementBase;
 import cofh.core.util.helpers.MathHelper;
 import cofh.core.util.helpers.RenderHelper;
 import cofh.core.util.helpers.StringHelper;
-import java.util.List;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import thundr.redstonerepository.api.IHungerStorageItem;
+
+import java.util.List;
 
 public class ElementHungerPoints extends ElementBase {
 	

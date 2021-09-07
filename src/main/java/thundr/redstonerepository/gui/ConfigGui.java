@@ -1,16 +1,14 @@
 package thundr.redstonerepository.gui;
 
-import cofh.core.util.ConfigHandler;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraftforge.common.config.ConfigCategory;
 import net.minecraftforge.common.config.ConfigElement;
-import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.client.config.GuiConfig;
 import net.minecraftforge.fml.client.config.IConfigElement;
 import thundr.redstonerepository.RedstoneRepository;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ConfigGui extends GuiConfig {
     public ConfigGui(GuiScreen parentScreen) {

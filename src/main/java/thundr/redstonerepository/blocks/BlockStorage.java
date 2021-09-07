@@ -5,7 +5,6 @@ import cofh.core.render.IModelRegister;
 import cofh.core.util.core.IInitializer;
 import cofh.core.util.helpers.ItemHelper;
 import cofh.core.util.helpers.RecipeHelper;
-import java.util.Locale;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -22,7 +21,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.NonNullList;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.IBlockAccess;
@@ -31,11 +29,10 @@ import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import net.minecraftforge.registries.IForgeRegistry;
-import net.minecraftforge.registries.IForgeRegistryEntry;
 import thundr.redstonerepository.RedstoneRepository;
 import thundr.redstonerepository.items.blocks.ItemBlockStorage;
-import thundr.redstonerepository.proxies.CommonProxy;
+
+import java.util.Locale;
 
 public class BlockStorage extends BlockCore implements IInitializer, IModelRegister {
 	

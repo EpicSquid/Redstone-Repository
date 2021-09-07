@@ -1,16 +1,10 @@
 package thundr.redstonerepository.items.tools.gelidenderium;
 
 import cofh.redstonearsenal.item.tool.ItemShovelFlux;
-import java.util.List;
-import java.util.Random;
-import javax.annotation.Nullable;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockMycelium;
 import net.minecraft.block.IGrowable;
-import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.PlayerCapabilities;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
@@ -21,7 +15,9 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IPlantable;
-import thundr.redstonerepository.items.tools.gelidenderium.GelidEnderiumEnergy;
+
+import javax.annotation.Nullable;
+import java.util.List;
 
 public class ItemShovelGelidEnderium extends ItemShovelFlux {
 	

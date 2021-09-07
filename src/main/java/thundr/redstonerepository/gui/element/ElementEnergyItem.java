@@ -6,10 +6,10 @@ import cofh.core.util.helpers.MathHelper;
 import cofh.core.util.helpers.RenderHelper;
 import cofh.core.util.helpers.StringHelper;
 import cofh.redstoneflux.api.IEnergyContainerItem;
-import java.util.List;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+
+import java.util.List;
 
 public class ElementEnergyItem extends ElementBase {
     public static final ResourceLocation DEFAULT_TEXTURE = new ResourceLocation("redstonerepository:textures/gui/energy.png");
