@@ -7,6 +7,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.FoodStats;
 
 public class HungerHelper {
+
     public static ItemStack setDefaultHungerTag(ItemStack container) {
         if (!container.hasTagCompound()) {
             container.setTagCompound(new NBTTagCompound());

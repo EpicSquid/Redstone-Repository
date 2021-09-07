@@ -15,9 +15,8 @@ import thundr.redstonerepository.api.IArmorEnderium;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class ItemArmorEnderium
-        extends ItemArmorFlux
-        implements IArmorEnderium {
+public class ItemArmorEnderium extends ItemArmorFlux implements IArmorEnderium {
+
     public ItemArmorEnderium(ItemArmor.ArmorMaterial material, EntityEquipmentSlot type) {
         super(material, type);
         this.setNoRepair();

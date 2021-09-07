@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class ClientProxy extends CommonProxy {
 
-    private static final ArrayList<IModelRegister> modelList = new ArrayList();
+    private static final ArrayList<IModelRegister> modelList = new ArrayList<>();
 
     @Override
     public void preInit(FMLPreInitializationEvent event) {

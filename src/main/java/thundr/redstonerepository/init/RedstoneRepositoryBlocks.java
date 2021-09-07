@@ -10,6 +10,7 @@ import thundr.redstonerepository.blocks.BlockStorage;
 import java.util.ArrayList;
 
 public class RedstoneRepositoryBlocks {
+
     public static final RedstoneRepositoryBlocks INSTANCE = new RedstoneRepositoryBlocks();
     public static BlockStorage BlockStorage;
     static ArrayList<IInitializer> initList = new ArrayList();

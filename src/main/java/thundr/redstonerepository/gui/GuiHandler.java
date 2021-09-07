@@ -5,6 +5,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.IGuiHandler;
 
 public class GuiHandler implements IGuiHandler {
+
     public static final int FEEDER_ID = 0;
 
     public Object getClientGuiElement(int id, EntityPlayer player, World world, int x, int y, int z) {

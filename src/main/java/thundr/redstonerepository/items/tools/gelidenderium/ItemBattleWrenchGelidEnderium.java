@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ItemBattleWrenchGelidEnderium extends ItemBattleWrenchFlux {
+
     public int radius = 10;
 
     public ItemBattleWrenchGelidEnderium(Item.ToolMaterial toolMaterial) {

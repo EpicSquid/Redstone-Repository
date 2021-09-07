@@ -39,7 +39,7 @@ public class BlockStorage extends BlockCore implements IInitializer, IModelRegis
     public static ItemStack blockGelidGem;
 
     public BlockStorage() {
-        super(Material.IRON, "redstonerepository");
+        super(Material.IRON, RedstoneRepository.MODID);
         this.setUnlocalizedName("storage");
         this.setCreativeTab(RedstoneRepository.tabCommon);
         this.setHardness(25.0f);

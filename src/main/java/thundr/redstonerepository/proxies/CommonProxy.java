@@ -9,6 +9,7 @@ import thundr.redstonerepository.util.ArmorEventHandler;
 import thundr.redstonerepository.util.ToolEventHandler;
 
 public class CommonProxy {
+
     public void preInit(FMLPreInitializationEvent event) {
         this.registerEventHandlers();
     }

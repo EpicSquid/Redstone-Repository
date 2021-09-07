@@ -14,6 +14,7 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 
 public class ArmorEventHandler {
+
     public static int fallDrainFactor;
     public static int fireDrainFactor;
     public static int fluxDrainFactor;
@@ -72,11 +73,11 @@ public class ArmorEventHandler {
     }
 
     public static class ArmorSummary {
+        private final ArrayList<ItemStack> armorStacks = new ArrayList<>();
         public LinkedHashMap<String, Integer> energyStored = new LinkedHashMap();
         public int totalEnergyStored = 0;
         public LinkedHashMap<String, IArmorEnderium> enderiumPieces = new LinkedHashMap();
         public boolean isFullSet = false;
-        ArrayList<ItemStack> armorStacks = new ArrayList();
 
         public ArmorSummary getSummary(EntityPlayer player) {
             this.energyStored.put("Boots", 0);

@@ -18,6 +18,7 @@ import thundr.redstonerepository.RedstoneRepository;
 import thundr.redstonerepository.items.tools.gelidenderium.ItemPickaxeGelidEnderium;
 
 public class ToolEventHandler {
+
     public static int pickaxeDistanceFactor;
     public static int pickaxeDimensionFactor;
 
