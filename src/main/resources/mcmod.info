@@ -2,7 +2,7 @@
   {
     "modid": "redstonerepository",
     "name": "Redstone Repository",
-    "description": "description...",
+    "description": "Re-enhancing the Flux Revolution!",
     "mcversion": "${mcversion}",
     "version": "${version}",
     "url": "https://www.curseforge.com/minecraft/mc-mods/redstone-repository-revolved",
@@ -11,9 +11,9 @@
       "EpicSquid",
       "StormedPanda"
     ],
-    "credits": "credits...",
+    "credits": "TehNut",
     "logoFile": "assets/redstonerepository/logo.png",
     "screenshots": [],
-    "dependencies": []
+    "dependencies": ["forge,cofhcore,thermalexpansion,thermalfoundation,redstoneflux,redstonearsenal"]
   }
 ]
