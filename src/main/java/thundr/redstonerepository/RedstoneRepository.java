@@ -15,10 +15,7 @@ import net.minecraftforge.fml.common.network.NetworkRegistry;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import thundr.redstonerepository.gui.GuiHandler;
-import thundr.redstonerepository.init.RedstoneRepositoryBlocks;
-import thundr.redstonerepository.init.RedstoneRepositoryEquipment;
-import thundr.redstonerepository.init.RedstoneRepositoryItems;
-import thundr.redstonerepository.init.RedstoneRepositoryProps;
+import thundr.redstonerepository.init.*;
 import thundr.redstonerepository.network.PacketRR;
 import thundr.redstonerepository.proxies.CommonProxy;
 import thundr.redstonerepository.util.ArmorEventHandler;
@@ -42,7 +39,7 @@ public class RedstoneRepository {
     public static RedstoneRepository INSTANCE;
     @SidedProxy(clientSide = "thundr.redstonerepository.proxies.ClientProxy", serverSide = "thundr.redstonerepository.proxies.CommonProxy")
     public static CommonProxy PROXY;
-    public static CreativeTabs tabCommon;
+    public final static CreativeTabs tabCommon = new RedstoneRepositoryCreativeTab();
 
     static {
         LOGGER = LogManager.getLogger(MODID);

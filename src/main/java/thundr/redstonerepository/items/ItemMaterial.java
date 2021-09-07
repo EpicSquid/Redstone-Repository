@@ -28,7 +28,7 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
     public static ItemStack stringFluxed;
 
     public ItemMaterial() {
-        super("redstonerepository");
+        super(RedstoneRepository.MODID);
         this.setUnlocalizedName("material");
         this.setCreativeTab(RedstoneRepository.tabCommon);
     }
