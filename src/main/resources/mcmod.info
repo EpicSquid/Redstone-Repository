@@ -1,16 +1,19 @@
 [
-{
-  "modid": "examplemod",
-  "name": "Example Mod",
-  "description": "Example placeholder mod.",
-  "version": "${version}",
-  "mcversion": "${mcversion}",
-  "url": "",
-  "updateUrl": "",
-  "authorList": ["ExampleDude"],
-  "credits": "The Forge and FML guys, for making this example",
-  "logoFile": "",
-  "screenshots": [],
-  "dependencies": []
-}
+  {
+    "modid": "redstonerepository",
+    "name": "Redstone Repository Revolved",
+    "description": "description...",
+    "mcversion": "${mcversion}",
+    "version": "${version}",
+    "url": "https://www.curseforge.com/minecraft/mc-mods/redstone-repository-revolved",
+    "updateUrl": "https://raw.githubusercontent.com/EpicSquid/Redstone-Repository/master/updates/update.json",
+    "authorList": [
+      "EpicSquid",
+      "StormedPanda"
+    ],
+    "credits": "credits...",
+    "logoFile": "assets/redstonerepository/logo.png",
+    "screenshots": [],
+    "dependencies": []
+  }
 ]

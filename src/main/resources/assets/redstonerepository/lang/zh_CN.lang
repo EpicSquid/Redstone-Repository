@@ -22,6 +22,7 @@ item.redstonerepository.bauble.capacitor.hardened.name=硬化通量护符
 item.redstonerepository.bauble.capacitor.reinforced.name=强化通量护符
 item.redstonerepository.bauble.capacitor.resonant.name=谐振通量护符
 item.redstonerepository.bauble.capacitor.gelid.name=便携式极寒电容
+item.redstonerepository.bauble.feeder.name=Endoscopic Gastrostomizer
 
 #Tools
 item.redstonerepository.tool.enderium.gelid.axe.name=极寒末影斧
@@ -78,6 +79,11 @@ info.redstonerepository.capacitor.title=用来充能物品栏中的物品。
 info.redstonerepository.capacitor.activate=潜行以启用。
 info.redstonerepository.capacitor.deactivate=潜行以禁用。
 
+info.redstonerepository.feeder.title=Automatically restores hunger and saturation when activated. Must be placed in the Baubles slot.
+info.redstonerepository.feeder.short=Automatic food eating bauble.
+info.redstonerepository.feeder.active=Currently %sactive%s. Press (%s) while in hand to deactivate.
+info.redstonerepository.feeder.disabled=Currently %sdisabled%s. Press (%s) while in hand to activate.
+
 info.redstonerepository.tooltip.armor.lumium.shine=像荧石一样闪亮
 info.redstonerepository.tooltip.armor.tuberous.clever.1=恭喜你，你已经抹黑了自己
 info.redstonerepository.tooltip.armor.tuberous.clever.2=土豆！很好你已经实现了"土豆防护"。
@@ -118,3 +124,15 @@ info.redstonerepository.console.compat.thermalexpansion=启用与ThermalExpansio
 
 #Config
 config.redstonerepository.title=RedstoneRepository配置
+
+#Gui Tabs
+tab.redstonerepository.feeder.0=It's an automatic feeding device. It will keep your food topped up.
+tab.redstonerepository.feeder.1=It requires food items to generate Hunger Points (HP).
+tab.redstonerepository.feeder.2=RF and HP are consumed to feed you.
+
+#Util
+info.redstonerepository.hungerPoints=Stored Hunger Points
+
+#Gui elements
+gui.redstonerepository.food.1=HP per item:
+gui.redstonerepository.food.2=HP total:
