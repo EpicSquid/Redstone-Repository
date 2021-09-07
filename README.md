@@ -3,7 +3,7 @@
 
 ![Redstone Repository Revolved Logo](https://raw.githubusercontent.com/EpicSquid/Redstone-Repository/master/src/main/resources/assets/redstonerepository/logo.png "Redstone Repository Revolved Logo")
 
-# Redstone Repository Revolved
+# Redstone Repository (Revolved)
 
 Home of the minecraft mod Redstone Repository
 

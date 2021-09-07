@@ -19,9 +19,9 @@ public class ArmorEventHandler {
     public static int fluxDrainFactor;
 
     public static void preInit() {
-        fallDrainFactor = RedstoneRepository.CONFIG.get("Equipment.Armor", "FallDamageDrainFactor", 2400, "Set the factor that calculates how much energy a fall drains. Scales with height.");
-        fireDrainFactor = RedstoneRepository.CONFIG.get("Equipment.Armor", "FireDamageDrainFactor", 1200, "Set the factor that calculates how much energy fire-type damage drains.");
-        fluxDrainFactor = RedstoneRepository.CONFIG.get("Equipment.Armor", "FluxDamageDrainFactor", 4800, "Set the factor that calculates how much energy Flux damage drains.");
+        fallDrainFactor = RedstoneRepository.CONFIG_COMMON.get("Equipment.Armor", "FallDamageDrainFactor", 2400, "Set the factor that calculates how much energy a fall drains. Scales with height.");
+        fireDrainFactor = RedstoneRepository.CONFIG_COMMON.get("Equipment.Armor", "FireDamageDrainFactor", 1200, "Set the factor that calculates how much energy fire-type damage drains.");
+        fluxDrainFactor = RedstoneRepository.CONFIG_COMMON.get("Equipment.Armor", "FluxDamageDrainFactor", 4800, "Set the factor that calculates how much energy Flux damage drains.");
     }
 
     @SubscribeEvent

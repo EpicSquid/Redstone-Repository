@@ -2,11 +2,9 @@ package thundr.redstonerepository.items;
 
 import cofh.api.util.ThermalExpansionHelper;
 import cofh.core.item.ItemMulti;
-import cofh.core.render.IModelRegister;
 import cofh.core.util.core.IInitializer;
 import cofh.core.util.helpers.ItemHelper;
 import cofh.core.util.helpers.RecipeHelper;
-import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.EnumRarity;
@@ -37,7 +35,7 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 
     public boolean preInit() {
         ForgeRegistries.ITEMS.register(this.setRegistryName("material"));
-        RedstoneRepository.proxy.addIModelRegister(this);
+        RedstoneRepository.PROXY.addIModelRegister(this);
         dustGelidEnderium = this.addOreDictItem(0, "dustGelidEnderium", EnumRarity.RARE);
         ingotGelidEnderium = this.addOreDictItem(1, "ingotGelidEnderium", EnumRarity.RARE);
         nuggetGelidEnderium = this.addOreDictItem(2, "nuggetGelidEnderium", EnumRarity.RARE);
@@ -55,8 +53,8 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
         RecipeHelper.addReverseStorageRecipe(ingotGelidEnderium, "blockGelidEnderium");
         RecipeHelper.addReverseStorageRecipe(gemGelid, "blockGelidGem");
         RecipeHelper.addGearRecipe(gearGelidEnderium, "ingotGelidEnderium");
-        RecipeHelper.addShapedRecipe(rodGelid, new Object[]{"  O", " B ", "O  ", Character.valueOf('B'), cofh.redstonearsenal.item.ItemMaterial.rodObsidian, Character.valueOf('O'), "gemGelid"});
-        RecipeHelper.addShapedRecipe(plateArmorGelidEnderium, new Object[]{" I ", "IGI", " I ", Character.valueOf('G'), "gemGelid", Character.valueOf('I'), "plateGelidEnderium"});
+        RecipeHelper.addShapedRecipe(rodGelid, "  O", " B ", "O  ", Character.valueOf('B'), cofh.redstonearsenal.item.ItemMaterial.rodObsidian, Character.valueOf('O'), "gemGelid");
+        RecipeHelper.addShapedRecipe(plateArmorGelidEnderium, " I ", "IGI", " I ", Character.valueOf('G'), "gemGelid", Character.valueOf('I'), "plateGelidEnderium");
         ItemStack dustEnderium = ItemHelper.cloneStack(OreDictionary.getOres("dustEnderium", false).get(0), 1);
         FluidStack fluidCryotheum = new FluidStack(FluidRegistry.getFluid("cryotheum"), 1000);
         FluidStack fluidRedstone = new FluidStack(FluidRegistry.getFluid("redstone"), 200);

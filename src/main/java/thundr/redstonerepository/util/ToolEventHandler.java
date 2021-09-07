@@ -22,8 +22,8 @@ public class ToolEventHandler {
     public static int pickaxeDimensionFactor;
 
     public static void preInit() {
-        pickaxeDistanceFactor = RedstoneRepository.CONFIG.get("Equipment.Tools", "PickaxeDistanceDrainFactor", 5, "Set the factor that scales the power drained from the Gelid Enderium Pickaxe when teleporting items over a distance. (distance*factor*itemDrops=power)");
-        pickaxeDimensionFactor = RedstoneRepository.CONFIG.get("Equipment.Tools", "PickaxeDimensionDrainFactor", 7500, "Set the factor that scales the power drained from the Gelid Enderium Pickaxe when teleporting items between dimensions. This is a flat value per item.");
+        pickaxeDistanceFactor = RedstoneRepository.CONFIG_COMMON.get("Equipment.Tools", "PickaxeDistanceDrainFactor", 5, "Set the factor that scales the power drained from the Gelid Enderium Pickaxe when teleporting items over a distance. (distance*factor*itemDrops=power)");
+        pickaxeDimensionFactor = RedstoneRepository.CONFIG_COMMON.get("Equipment.Tools", "PickaxeDimensionDrainFactor", 7500, "Set the factor that scales the power drained from the Gelid Enderium Pickaxe when teleporting items between dimensions. This is a flat value per item.");
     }
 
     @SubscribeEvent

@@ -3,7 +3,6 @@ package thundr.redstonerepository.network;
 import cofh.core.network.PacketBase;
 import cofh.core.network.PacketHandler;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import thundr.redstonerepository.RedstoneRepository;
 import thundr.redstonerepository.gui.ContainerFeeder;
@@ -34,9 +33,9 @@ public class PacketRR extends PacketBase {
                     return;
                 }
             }
-            RedstoneRepository.LOG.error("Unknown Packet Type " + type);
+            RedstoneRepository.LOGGER.error("Unknown Packet Type " + type);
         } catch (Exception e) {
-            RedstoneRepository.LOG.error("Packet malformed!");
+            RedstoneRepository.LOGGER.error("Packet malformed!");
             e.printStackTrace();
         }
     }

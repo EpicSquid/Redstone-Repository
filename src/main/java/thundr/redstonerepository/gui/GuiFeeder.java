@@ -1,14 +1,10 @@
 package thundr.redstonerepository.gui;
 
 import cofh.core.gui.GuiContainerCore;
-import cofh.core.gui.element.ElementBase;
 import cofh.core.gui.element.ElementButton;
-import cofh.core.gui.element.tab.TabBase;
 import cofh.core.gui.element.tab.TabInfo;
 import cofh.core.util.helpers.StringHelper;
 import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.inventory.Container;
-import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import org.lwjgl.input.Keyboard;
 import thundr.redstonerepository.gui.element.ElementEnergyItem;

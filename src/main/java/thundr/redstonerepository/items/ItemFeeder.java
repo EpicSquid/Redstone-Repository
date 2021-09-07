@@ -9,12 +9,10 @@ import cofh.core.util.helpers.EnergyHelper;
 import cofh.core.util.helpers.StringHelper;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.*;
 import net.minecraft.world.World;
@@ -78,9 +76,9 @@ public class ItemFeeder extends ItemCoreRF implements IBauble, IInventoryContain
         }
         tooltip.add(StringHelper.getInfoText("info.redstonerepository.feeder.title"));
         if (this.getMode(stack) == MODE.ENABLED.getValue()) {
-            tooltip.add(StringHelper.localizeFormat("info.redstonerepository.feeder.active", new Object[]{"\u00a7a", "\u00a7r", StringHelper.getKeyName(KeyBindingItemMultiMode.INSTANCE.getKey())}));
+            tooltip.add(StringHelper.localizeFormat("info.redstonerepository.feeder.active", "\u00a7a", "\u00a7r", StringHelper.getKeyName(KeyBindingItemMultiMode.INSTANCE.getKey())));
         } else {
-            tooltip.add(StringHelper.localizeFormat("info.redstonerepository.feeder.disabled", new Object[]{"\u00a7c", "\u00a7r", StringHelper.getKeyName(KeyBindingItemMultiMode.INSTANCE.getKey())}));
+            tooltip.add(StringHelper.localizeFormat("info.redstonerepository.feeder.disabled", "\u00a7c", "\u00a7r", StringHelper.getKeyName(KeyBindingItemMultiMode.INSTANCE.getKey())));
         }
         if (!RedstoneRepositoryEquipment.EquipmentInit.enable[1]) {
             tooltip.add("\u00a74Baubles not loaded: Recipe disabled.");
@@ -122,7 +120,7 @@ public class ItemFeeder extends ItemCoreRF implements IBauble, IInventoryContain
 
     public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
         ItemStack stack = player.getHeldItem(hand);
-        player.openGui(RedstoneRepository.instance, 0, world, 0, 0, 0);
+        player.openGui(RedstoneRepository.INSTANCE, 0, world, 0, 0, 0);
         return new ActionResult(EnumActionResult.SUCCESS, stack);
     }
 

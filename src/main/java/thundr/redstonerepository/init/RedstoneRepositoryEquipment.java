@@ -13,13 +13,11 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
-import net.minecraft.util.SoundEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fluids.FluidRegistry;
-import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.FluidUtil;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -53,11 +51,11 @@ public class RedstoneRepositoryEquipment {
     public static void preInit() {
         for (ArmorSet e : ArmorSet.values()) {
             e.initialize();
-            RedstoneRepository.proxy.addIModelRegister(e);
+            RedstoneRepository.PROXY.addIModelRegister(e);
         }
         for (ToolSet e : ToolSet.values()) {
             e.initialize();
-            RedstoneRepository.proxy.addIModelRegister(e);
+            RedstoneRepository.PROXY.addIModelRegister(e);
         }
         equipInit = new EquipmentInit();
         equipInit.preInit();
@@ -110,18 +108,18 @@ public class RedstoneRepositoryEquipment {
         }
 
         protected void config() {
-            this.axeBlocksCutPerTick = RedstoneRepository.CONFIG.getConfiguration().get("Equipment.Tools.Axe", "BlocksPerTick", 3, "Sets the number of blocks per tick the axe attempts to cut in empowered mode. Higher values cause more lag. ").setMinValue(0).setMaxValue(10).getInt();
+            this.axeBlocksCutPerTick = RedstoneRepository.CONFIG_COMMON.getConfiguration().get("Equipment.Tools.Axe", "BlocksPerTick", 3, "Sets the number of blocks per tick the axe attempts to cut in empowered mode. Higher values cause more lag. ").setMinValue(0).setMaxValue(10).getInt();
         }
 
         protected void initialize() {
             String ENDERIUM_LOCALE = "redstonerepository.tool.enderium." + this.name + ".";
             String category = "Equipment.Tools." + StringHelper.titleCase(this.name);
-            this.enable[1] = RedstoneRepository.CONFIG.getConfiguration().get(category, "BattleWrench", true).getBoolean(true);
-            this.enable[2] = RedstoneRepository.CONFIG.getConfiguration().get(category, "Sword", true).getBoolean(true);
-            this.enable[3] = RedstoneRepository.CONFIG.getConfiguration().get(category, "Shovel", true).getBoolean(true);
-            this.enable[4] = RedstoneRepository.CONFIG.getConfiguration().get(category, "Pickaxe", true).getBoolean(true);
-            this.enable[5] = RedstoneRepository.CONFIG.getConfiguration().get(category, "Axe", true).getBoolean(true);
-            this.enable[8] = RedstoneRepository.CONFIG.getConfiguration().get(category, "Sickle", true).getBoolean(true);
+            this.enable[1] = RedstoneRepository.CONFIG_COMMON.getConfiguration().get(category, "BattleWrench", true).getBoolean(true);
+            this.enable[2] = RedstoneRepository.CONFIG_COMMON.getConfiguration().get(category, "Sword", true).getBoolean(true);
+            this.enable[3] = RedstoneRepository.CONFIG_COMMON.getConfiguration().get(category, "Shovel", true).getBoolean(true);
+            this.enable[4] = RedstoneRepository.CONFIG_COMMON.getConfiguration().get(category, "Pickaxe", true).getBoolean(true);
+            this.enable[5] = RedstoneRepository.CONFIG_COMMON.getConfiguration().get(category, "Axe", true).getBoolean(true);
+            this.enable[8] = RedstoneRepository.CONFIG_COMMON.getConfiguration().get(category, "Sickle", true).getBoolean(true);
             this.config();
             this.create();
             this.itemBattleWrench.setUnlocalizedName(ENDERIUM_LOCALE + "battlewrench");
@@ -159,22 +157,22 @@ public class RedstoneRepositoryEquipment {
 
         protected void register() {
             if (this.enable[1]) {
-                RecipeHelper.addShapedRecipe(this.toolBattleWrench, new Object[]{"IWI", " G ", " R ", Character.valueOf('I'), "ingotGelidEnderium", Character.valueOf('G'), "gearGelidEnderium", Character.valueOf('R'), ItemMaterial.rodGelid, Character.valueOf('W'), RAEquipment.ToolSet.FLUX.itemBattleWrench});
+                RecipeHelper.addShapedRecipe(this.toolBattleWrench, "IWI", " G ", " R ", Character.valueOf('I'), "ingotGelidEnderium", Character.valueOf('G'), "gearGelidEnderium", Character.valueOf('R'), ItemMaterial.rodGelid, Character.valueOf('W'), RAEquipment.ToolSet.FLUX.itemBattleWrench);
             }
             if (this.enable[2]) {
-                RecipeHelper.addShapedRecipe(this.toolSword, new Object[]{" I ", " S ", " R ", Character.valueOf('I'), "ingotGelidEnderium", Character.valueOf('R'), ItemMaterial.rodGelid, Character.valueOf('S'), RAEquipment.ToolSet.FLUX.itemSword});
+                RecipeHelper.addShapedRecipe(this.toolSword, " I ", " S ", " R ", Character.valueOf('I'), "ingotGelidEnderium", Character.valueOf('R'), ItemMaterial.rodGelid, Character.valueOf('S'), RAEquipment.ToolSet.FLUX.itemSword);
             }
             if (this.enable[3]) {
-                RecipeHelper.addShapedRecipe(this.toolShovel, new Object[]{" I ", " S ", " R ", Character.valueOf('I'), "ingotGelidEnderium", Character.valueOf('R'), ItemMaterial.rodGelid, Character.valueOf('S'), RAEquipment.ToolSet.FLUX.itemShovel});
+                RecipeHelper.addShapedRecipe(this.toolShovel, " I ", " S ", " R ", Character.valueOf('I'), "ingotGelidEnderium", Character.valueOf('R'), ItemMaterial.rodGelid, Character.valueOf('S'), RAEquipment.ToolSet.FLUX.itemShovel);
             }
             if (this.enable[4]) {
-                RecipeHelper.addShapedRecipe(this.toolPickaxe, new Object[]{"III", " P ", " R ", Character.valueOf('I'), "ingotGelidEnderium", Character.valueOf('R'), ItemMaterial.rodGelid, Character.valueOf('P'), RAEquipment.ToolSet.FLUX.itemPickaxe});
+                RecipeHelper.addShapedRecipe(this.toolPickaxe, "III", " P ", " R ", Character.valueOf('I'), "ingotGelidEnderium", Character.valueOf('R'), ItemMaterial.rodGelid, Character.valueOf('P'), RAEquipment.ToolSet.FLUX.itemPickaxe);
             }
             if (this.enable[5]) {
-                RecipeHelper.addShapedRecipe(this.toolAxe, new Object[]{"II ", "IA ", " R ", Character.valueOf('I'), "ingotGelidEnderium", Character.valueOf('R'), ItemMaterial.rodGelid, Character.valueOf('A'), RAEquipment.ToolSet.FLUX.itemAxe});
+                RecipeHelper.addShapedRecipe(this.toolAxe, "II ", "IA ", " R ", Character.valueOf('I'), "ingotGelidEnderium", Character.valueOf('R'), ItemMaterial.rodGelid, Character.valueOf('A'), RAEquipment.ToolSet.FLUX.itemAxe);
             }
             if (this.enable[8]) {
-                RecipeHelper.addShapedRecipe(this.toolSickle, new Object[]{" I ", " SI", "RI ", Character.valueOf('I'), "ingotGelidEnderium", Character.valueOf('R'), ItemMaterial.rodGelid, Character.valueOf('S'), RAEquipment.ToolSet.FLUX.itemSickle});
+                RecipeHelper.addShapedRecipe(this.toolSickle, " I ", " SI", "RI ", Character.valueOf('I'), "ingotGelidEnderium", Character.valueOf('R'), ItemMaterial.rodGelid, Character.valueOf('S'), RAEquipment.ToolSet.FLUX.itemSickle);
             }
         }
 
@@ -226,10 +224,10 @@ public class RedstoneRepositoryEquipment {
             String PATH_ARMOR = "redstonerepository:textures/models/armor/";
             String[] TEXTURE = new String[]{"redstonerepository:textures/models/armor/" + this.name + "_1.png", "redstonerepository:textures/models/armor/" + this.name + "_2.png"};
             String category = "Equipment.Armor." + StringHelper.titleCase(this.name);
-            this.enable[0] = RedstoneRepository.CONFIG.getConfiguration().get(category, "Helmet", true).getBoolean(true);
-            this.enable[1] = RedstoneRepository.CONFIG.getConfiguration().get(category, "Chestplate", true).getBoolean(true);
-            this.enable[2] = RedstoneRepository.CONFIG.getConfiguration().get(category, "Leggings", true).getBoolean(true);
-            this.enable[3] = RedstoneRepository.CONFIG.getConfiguration().get(category, "Boots", true).getBoolean(true);
+            this.enable[0] = RedstoneRepository.CONFIG_COMMON.getConfiguration().get(category, "Helmet", true).getBoolean(true);
+            this.enable[1] = RedstoneRepository.CONFIG_COMMON.getConfiguration().get(category, "Chestplate", true).getBoolean(true);
+            this.enable[2] = RedstoneRepository.CONFIG_COMMON.getConfiguration().get(category, "Leggings", true).getBoolean(true);
+            this.enable[3] = RedstoneRepository.CONFIG_COMMON.getConfiguration().get(category, "Boots", true).getBoolean(true);
             this.create();
             this.itemHelmet.setArmorTextures(TEXTURE).setUnlocalizedName(ENDERIUM_LOCALE + "helm").setCreativeTab(RedstoneRepository.tabCommon);
             this.itemHelmet.setShowInCreative(this.enable[0]);
@@ -255,16 +253,16 @@ public class RedstoneRepositoryEquipment {
 
         protected void register() {
             if (this.enable[0]) {
-                RecipeHelper.addShapedRecipe(this.armorHelmet, new Object[]{"III", "IAI", Character.valueOf('I'), ItemMaterial.plateArmorGelidEnderium, Character.valueOf('A'), RAEquipment.ArmorSet.FLUX.itemHelmet});
+                RecipeHelper.addShapedRecipe(this.armorHelmet, "III", "IAI", Character.valueOf('I'), ItemMaterial.plateArmorGelidEnderium, Character.valueOf('A'), RAEquipment.ArmorSet.FLUX.itemHelmet);
             }
             if (this.enable[1]) {
-                RecipeHelper.addShapedRecipe(this.armorPlate, new Object[]{"IAI", "III", "III", Character.valueOf('I'), ItemMaterial.plateArmorGelidEnderium, Character.valueOf('A'), RAEquipment.ArmorSet.FLUX.itemPlate});
+                RecipeHelper.addShapedRecipe(this.armorPlate, "IAI", "III", "III", Character.valueOf('I'), ItemMaterial.plateArmorGelidEnderium, Character.valueOf('A'), RAEquipment.ArmorSet.FLUX.itemPlate);
             }
             if (this.enable[2]) {
-                RecipeHelper.addShapedRecipe(this.armorLegs, new Object[]{"III", "IAI", "I I", Character.valueOf('I'), ItemMaterial.plateArmorGelidEnderium, Character.valueOf('A'), RAEquipment.ArmorSet.FLUX.itemLegs});
+                RecipeHelper.addShapedRecipe(this.armorLegs, "III", "IAI", "I I", Character.valueOf('I'), ItemMaterial.plateArmorGelidEnderium, Character.valueOf('A'), RAEquipment.ArmorSet.FLUX.itemLegs);
             }
             if (this.enable[3]) {
-                RecipeHelper.addShapedRecipe(this.armorBoots, new Object[]{"IAI", "I I", Character.valueOf('I'), ItemMaterial.plateArmorGelidEnderium, Character.valueOf('A'), RAEquipment.ArmorSet.FLUX.itemBoots});
+                RecipeHelper.addShapedRecipe(this.armorBoots, "IAI", "I I", Character.valueOf('I'), ItemMaterial.plateArmorGelidEnderium, Character.valueOf('A'), RAEquipment.ArmorSet.FLUX.itemBoots);
             }
         }
 
@@ -320,32 +318,32 @@ public class RedstoneRepositoryEquipment {
             itemFeeder.setRegistryName("feeder");
             ForgeRegistries.ITEMS.register(itemFeeder);
             feederStack = EnergyHelper.setDefaultEnergyTag(new ItemStack(itemFeeder), 0);
-            RedstoneRepository.proxy.addIModelRegister(this);
+            RedstoneRepository.PROXY.addIModelRegister(this);
             return true;
         }
 
         public void config() {
-            boolean enableConfig = RedstoneRepository.CONFIG.get("Item.Capacitor", "Enable", true, "Enable the Gelid Capacitor Amulet");
+            boolean enableConfig = RedstoneRepository.CONFIG_COMMON.get("Item.Capacitor", "Enable", true, "Enable the Gelid Capacitor Amulet");
             boolean enableLoaded = Loader.isModLoaded("baubles");
             EquipmentInit.enable[0] = enableConfig && enableLoaded;
-            transfer = RedstoneRepository.CONFIG.get("Item.Capacitor", "BaseTransfer", 100000, "Set the base transfer rate of the Gelid Capacitor Amulet in RF/t (Default 100,000) ");
-            capacity = RedstoneRepository.CONFIG.get("Item.Capacitor", "BaseCapacity", 100000000, "Set the base capacity of the Gelid Capacitor Amulet in RF/t (Default 100,000,000) ");
-            boolean enableFeederConfig = RedstoneRepository.CONFIG.get("Item.Feeder", "Enable", true, "Enable the Endoscopic Gastrostomizer (Automatic Feeder)");
+            transfer = RedstoneRepository.CONFIG_COMMON.get("Item.Capacitor", "BaseTransfer", 100000, "Set the base transfer rate of the Gelid Capacitor Amulet in RF/t (Default 100,000) ");
+            capacity = RedstoneRepository.CONFIG_COMMON.get("Item.Capacitor", "BaseCapacity", 100000000, "Set the base capacity of the Gelid Capacitor Amulet in RF/t (Default 100,000,000) ");
+            boolean enableFeederConfig = RedstoneRepository.CONFIG_COMMON.get("Item.Feeder", "Enable", true, "Enable the Endoscopic Gastrostomizer (Automatic Feeder)");
             EquipmentInit.enable[1] = enableFeederConfig && enableLoaded;
-            hungerPointsMax = RedstoneRepository.CONFIG.get("Item.Feeder", "MaxHungerPoints", 500, "Set the maximum hunger point storage of the Endoscopic Gastrostomizer (EG) (Default 500)");
-            feederCapacity = RedstoneRepository.CONFIG.get("Item.Feeder", "BaseCapacity", 4000000, "Set the base capacity of the E.G. in RF (Default 4,000,000) ");
-            feederMaxTransfer = RedstoneRepository.CONFIG.get("Item.Feeder", "MaxTransfer", 8000, "Set the maximum transfer rate into the item in RF/t (Default 8000)");
-            feederEnergyPerUse = RedstoneRepository.CONFIG.get("Item.Feeder", "EnergyPerUse", 30000, "Set amount of energy used per food point in RF (Default 3000)");
-            feederMaxSat = RedstoneRepository.CONFIG.get("Item.Feeder", "SaturationFillLevel", 5, "Maximum amount of hunger saturation to automatically fill to. Higher numbers consume hunger points more quickly. (Default 5, Max 20)");
+            hungerPointsMax = RedstoneRepository.CONFIG_COMMON.get("Item.Feeder", "MaxHungerPoints", 500, "Set the maximum hunger point storage of the Endoscopic Gastrostomizer (EG) (Default 500)");
+            feederCapacity = RedstoneRepository.CONFIG_COMMON.get("Item.Feeder", "BaseCapacity", 4000000, "Set the base capacity of the E.G. in RF (Default 4,000,000) ");
+            feederMaxTransfer = RedstoneRepository.CONFIG_COMMON.get("Item.Feeder", "MaxTransfer", 8000, "Set the maximum transfer rate into the item in RF/t (Default 8000)");
+            feederEnergyPerUse = RedstoneRepository.CONFIG_COMMON.get("Item.Feeder", "EnergyPerUse", 30000, "Set amount of energy used per food point in RF (Default 3000)");
+            feederMaxSat = RedstoneRepository.CONFIG_COMMON.get("Item.Feeder", "SaturationFillLevel", 5, "Maximum amount of hunger saturation to automatically fill to. Higher numbers consume hunger points more quickly. (Default 5, Max 20)");
         }
 
         public boolean initialize() {
             mushroomStewBucket = FluidUtil.getFilledBucket(FluidRegistry.getFluidStack("mushroom_stew", 1000));
             if (enable[0]) {
-                RecipeHelper.addShapedRecipe(capacitorAmuletGelid, new Object[]{" S ", "ACA", "AGA", Character.valueOf('S'), ItemMaterial.stringFluxed, Character.valueOf('A'), ItemMaterial.plateArmorGelidEnderium, Character.valueOf('G'), ItemMaterial.ingotGelidEnderium, Character.valueOf('C'), resonantCapacitor});
+                RecipeHelper.addShapedRecipe(capacitorAmuletGelid, " S ", "ACA", "AGA", Character.valueOf('S'), ItemMaterial.stringFluxed, Character.valueOf('A'), ItemMaterial.plateArmorGelidEnderium, Character.valueOf('G'), ItemMaterial.ingotGelidEnderium, Character.valueOf('C'), resonantCapacitor);
             }
             if (enable[1]) {
-                RecipeHelper.addShapedRecipe(feederStack, new Object[]{"SCS", "PMP", " G ", Character.valueOf('S'), ItemMaterial.stringFluxed, Character.valueOf('C'), hardenedCapacitor, Character.valueOf('M'), mushroomStewBucket, Character.valueOf('P'), ItemMaterial.plateGelidEnderium, Character.valueOf('G'), ItemMaterial.gearGelidEnderium});
+                RecipeHelper.addShapedRecipe(feederStack, "SCS", "PMP", " G ", Character.valueOf('S'), ItemMaterial.stringFluxed, Character.valueOf('C'), hardenedCapacitor, Character.valueOf('M'), mushroomStewBucket, Character.valueOf('P'), ItemMaterial.plateGelidEnderium, Character.valueOf('G'), ItemMaterial.gearGelidEnderium);
             }
             return true;
         }

@@ -5,10 +5,8 @@ import cofh.core.render.IModelRegister;
 import cofh.core.util.core.IInitializer;
 import cofh.core.util.helpers.ItemHelper;
 import cofh.core.util.helpers.RecipeHelper;
-import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
@@ -56,7 +54,7 @@ public class BlockStorage extends BlockCore implements IInitializer, IModelRegis
     }
 
     public void getSubBlocks(CreativeTabs tab, NonNullList<ItemStack> items) {
-        for (int i = 0; i < METADATA_LOOKUP.length; ++i) {
+        for (int i = 0; i < Type.METADATA_LOOKUP.length; ++i) {
             items.add(new ItemStack(this, 1, i));
         }
     }
@@ -115,7 +113,7 @@ public class BlockStorage extends BlockCore implements IInitializer, IModelRegis
         blockGelidGem = new ItemStack(this, 1, Type.GELID_GEM.getMetadata());
         ItemHelper.registerWithHandlers("blockGelidEnderium", blockGelidEnderium);
         ItemHelper.registerWithHandlers("blockGelidGem", blockGelidGem);
-        RedstoneRepository.proxy.addIModelRegister(this);
+        RedstoneRepository.PROXY.addIModelRegister(this);
         return true;
     }
 
@@ -135,9 +133,9 @@ public class BlockStorage extends BlockCore implements IInitializer, IModelRegis
             METADATA_LOOKUP = new Type[Type.values().length];
             Type[] arrtype = Type.values();
             int n = arrtype.length;
-            for (int i = 0; i < n; ++i) {
-                Type type;
-                Type.METADATA_LOOKUP[type.getMetadata()] = type = arrtype[i];
+            for (Type value : arrtype) {
+                Type type = null;
+                Type.METADATA_LOOKUP[type.getMetadata()] = value;
             }
         }
 
