@@ -4,7 +4,6 @@ import cofh.redstonearsenal.item.tool.ItemBattleWrenchFlux;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumRarity;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
@@ -16,11 +15,12 @@ import net.minecraft.world.World;
 import java.util.ArrayList;
 import java.util.List;
 
+//@Optional.InterfaceList ({ @Optional.Interface (iface = "buildcraft.api.tools.IToolWrench", modid = "buildcraftcore"), @Optional.Interface (iface = "crazypants.enderio.api.tool.ITool", modid = "enderio") })
 public class ItemBattleWrenchGelidEnderium extends ItemBattleWrenchFlux {
 
     public int radius = 10;
 
-    public ItemBattleWrenchGelidEnderium(Item.ToolMaterial toolMaterial) {
+    public ItemBattleWrenchGelidEnderium(ToolMaterial toolMaterial) {
         super(toolMaterial);
         this.damage = 7;
         this.damageCharged = 2;
@@ -54,5 +54,15 @@ public class ItemBattleWrenchGelidEnderium extends ItemBattleWrenchFlux {
     public int getRGBDurabilityForDisplay(ItemStack stack) {
         return 1333581;
     }
+
+    /*@Optional.Method(modid = "buildcraftcore")
+    public boolean canWrench(EntityPlayer player, EnumHand hand, ItemStack wrench, RayTraceResult rayTrace) {
+        return true;
+    }
+
+    @Optional.Method(modid = "buildcraftcore")
+    public void wrenchUsed(EntityPlayer player, EnumHand hand, ItemStack wrench, RayTraceResult rayTrace) {
+    }*/
+
 }
 

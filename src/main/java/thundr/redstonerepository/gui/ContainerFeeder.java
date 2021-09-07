@@ -44,7 +44,8 @@ public class ContainerFeeder extends ContainerInventoryItem implements ISlotVali
     }
 
     public String getInventoryName() {
-        return this.containerWrapper.hasCustomName() ? this.containerWrapper.getName() : StringHelper.localize("item.redstonerepository.bauble.feeder.name");
+        //return this.containerWrapper.hasCustomName() ? this.containerWrapper.getName() : StringHelper.localize("item.redstonerepository.bauble.feeder.name");
+        return StringHelper.localize("item.redstonerepository.bauble.feeder.name");
     }
 
     protected int getPlayerInventoryVerticalOffset() {

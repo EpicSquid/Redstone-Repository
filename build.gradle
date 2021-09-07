@@ -17,6 +17,7 @@ plugins {
 
 apply plugin: 'net.minecraftforge.gradle.forge'
 apply plugin: 'idea'
+apply plugin: 'maven'
 apply plugin: 'maven-publish'
 
 version = "${minecraft_version}-${mod_version}"
@@ -89,6 +90,9 @@ dependencies {
     runtime "curse.maven:thermal-dynamics-227443:2920505"
     runtime "curse.maven:thermal-expansion-69163:2926431"
     compile "curse.maven:redstone-arsenal-70631:2939416"
+
+    compileOnly "curse.maven:ender-io-64578:3328811"
+    compileOnly "curse.maven:buildcraft-core-231305:3204464"
 }
 
 processResources {

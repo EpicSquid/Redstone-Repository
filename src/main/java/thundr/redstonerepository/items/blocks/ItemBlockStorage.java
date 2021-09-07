@@ -16,11 +16,11 @@ public class ItemBlockStorage extends ItemBlockCore {
     }
 
     public String getUnlocalizedName(ItemStack stack) {
-        return "tile.redstonerepository.storage." + BlockStorage.Type.byMetadata(ItemHelper.getItemDamage(stack)).getNameRaw() + ".name";
+        return "tile.redstonerepository.storage." + BlockStorage.Type.values()[ItemHelper.getItemDamage(stack)].getNameRaw() + ".name";
     }
 
     public EnumRarity getRarity(ItemStack stack) {
-        return BlockStorage.Type.byMetadata(ItemHelper.getItemDamage(stack)).getRarity();
+        return BlockStorage.Type.values()[ItemHelper.getItemDamage(stack)].getRarity();
     }
 }
 

@@ -1,7 +1,7 @@
 [
   {
     "modid": "redstonerepository",
-    "name": "Redstone Repository Revolved",
+    "name": "Redstone Repository",
     "description": "description...",
     "mcversion": "${mcversion}",
     "version": "${version}",
