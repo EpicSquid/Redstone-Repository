@@ -1,6 +1,6 @@
 {
   "_comment": "Creative Tab",
-  "itemGroup.redstonerepository.creativeTab": "Redstone Repository",
+  "itemGroup.redstonerepository.itemGroup": "Redstone Repository",
 
   "_comment": "Items",
   "item.redstonerepository.material.dustGelidEnderium": "极寒末影粉",
