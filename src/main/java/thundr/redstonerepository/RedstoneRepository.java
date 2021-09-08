@@ -1,82 +1,97 @@
 package thundr.redstonerepository;
 
-import cofh.core.init.CoreProps;
-import cofh.core.network.PacketHandler;
-import cofh.core.util.ConfigHandler;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraftforge.common.config.Configuration;
+import net.minecraft.inventory.container.PlayerContainer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.client.event.TextureStitchEvent;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.AttachCapabilitiesEvent;
+import net.minecraftforge.fml.InterModComms;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.SidedProxy;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLLoadCompleteEvent;
-import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.network.NetworkRegistry;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
+import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import thundr.redstonerepository.gui.GuiHandler;
-import thundr.redstonerepository.init.*;
-import thundr.redstonerepository.network.PacketRR;
-import thundr.redstonerepository.proxies.CommonProxy;
-import thundr.redstonerepository.util.ArmorEventHandler;
-import thundr.redstonerepository.util.ToolEventHandler;
+import thundr.redstonerepository.config.RedstoneRepositoryConfig;
+import thundr.redstonerepository.handlers.RegistryHandler;
+import top.theillusivec4.curios.api.CuriosApi;
+import top.theillusivec4.curios.api.SlotTypeMessage;
+import top.theillusivec4.curios.api.SlotTypePreset;
 
-import java.io.File;
+import java.util.stream.Collectors;
 
-@Mod(modid = RedstoneRepository.MODID, dependencies = RedstoneRepository.DEPENDENCIES, guiFactory = "thundr.redstonerepository.gui.ConfigGuiFactory")//, acceptedMinecraftVersions = "[1.12.2]")
+@Mod(RedstoneRepository.MODID)
 public class RedstoneRepository {
+
+    public static RedstoneRepository INSTANCE;
 
     public static final String MODID = "redstonerepository";
     public static final String MODNAME = "Redstone Repository";
     public static final String VERSION = "${version}";
 
-    public static final String DEPENDENCIES = "required-after:redstonearsenal@[2.3.11,);required-after:cofhcore@[4.3.11,);required-after:thermalfoundation@[2.3.11,);required-after:thermalexpansion@[5.3.11,);after:baubles;";
+    public static final Logger LOGGER = LogManager.getLogger();
 
-    public static final Logger LOGGER;
-    public static final ConfigHandler CONFIG_COMMON;
-    public static final ConfigHandler CONFIG_CLIENT;
-    @Mod.Instance(MODID)
-    public static RedstoneRepository INSTANCE;
-    @SidedProxy(clientSide = "thundr.redstonerepository.proxies.ClientProxy", serverSide = "thundr.redstonerepository.proxies.CommonProxy")
-    public static CommonProxy PROXY;
-    public final static CreativeTabs tabCommon = new RedstoneRepositoryCreativeTab();
+    public static final RRItemGroup tabRedstoneRepository = new RRItemGroup();
 
-    static {
-        LOGGER = LogManager.getLogger(MODID);
-        CONFIG_COMMON = new ConfigHandler(VERSION);
-        CONFIG_CLIENT = new ConfigHandler(VERSION);
+    public static final ResourceLocation RR_SLOT = new ResourceLocation(MODID, "gui/empty_rr_slot");
+
+    public RedstoneRepository() {
+        //DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onTextureStitch));
+
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::commonSetup);
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientSetup);
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::enqueueIMC);
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::processIMC);
+        if (ModList.get().isLoaded("curios")) {
+            //MinecraftForge.EVENT_BUS.addGenericListener(ItemStack.class, this::attachCapabilities);
+        }
+
+        MinecraftForge.EVENT_BUS.register(this);
+
+        RedstoneRepositoryConfig.register();
+        RegistryHandler.init();
     }
 
-    @Mod.EventHandler
-    public void preInit(FMLPreInitializationEvent event) {
-        CONFIG_COMMON.setConfiguration(new Configuration(new File(CoreProps.configDir, "/redstonerepository/common.cfg"), true));
-        CONFIG_CLIENT.setConfiguration(new Configuration(new File(CoreProps.configDir, "/redstonerepository/client.cfg"), true));
-        RedstoneRepositoryProps.preInit();
-        RedstoneRepositoryBlocks.preInit();
-        RedstoneRepositoryItems.preInit();
-        RedstoneRepositoryEquipment.preInit();
-        ArmorEventHandler.preInit();
-        ToolEventHandler.preInit();
-        PacketHandler.INSTANCE.registerPacket(PacketRR.class);
-        NetworkRegistry.INSTANCE.registerGuiHandler(INSTANCE, new GuiHandler());
-        PROXY.preInit(event);
+    private void commonSetup(final FMLCommonSetupEvent event) {
+        LOGGER.info("Common Setup Method registered.");
+        //NetworkHandler.registerMessages();
     }
 
-    @Mod.EventHandler
-    public void initialize(FMLInitializationEvent event) {
-        PROXY.initialize(event);
+    private void clientSetup(final FMLClientSetupEvent event) {
+        LOGGER.info("Client Setup Method registered.");
+        //KeybindHandler.setup();
     }
 
-    @Mod.EventHandler
-    public void postInit(FMLPostInitializationEvent event) {
-        PROXY.postInit(event);
+    private void enqueueIMC(final InterModEnqueueEvent event) {
+        if (ModList.get().isLoaded("curios")) {
+            InterModComms.sendTo(MODID, CuriosApi.MODID, SlotTypeMessage.REGISTER_TYPE, () -> SlotTypePreset.BELT.getMessageBuilder().build());
+            //InterModComms.sendTo(MODID, CuriosApi.MODID, SlotTypeMessage.REGISTER_TYPE, () -> new SlotTypeMessage.Builder("rr_slot").size(1).icon(RR_SLOT).build());
+        }
     }
 
-    @Mod.EventHandler
-    public void loadComplete(FMLLoadCompleteEvent event) {
-        CONFIG_COMMON.cleanUp(false, true);
-        CONFIG_CLIENT.cleanUp(false, true);
-        LOGGER.info("Redstone Repository: Loaded.");
+    private void processIMC(final InterModProcessEvent event) {
+        LOGGER.info("Got IMC {}", event.getIMCStream().map(m -> m.getMessageSupplier().get()).collect(Collectors.toList()));
+    }
+
+    private void onTextureStitch(TextureStitchEvent.Pre event) {
+        if (ModList.get().isLoaded("curios")) {
+            if (event.getMap().location().equals(PlayerContainer.BLOCK_ATLAS)) {
+                event.addSprite(RR_SLOT);
+            }
+        }
+    }
+
+    private void attachCapabilities(AttachCapabilitiesEvent<ItemStack> event) {
+        if (!ModList.get().isLoaded("curios")) {
+            return;
+        }
+        ItemStack stack = event.getObject();
+        /*if (stack.getItem() instanceof TestItem) {
+            event.addCapability(CuriosCapability.ID_ITEM, CuriosIntegration.initTestItemCapabilities(stack));
+        }*/
     }
 }
-

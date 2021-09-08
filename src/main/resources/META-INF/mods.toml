@@ -1,0 +1,60 @@
+modLoader="javafml"
+loaderVersion="[36,)"
+license="The MIT License (MIT)"
+issueTrackerURL="https://github.com/EpicSquid/Redstone-Repository/issues"
+
+[[mods]]
+modId="redstonerepository"
+version="${file.jarVersion}"
+displayName="Redstone Repository"
+updateJSONURL="https://raw.githubusercontent.com/EpicSquid/Redstone-Repository/1.16/updates/update.json"
+displayURL="https://www.curseforge.com/minecraft/mc-mods/redstone-repository-revolved"
+logoFile="logo.png"
+credits="TehNut"
+authors="EpicSquid, StormedPanda"
+description='''
+Redstone Repository
+Re-enhancing the Flux Revolution!
+'''
+
+[[dependencies.redstonerepository]]
+modId="forge"
+mandatory=true
+versionRange="[36,)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.redstonerepository]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.16.5,1.17)"
+ordering="NONE"
+side="BOTH"
+
+#[[dependencies.redstonerepository]]
+#modId="cofhcore"
+#mandatory=true
+#versionRange="[,)"
+#ordering="NONE"
+#side="BOTH"
+
+#[[dependencies.redstonerepository]]
+#modId="thermal"
+#mandatory=true
+#versionRange="[,)"
+#ordering="NONE"
+#side="BOTH"
+
+#[[dependencies.redstonerepository]]
+#modId="redstonearsenal"
+#mandatory=true
+#versionRange="[,)"
+#ordering="NONE"
+#side="BOTH"
+
+[[dependencies.redstonerepository]]
+modId="curios"
+mandatory=false
+versionRange="[1.16.5-4.0.5.2,)"
+ordering="AFTER"
+side="BOTH"
