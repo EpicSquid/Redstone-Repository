@@ -6,6 +6,10 @@
 - **General**
     - Version 2.0 Release for 1.12.2
 
-# 1.2.0 - 04-04-2019
+# 1.4.0 - 04-04-2019
+- **General**
+    - New Update
+
+# 1.3.2 - 23-07-2018
 - **General**
     - Initial Release
