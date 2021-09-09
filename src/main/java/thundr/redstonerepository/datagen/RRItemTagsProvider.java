@@ -19,15 +19,15 @@ public class RRItemTagsProvider extends ItemTagsProvider {
     protected void addTags() {
         // Redstone Repository:
         tag(RRTags.RR_TAG)
-                .add(RegistryHandler.TEST.get())
+                .add(RegistryHandler.STRING_FLUXED.get())
         ;
 
         // Curios:
         tag(RRTags.CURIOS_HEAD)
-                .add(RegistryHandler.TEST_TWO.get())
+                .add(RegistryHandler.ROD_GELID.get())
         ;
         tag(RRTags.CURIOS_BELT)
-                .add(RegistryHandler.TEST.get())
+                .add(RegistryHandler.STRING_FLUXED.get())
         ;
     }
 }

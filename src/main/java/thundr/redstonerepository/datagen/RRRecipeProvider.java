@@ -27,7 +27,7 @@ public class RRRecipeProvider extends RecipeProvider implements IConditionBuilde
     protected void buildShapelessRecipes(@Nonnull Consumer<IFinishedRecipe> consumer) {
 
         // Testing:
-        CustomShapedRecipeBuilder.shaped(RegistryHandler.TEST.get())
+        CustomShapedRecipeBuilder.shaped(RegistryHandler.STRING_FLUXED.get())
                 .pattern("S S")
                 .pattern("GPG")
                 .pattern("R R")
@@ -37,7 +37,7 @@ public class RRRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .define('R', forgeTag("dusts/redstone"))
                 .save(consumer);
 
-        CustomShapelessRecipeBuilder.shapeless(RegistryHandler.TEST_TWO.get(), 2)
+        CustomShapelessRecipeBuilder.shapeless(RegistryHandler.ROD_GELID.get(), 2)
                 .requires(Items.COAL)
                 .requires(Items.CLAY_BALL)
                 .requires(Items.GUNPOWDER)

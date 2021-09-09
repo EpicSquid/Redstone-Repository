@@ -26,9 +26,9 @@ public class RRAdvancements implements Consumer<Consumer<Advancement>> {
     @Override
     public void accept(Consumer<Advancement> consumer) {
         // Redstone Repository:
-        Advancement root = rootAdvancement(consumer, RegistryHandler.TEST.get(), "root", null, "stone", FrameType.TASK, "crafting_table", InventoryChangeTrigger.Instance.hasItems(Blocks.CRAFTING_TABLE));
-        Advancement test = itemAdvancement(consumer, root, RegistryHandler.TEST.get(), "redstonerepository", FrameType.CHALLENGE);
-        Advancement test_two = itemAdvancement(consumer, root, RegistryHandler.TEST_TWO.get(), "redstonerepository", FrameType.CHALLENGE);
+        Advancement root = rootAdvancement(consumer, RegistryHandler.STRING_FLUXED.get(), "root", null, "stone", FrameType.TASK, "crafting_table", InventoryChangeTrigger.Instance.hasItems(Blocks.CRAFTING_TABLE));
+        Advancement test = itemAdvancement(consumer, root, RegistryHandler.STRING_FLUXED.get(), "redstonerepository", FrameType.CHALLENGE);
+        Advancement test_two = itemAdvancement(consumer, root, RegistryHandler.ROD_GELID.get(), "redstonerepository", FrameType.CHALLENGE);
 }
 
     private Advancement itemAdvancement(Consumer<Advancement> consumer, Advancement parent, IItemProvider item, String path, FrameType frame) {

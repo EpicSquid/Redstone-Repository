@@ -1,0 +1,35 @@
+{
+  "parent": "redstonerepository:root",
+  "display": {
+    "icon": {
+      "item": "redstonerepository:rod_gelid"
+    },
+    "title": {
+      "translate": "advancement.redstonerepository.rod_gelid.title"
+    },
+    "description": {
+      "translate": "advancement.redstonerepository.rod_gelid.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "redstonerepository:rod_gelid"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_item"
+    ]
+  ]
+}

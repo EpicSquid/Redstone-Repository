@@ -18,8 +18,8 @@ public class RRItemModelProvider extends ItemModelProvider {
         ModelFile itemGenerated = getExistingFile(mcLoc("item/generated"));
 
         // Redstone Repository:
-        builder(itemGenerated, "test");
-        builder(itemGenerated, "test_two");
+        builder(itemGenerated, "string_fluxed");
+        builder(itemGenerated, "rod_gelid");
 
         // Patchouli:
         builder(itemGenerated, "guidebook");

@@ -28,6 +28,6 @@ public class RegistryHandler {
     }
 
     // Items:
-    public static final RegistryObject<Item> TEST = ITEMS.register("test", () -> new Item(new Item.Properties().tab(RedstoneRepository.tabRedstoneRepository)));
-    public static final RegistryObject<Item> TEST_TWO = ITEMS.register("test_two", () -> new Item(new Item.Properties().tab(RedstoneRepository.tabRedstoneRepository)));
+    public static final RegistryObject<Item> STRING_FLUXED = ITEMS.register("string_fluxed", () -> new Item(new Item.Properties().tab(RedstoneRepository.tabRedstoneRepository)));
+    public static final RegistryObject<Item> ROD_GELID = ITEMS.register("rod_gelid", () -> new Item(new Item.Properties().tab(RedstoneRepository.tabRedstoneRepository)));
 }
