@@ -5,6 +5,8 @@
 
 # Redstone Repository (Revolved)
 
-Home of the minecraft mod Redstone Repository
+Re-enhancing the Flux Revolution!
+
+Home of the Minecraft mod: Redstone Repository
 
 Downloads for the mod can be found on [CurseForge](https://www.curseforge.com/minecraft/mc-mods/redstone-repository-revolved "CurseForge - Redstone Repository Revolved")
