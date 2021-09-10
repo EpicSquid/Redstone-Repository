@@ -11,7 +11,7 @@ import javax.annotation.Nonnull;
 public class RRItemGroup extends ItemGroup {
 
     public RRItemGroup() {
-        super(RedstoneRepository.MODID + ".itemGroup");
+        super(RedstoneRepository.MODID + ".main");
     }
 
     @Nonnull

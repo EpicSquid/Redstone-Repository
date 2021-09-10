@@ -20,6 +20,18 @@ public class RRItemModelProvider extends ItemModelProvider {
         // Redstone Repository:
         builder(itemGenerated, "string_fluxed");
         builder(itemGenerated, "rod_gelid");
+        builder(itemGenerated, "gem_gelid");
+        builder(itemGenerated, "dust_gelid_enderium");
+        builder(itemGenerated, "gear_gelid_enderium");
+        builder(itemGenerated, "nugget_gelid_enderium");
+        builder(itemGenerated, "ingot_gelid_enderium");
+        builder(itemGenerated, "plate_gelid_enderium");
+        builder(itemGenerated, "armorplating_gelid_enderium");
+
+        builder(itemGenerated, "gelid_enderium_helmet");
+        builder(itemGenerated, "gelid_enderium_chestplate");
+        builder(itemGenerated, "gelid_enderium_leggings");
+        builder(itemGenerated, "gelid_enderium_boots");
 
         // Patchouli:
         builder(itemGenerated, "guidebook");

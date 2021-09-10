@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "redstonerepository:item/plate_gelid_enderium"
+  }
+}
