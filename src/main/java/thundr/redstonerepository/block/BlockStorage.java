@@ -39,11 +39,9 @@ import java.util.Locale;
 public class BlockStorage extends BlockCore implements IInitializer, IModelRegister {
 
     public static final PropertyEnum<Type> VARIANT = PropertyEnum.create("type", Type.class);
-
+    static final AxisAlignedBB COLLISION_AABB = new AxisAlignedBB(0.00390625D, 0.00390625D, 0.00390625D, 0.99609375D, 0.99609375D, 0.99609375D);
     public static ItemStack blockGelidEnderium;
     public static ItemStack blockGelidCrystal;
-
-    static final AxisAlignedBB COLLISION_AABB = new AxisAlignedBB(0.00390625D, 0.00390625D, 0.00390625D, 0.99609375D, 0.99609375D, 0.99609375D);
 
     public BlockStorage() {
         super(Material.IRON, RedstoneRepository.MODID);

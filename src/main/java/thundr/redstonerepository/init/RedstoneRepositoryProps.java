@@ -13,7 +13,7 @@ public class RedstoneRepositoryProps {
 
     //public static final String PATH_GUI = "redstonerepository:textures/gui/";
     //public static final ResourceLocation FEEDER_GUI_STORAGE = new ResourceLocation("redstonerepository:textures/gui/storage_1.png");
-    public static final ResourceLocation FEEDER_GUI_STORAGE = new ResourceLocation(RedstoneRepository.MODID,"textures/gui/storage_1.png");
+    public static final ResourceLocation FEEDER_GUI_STORAGE = new ResourceLocation(RedstoneRepository.MODID, "textures/gui/storage_1.png");
 
     private RedstoneRepositoryProps() {
     }

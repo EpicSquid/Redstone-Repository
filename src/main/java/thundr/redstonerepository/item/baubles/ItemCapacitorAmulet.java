@@ -95,7 +95,7 @@ public class ItemCapacitorAmulet extends ItemCoreRF implements IBauble, IEnergyC
         }
     }
 
-    @Optional.Method(modid = "baubles")
+    //@Optional.Method(modid = "baubles")
     public void onWornTick(ItemStack cap, EntityLivingBase player) {
         if (!this.isActive(cap) || player.world.isRemote || CoreUtils.isFakePlayer(player) || !(player instanceof EntityPlayer)) {
             return;
@@ -158,7 +158,7 @@ public class ItemCapacitorAmulet extends ItemCoreRF implements IBauble, IEnergyC
         return this.getCapacity(stack);
     }
 
-    @Optional.Method(modid = "baubles")
+    //@Optional.Method(modid = "baubles")
     public BaubleType getBaubleType(ItemStack itemstack) {
         return BaubleType.AMULET;
     }

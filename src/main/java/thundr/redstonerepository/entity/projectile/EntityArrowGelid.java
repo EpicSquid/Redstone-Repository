@@ -9,11 +9,11 @@ import thundr.redstonerepository.RedstoneRepository;
 
 public class EntityArrowGelid extends EntityArrowFlux {
 
-    public static void initialize(int id) {
-        EntityRegistry.registerModEntity(new ResourceLocation(RedstoneRepository.MODID, "gelid_arrow"), EntityArrowGelid.class, "redstonerepository.gelid_arrow", id, RedstoneRepository.INSTANCE, CoreProps.ENTITY_TRACKING_DISTANCE, 1, true);
-    }
-
     public EntityArrowGelid(World world) {
         super(world);
+    }
+
+    public static void initialize(int id) {
+        EntityRegistry.registerModEntity(new ResourceLocation(RedstoneRepository.MODID, "gelid_arrow"), EntityArrowGelid.class, "redstonerepository.gelid_arrow", id, RedstoneRepository.INSTANCE, CoreProps.ENTITY_TRACKING_DISTANCE, 1, true);
     }
 }

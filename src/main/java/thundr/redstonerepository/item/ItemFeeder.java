@@ -113,7 +113,7 @@ public class ItemFeeder extends ItemCoreRF implements IBauble, IInventoryContain
         }
     }
 
-    @Optional.Method(modid = "baubles")
+    //@Optional.Method(modid = "baubles")
     public BaubleType getBaubleType(ItemStack itemstack) {
         return BaubleType.BELT;
     }
