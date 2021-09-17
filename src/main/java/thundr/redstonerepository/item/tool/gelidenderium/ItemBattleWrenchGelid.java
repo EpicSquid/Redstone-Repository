@@ -1,4 +1,4 @@
-package thundr.redstonerepository.items.tools.gelidenderium;
+package thundr.redstonerepository.item.tool.gelidenderium;
 
 import cofh.redstonearsenal.item.tool.ItemBattleWrenchFlux;
 import net.minecraft.entity.item.EntityItem;
@@ -10,17 +10,19 @@ import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.Optional;
 
 import java.util.ArrayList;
 import java.util.List;
 
-//@Optional.InterfaceList ({ @Optional.Interface (iface = "buildcraft.api.tools.IToolWrench", modid = "buildcraftcore"), @Optional.Interface (iface = "crazypants.enderio.api.tool.ITool", modid = "enderio") })
-public class ItemBattleWrenchGelidEnderium extends ItemBattleWrenchFlux {
+@Optional.InterfaceList ({ @Optional.Interface (iface = "buildcraft.api.tools.IToolWrench", modid = "buildcraftcore"), @Optional.Interface (iface = "crazypants.enderio.api.tool.ITool", modid = "enderio") })
+public class ItemBattleWrenchGelid extends ItemBattleWrenchFlux {
 
     public int radius = 10;
 
-    public ItemBattleWrenchGelidEnderium(ToolMaterial toolMaterial) {
+    public ItemBattleWrenchGelid(ToolMaterial toolMaterial) {
         super(toolMaterial);
         this.damage = 7;
         this.damageCharged = 2;
@@ -55,14 +57,14 @@ public class ItemBattleWrenchGelidEnderium extends ItemBattleWrenchFlux {
         return 1333581;
     }
 
-    /*@Optional.Method(modid = "buildcraftcore")
+    //@Optional.Method(modid = "buildcraftcore")
     public boolean canWrench(EntityPlayer player, EnumHand hand, ItemStack wrench, RayTraceResult rayTrace) {
         return true;
     }
 
-    @Optional.Method(modid = "buildcraftcore")
+    //@Optional.Method(modid = "buildcraftcore")
     public void wrenchUsed(EntityPlayer player, EnumHand hand, ItemStack wrench, RayTraceResult rayTrace) {
-    }*/
+    }
 
 }
 

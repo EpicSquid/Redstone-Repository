@@ -1,4 +1,4 @@
-package thundr.redstonerepository.items.tools.gelidenderium;
+package thundr.redstonerepository.item.tool.gelidenderium;
 
 import cofh.redstonearsenal.item.tool.ItemAxeFlux;
 import net.minecraft.block.Block;
@@ -27,13 +27,13 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.*;
 
-public class ItemAxeGelidEnderium extends ItemAxeFlux {
+public class ItemAxeGelid extends ItemAxeFlux {
 
     public static final int LIGHTNING_ENERGY = 6400;
     public static final int EMPOWERED_LIGHTNING_ENERGY = 48000;
     public static int blocksPerTick;
 
-    public ItemAxeGelidEnderium(Item.ToolMaterial toolMaterial, int axeBlocksCutPerTick) {
+    public ItemAxeGelid(Item.ToolMaterial toolMaterial, int axeBlocksCutPerTick) {
         super(toolMaterial);
         this.maxEnergy = GelidEnderiumEnergy.maxEnergy;
         this.energyPerUse = GelidEnderiumEnergy.energyPerUse;
@@ -158,7 +158,7 @@ public class ItemAxeGelidEnderium extends ItemAxeFlux {
     public static class CutTreeTask {
         public World world;
         public ItemStack tool;
-        public ItemAxeGelidEnderium axe;
+        public ItemAxeGelid axe;
         public BlockPos pos;
         public EntityPlayer player = null;
         public int maxIterations = 10000;
@@ -167,12 +167,12 @@ public class ItemAxeGelidEnderium extends ItemAxeFlux {
         public HashSet<BlockPos> visited = new HashSet();
 
         public CutTreeTask(@Nonnull ItemStack stack, @Nonnull BlockPos pos, @Nonnull EntityPlayer player) {
-            if (!(stack.getItem() instanceof ItemAxeGelidEnderium)) {
+            if (!(stack.getItem() instanceof ItemAxeGelid)) {
                 this.unregister();
                 return;
             }
             this.tool = stack;
-            this.axe = (ItemAxeGelidEnderium) stack.getItem();
+            this.axe = (ItemAxeGelid) stack.getItem();
             this.pos = pos;
             this.player = player;
             this.world = player.getEntityWorld();
@@ -196,7 +196,7 @@ public class ItemAxeGelidEnderium extends ItemAxeFlux {
                 this.unregister();
                 return;
             }
-            int blocksIter = ItemAxeGelidEnderium.blocksPerTick;
+            int blocksIter = ItemAxeGelid.blocksPerTick;
             while (blocksIter > 0) {
                 float refStrength;
                 EnumFacing[] cardinals;

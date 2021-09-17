@@ -1,4 +1,4 @@
-package thundr.redstonerepository.items.tools.gelidenderium;
+package thundr.redstonerepository.item.tool.gelidenderium;
 
 import cofh.redstonearsenal.item.tool.ItemShovelFlux;
 import net.minecraft.block.Block;
@@ -19,9 +19,9 @@ import net.minecraftforge.common.IPlantable;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class ItemShovelGelidEnderium extends ItemShovelFlux {
+public class ItemShovelGelid extends ItemShovelFlux {
 
-    public ItemShovelGelidEnderium(Item.ToolMaterial toolMaterial) {
+    public ItemShovelGelid(Item.ToolMaterial toolMaterial) {
         super(toolMaterial);
         this.maxEnergy = GelidEnderiumEnergy.maxEnergy;
         this.energyPerUse = GelidEnderiumEnergy.energyPerUse;
@@ -34,8 +34,8 @@ public class ItemShovelGelidEnderium extends ItemShovelFlux {
      */
     public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         ItemStack stack = player.getHeldItem(hand);
-        if (!player.isSneaking() && stack.getItem() instanceof ItemShovelGelidEnderium) {
-            ItemShovelGelidEnderium shovel = (ItemShovelGelidEnderium) stack.getItem();
+        if (!player.isSneaking() && stack.getItem() instanceof ItemShovelGelid) {
+            ItemShovelGelid shovel = (ItemShovelGelid) stack.getItem();
             if (!player.canPlayerEdit(pos, facing, stack)) {
                 return EnumActionResult.FAIL;
             }

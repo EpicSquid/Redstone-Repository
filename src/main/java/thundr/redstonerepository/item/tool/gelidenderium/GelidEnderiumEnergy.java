@@ -1,4 +1,4 @@
-package thundr.redstonerepository.items.tools.gelidenderium;
+package thundr.redstonerepository.item.tool.gelidenderium;
 
 public class GelidEnderiumEnergy {
     public static int maxEnergy = 3200000;

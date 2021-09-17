@@ -62,9 +62,9 @@ public class ArmorEventHandler {
 
     private boolean doFullArmorDrain(int toDrain, ArmorSummary summary, EntityPlayer player) {
         if (summary.totalEnergyStored >= toDrain) {
-            Iterator armor = player.getArmorInventoryList().iterator();
+            Iterator<ItemStack> armor = player.getArmorInventoryList().iterator();
             summary.enderiumPieces.forEach((key, value) -> {
-                        value.extractEnergy((ItemStack) armor.next(), toDrain / 4, false);
+                        value.extractEnergy(armor.next(), toDrain / 4, false);
                     }
             );
             return true;
@@ -74,9 +74,9 @@ public class ArmorEventHandler {
 
     public static class ArmorSummary {
         private final ArrayList<ItemStack> armorStacks = new ArrayList<>();
-        public LinkedHashMap<String, Integer> energyStored = new LinkedHashMap();
+        public LinkedHashMap<String, Integer> energyStored = new LinkedHashMap<>();
         public int totalEnergyStored = 0;
-        public LinkedHashMap<String, IArmorEnderium> enderiumPieces = new LinkedHashMap();
+        public LinkedHashMap<String, IArmorEnderium> enderiumPieces = new LinkedHashMap<>();
         public boolean isFullSet = false;
 
         public ArmorSummary getSummary(EntityPlayer player) {

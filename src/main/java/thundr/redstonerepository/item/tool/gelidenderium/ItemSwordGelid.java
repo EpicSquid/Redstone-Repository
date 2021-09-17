@@ -1,4 +1,4 @@
-package thundr.redstonerepository.items.tools.gelidenderium;
+package thundr.redstonerepository.item.tool.gelidenderium;
 
 import cofh.core.util.helpers.DamageHelper;
 import cofh.redstonearsenal.item.tool.ItemSwordFlux;
@@ -17,11 +17,11 @@ import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ItemSwordGelidEnderium extends ItemSwordFlux {
+public class ItemSwordGelid extends ItemSwordFlux {
 
     public int radius = 8;
 
-    public ItemSwordGelidEnderium(Item.ToolMaterial toolMaterial) {
+    public ItemSwordGelid(Item.ToolMaterial toolMaterial) {
         super(toolMaterial);
         this.maxEnergy = GelidEnderiumEnergy.maxEnergy;
         this.energyPerUse = GelidEnderiumEnergy.energyPerUse;

@@ -1,4 +1,4 @@
-package thundr.redstonerepository.items.baubles;
+package thundr.redstonerepository.item.baubles;
 
 import baubles.api.BaubleType;
 import baubles.api.IBauble;
@@ -28,7 +28,7 @@ import net.minecraftforge.common.capabilities.CapabilityInject;
 import net.minecraftforge.energy.IEnergyStorage;
 import net.minecraftforge.fml.common.Optional;
 import thundr.redstonerepository.init.RedstoneRepositoryEquipment;
-import thundr.redstonerepository.items.ItemCoreRF;
+import thundr.redstonerepository.item.ItemCoreRF;
 
 import javax.annotation.Nullable;
 import java.util.Collections;

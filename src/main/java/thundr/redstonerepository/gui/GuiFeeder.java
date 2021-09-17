@@ -10,7 +10,7 @@ import org.lwjgl.input.Keyboard;
 import thundr.redstonerepository.gui.element.ElementEnergyItem;
 import thundr.redstonerepository.gui.element.ElementHungerPoints;
 import thundr.redstonerepository.init.RedstoneRepositoryProps;
-import thundr.redstonerepository.items.ItemFeeder;
+import thundr.redstonerepository.item.ItemFeeder;
 import thundr.redstonerepository.network.PacketRR;
 import thundr.redstonerepository.util.HungerHelper;
 

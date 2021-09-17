@@ -1,4 +1,4 @@
-package thundr.redstonerepository.items;
+package thundr.redstonerepository.item;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.EnumRarity;

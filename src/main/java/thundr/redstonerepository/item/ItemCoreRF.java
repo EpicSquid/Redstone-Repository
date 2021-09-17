@@ -1,4 +1,4 @@
-package thundr.redstonerepository.items;
+package thundr.redstonerepository.item;
 
 import cofh.api.item.IMultiModeItem;
 import cofh.core.init.CoreEnchantments;

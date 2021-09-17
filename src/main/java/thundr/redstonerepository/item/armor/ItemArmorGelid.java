@@ -1,4 +1,4 @@
-package thundr.redstonerepository.items.armor;
+package thundr.redstonerepository.item.armor;
 
 import cofh.core.util.helpers.EnergyHelper;
 import cofh.core.util.helpers.StringHelper;
@@ -15,9 +15,9 @@ import thundr.redstonerepository.api.IArmorEnderium;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class ItemArmorEnderium extends ItemArmorFlux implements IArmorEnderium {
+public class ItemArmorGelid extends ItemArmorFlux implements IArmorEnderium {
 
-    public ItemArmorEnderium(ItemArmor.ArmorMaterial material, EntityEquipmentSlot type) {
+    public ItemArmorGelid(ItemArmor.ArmorMaterial material, EntityEquipmentSlot type) {
         super(material, type);
         this.setNoRepair();
         this.setCreativeTab(RedstoneRepository.tabCommon);

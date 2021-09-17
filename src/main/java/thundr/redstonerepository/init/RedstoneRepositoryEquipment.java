@@ -26,11 +26,11 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import thundr.redstonerepository.RedstoneRepository;
-import thundr.redstonerepository.items.ItemFeeder;
-import thundr.redstonerepository.items.ItemMaterial;
-import thundr.redstonerepository.items.armor.ItemArmorEnderium;
-import thundr.redstonerepository.items.baubles.ItemCapacitorAmulet;
-import thundr.redstonerepository.items.tools.gelidenderium.*;
+import thundr.redstonerepository.item.ItemFeeder;
+import thundr.redstonerepository.item.ItemMaterial;
+import thundr.redstonerepository.item.armor.ItemArmorGelid;
+import thundr.redstonerepository.item.baubles.ItemCapacitorAmulet;
+import thundr.redstonerepository.item.tool.gelidenderium.*;
 
 import java.util.Locale;
 
@@ -79,12 +79,12 @@ public class RedstoneRepositoryEquipment {
 
         private final String name;
         private final Item.ToolMaterial TOOL_MATERIAL;
-        public ItemBattleWrenchGelidEnderium itemBattleWrench;
-        public ItemSwordGelidEnderium itemSword;
-        public ItemShovelGelidEnderium itemShovel;
-        public ItemPickaxeGelidEnderium itemPickaxe;
-        public ItemAxeGelidEnderium itemAxe;
-        public ItemSickleGelidEnderium itemSickle;
+        public ItemBattleWrenchGelid itemBattleWrench;
+        public ItemSwordGelid itemSword;
+        public ItemShovelGelid itemShovel;
+        public ItemPickaxeGelid itemPickaxe;
+        public ItemAxeGelid itemAxe;
+        public ItemSickleGelid itemSickle;
         public ItemStack toolBattleWrench;
         public ItemStack toolSword;
         public ItemStack toolShovel;
@@ -100,12 +100,12 @@ public class RedstoneRepositoryEquipment {
         }
 
         protected void create() {
-            this.itemBattleWrench = new ItemBattleWrenchGelidEnderium(this.TOOL_MATERIAL);
-            this.itemSword = new ItemSwordGelidEnderium(this.TOOL_MATERIAL);
-            this.itemShovel = new ItemShovelGelidEnderium(this.TOOL_MATERIAL);
-            this.itemPickaxe = new ItemPickaxeGelidEnderium(this.TOOL_MATERIAL);
-            this.itemAxe = new ItemAxeGelidEnderium(this.TOOL_MATERIAL, this.axeBlocksCutPerTick);
-            this.itemSickle = new ItemSickleGelidEnderium(this.TOOL_MATERIAL);
+            this.itemBattleWrench = new ItemBattleWrenchGelid(this.TOOL_MATERIAL);
+            this.itemSword = new ItemSwordGelid(this.TOOL_MATERIAL);
+            this.itemShovel = new ItemShovelGelid(this.TOOL_MATERIAL);
+            this.itemPickaxe = new ItemPickaxeGelid(this.TOOL_MATERIAL);
+            this.itemAxe = new ItemAxeGelid(this.TOOL_MATERIAL, this.axeBlocksCutPerTick);
+            this.itemSickle = new ItemSickleGelid(this.TOOL_MATERIAL);
         }
 
         protected void config() {
@@ -198,10 +198,10 @@ public class RedstoneRepositoryEquipment {
 
         private final String name;
         private final ItemArmor.ArmorMaterial ARMOR_MATERIAL;
-        public ItemArmorEnderium itemHelmet;
-        public ItemArmorEnderium itemPlate;
-        public ItemArmorEnderium itemLegs;
-        public ItemArmorEnderium itemBoots;
+        public ItemArmorGelid itemHelmet;
+        public ItemArmorGelid itemPlate;
+        public ItemArmorGelid itemLegs;
+        public ItemArmorGelid itemBoots;
         public ItemStack armorHelmet;
         public ItemStack armorPlate;
         public ItemStack armorLegs;
@@ -214,10 +214,10 @@ public class RedstoneRepositoryEquipment {
         }
 
         protected void create() {
-            this.itemHelmet = new ItemArmorEnderium(this.ARMOR_MATERIAL, EntityEquipmentSlot.HEAD);
-            this.itemPlate = new ItemArmorEnderium(this.ARMOR_MATERIAL, EntityEquipmentSlot.CHEST);
-            this.itemLegs = new ItemArmorEnderium(this.ARMOR_MATERIAL, EntityEquipmentSlot.LEGS);
-            this.itemBoots = new ItemArmorEnderium(this.ARMOR_MATERIAL, EntityEquipmentSlot.FEET);
+            this.itemHelmet = new ItemArmorGelid(this.ARMOR_MATERIAL, EntityEquipmentSlot.HEAD);
+            this.itemPlate = new ItemArmorGelid(this.ARMOR_MATERIAL, EntityEquipmentSlot.CHEST);
+            this.itemLegs = new ItemArmorGelid(this.ARMOR_MATERIAL, EntityEquipmentSlot.LEGS);
+            this.itemBoots = new ItemArmorGelid(this.ARMOR_MATERIAL, EntityEquipmentSlot.FEET);
         }
 
         protected void initialize() {

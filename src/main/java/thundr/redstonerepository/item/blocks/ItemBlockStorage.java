@@ -1,11 +1,11 @@
-package thundr.redstonerepository.items.blocks;
+package thundr.redstonerepository.item.blocks;
 
 import cofh.core.block.ItemBlockCore;
 import cofh.core.util.helpers.ItemHelper;
 import net.minecraft.block.Block;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
-import thundr.redstonerepository.blocks.BlockStorage;
+import thundr.redstonerepository.block.BlockStorage;
 
 public class ItemBlockStorage extends ItemBlockCore {
 

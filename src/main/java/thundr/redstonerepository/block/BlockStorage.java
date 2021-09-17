@@ -1,8 +1,11 @@
-package thundr.redstonerepository.blocks;
+package thundr.redstonerepository.block;
 
 import cofh.core.block.BlockCore;
+import cofh.core.block.ItemBlockCore;
 import cofh.core.render.IModelRegister;
 import cofh.core.util.core.IInitializer;
+import cofh.core.util.helpers.DamageHelper;
+import cofh.core.util.helpers.EnergyHelper;
 import cofh.core.util.helpers.ItemHelper;
 import cofh.core.util.helpers.RecipeHelper;
 import net.minecraft.block.SoundType;
@@ -14,11 +17,13 @@ import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.NonNullList;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.IBlockAccess;
@@ -28,7 +33,6 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import thundr.redstonerepository.RedstoneRepository;
-import thundr.redstonerepository.items.blocks.ItemBlockStorage;
 
 import java.util.Locale;
 
@@ -37,7 +41,9 @@ public class BlockStorage extends BlockCore implements IInitializer, IModelRegis
     public static final PropertyEnum<Type> VARIANT = PropertyEnum.create("type", Type.class);
 
     public static ItemStack blockGelidEnderium;
-    public static ItemStack blockGelidGem;
+    public static ItemStack blockGelidCrystal;
+
+    static final AxisAlignedBB COLLISION_AABB = new AxisAlignedBB(0.00390625D, 0.00390625D, 0.00390625D, 0.99609375D, 0.99609375D, 0.99609375D);
 
     public BlockStorage() {
         super(Material.IRON, RedstoneRepository.MODID);
@@ -46,7 +52,7 @@ public class BlockStorage extends BlockCore implements IInitializer, IModelRegis
         this.setHardness(25.0f);
         this.setResistance(120.0f);
         this.setSoundType(SoundType.METAL);
-        this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, (Type.GELID_ENDERIUM)));
+        this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, Type.GELID_ENDERIUM));
         this.setHarvestLevel("pickaxe", 2);
     }
 
@@ -64,12 +70,17 @@ public class BlockStorage extends BlockCore implements IInitializer, IModelRegis
 
     @Override
     public String getUnlocalizedName(ItemStack stack) {
-        return "tile.redstonerepository.storage." + BlockStorage.Type.values()[ItemHelper.getItemDamage(stack)].getNameRaw() + ".name";
+        return "tile.redstonerepository.storage." + Type.values()[ItemHelper.getItemDamage(stack)].getNameRaw() + ".name";
+    }
+
+    @Override
+    public EnumRarity getRarity(ItemStack stack) {
+        return Type.values()[ItemHelper.getItemDamage(stack)].getRarity();
     }
 
     @Override
     public IBlockState getStateFromMeta(int meta) {
-        return this.getDefaultState().withProperty(VARIANT, (Type.values()[meta]));
+        return this.getDefaultState().withProperty(VARIANT, Type.values()[meta]);
     }
 
     @Override
@@ -83,8 +94,24 @@ public class BlockStorage extends BlockCore implements IInitializer, IModelRegis
     }
 
     @Override
+    public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity) {
+        entity.attackEntityFrom(DamageHelper.FLUX, 2.0F);
+        if (entity instanceof EntityPlayerMP) {
+            EntityPlayerMP player = (EntityPlayerMP) entity;
+            if (EnergyHelper.isPlayerHoldingEnergyContainerItem(player)) {
+                EnergyHelper.insertEnergyIntoHeldContainer(player, 100, false);
+            }
+        }
+    }
+
+    @Override
     public boolean canCreatureSpawn(IBlockState state, IBlockAccess world, BlockPos pos, EntityLiving.SpawnPlacementType type) {
         return false;
+    }
+
+    @Override
+    public boolean canProvidePower(IBlockState state) {
+        return true;
     }
 
     @Override
@@ -114,10 +141,15 @@ public class BlockStorage extends BlockCore implements IInitializer, IModelRegis
     }
 
     @Override
+    public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess world, BlockPos pos) {
+        return COLLISION_AABB;
+    }
+
+    @Override
     @SideOnly(value = Side.CLIENT)
     public void registerModels() {
         for (int i = 0; i < Type.values().length; ++i) {
-            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), i, new ModelResourceLocation("redstonerepository:" + this.name, "type=" + Type.values()[i].getName()));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), i, new ModelResourceLocation(RedstoneRepository.MODID + ":" + this.name, "type=" + Type.values()[i].getName()));
         }
     }
 
@@ -125,13 +157,13 @@ public class BlockStorage extends BlockCore implements IInitializer, IModelRegis
     public boolean preInit() {
         this.setRegistryName("storage");
         ForgeRegistries.BLOCKS.register(this);
-        ItemBlockStorage itemBlock = new ItemBlockStorage(this);
+        ItemBlockCore itemBlock = new ItemBlockCore(this);
         itemBlock.setRegistryName(this.getRegistryName());
         ForgeRegistries.ITEMS.register(itemBlock);
         blockGelidEnderium = new ItemStack(this, 1, Type.GELID_ENDERIUM.getMetadata());
-        blockGelidGem = new ItemStack(this, 1, Type.GELID_GEM.getMetadata());
+        blockGelidCrystal = new ItemStack(this, 1, Type.GELID_CRYSTAL.getMetadata());
         ItemHelper.registerWithHandlers("blockGelidEnderium", blockGelidEnderium);
-        ItemHelper.registerWithHandlers("blockGelidGem", blockGelidGem);
+        ItemHelper.registerWithHandlers("blockGelidCrystal", blockGelidCrystal);
         RedstoneRepository.PROXY.addIModelRegister(this);
         return true;
     }
@@ -139,16 +171,15 @@ public class BlockStorage extends BlockCore implements IInitializer, IModelRegis
     @Override
     public boolean initialize() {
         RecipeHelper.addStorageRecipe(blockGelidEnderium, "ingotGelidEnderium");
-        RecipeHelper.addStorageRecipe(blockGelidGem, "gemGelid");
+        RecipeHelper.addStorageRecipe(blockGelidCrystal, "gemGelidCrystal");
         return true;
     }
 
     public enum Type implements IStringSerializable {
-        GELID_ENDERIUM(0, "blockGelidEnderium", BlockStorage.blockGelidEnderium, 7),
-        GELID_GEM(1, "blockGelidGem", BlockStorage.blockGelidGem);
+        GELID_ENDERIUM(0, "gelidEnderium", blockGelidEnderium, 7),
+        GELID_CRYSTAL(1, "gelidCrystal", blockGelidCrystal, 7);
 
-        private static final BlockStorage.Type[] METADATA_LOOKUP = new BlockStorage.Type[values().length];
-
+        private static final Type[] METADATA_LOOKUP = new Type[values().length];
         private final int metadata;
         private final String name;
         private final ItemStack stack;
@@ -219,6 +250,5 @@ public class BlockStorage extends BlockCore implements IInitializer, IModelRegis
             return this.rarity;
         }
     }
-
 }
 

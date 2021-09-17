@@ -15,7 +15,7 @@ import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemHandlerHelper;
 import thundr.redstonerepository.RedstoneRepository;
-import thundr.redstonerepository.items.tools.gelidenderium.ItemPickaxeGelidEnderium;
+import thundr.redstonerepository.item.tool.gelidenderium.ItemPickaxeGelid;
 
 public class ToolEventHandler {
 
@@ -30,9 +30,9 @@ public class ToolEventHandler {
     @SubscribeEvent
     public void onHarvestDrops(BlockEvent.HarvestDropsEvent event) {
         World world = event.getWorld();
-        if (!world.isRemote && event.getHarvester() != null && !event.getHarvester().getHeldItem(EnumHand.MAIN_HAND).isEmpty() && event.getHarvester().getHeldItem(EnumHand.MAIN_HAND).getItem() instanceof ItemPickaxeGelidEnderium) {
+        if (!world.isRemote && event.getHarvester() != null && !event.getHarvester().getHeldItem(EnumHand.MAIN_HAND).isEmpty() && event.getHarvester().getHeldItem(EnumHand.MAIN_HAND).getItem() instanceof ItemPickaxeGelid) {
             ItemStack stack = event.getHarvester().getHeldItem(EnumHand.MAIN_HAND);
-            ItemPickaxeGelidEnderium pickaxe = (ItemPickaxeGelidEnderium) event.getHarvester().getHeldItem(EnumHand.MAIN_HAND).getItem();
+            ItemPickaxeGelid pickaxe = (ItemPickaxeGelid) event.getHarvester().getHeldItem(EnumHand.MAIN_HAND).getItem();
             if (this.isEmpowered(stack)) {
                 if (stack.getTagCompound() == null) {
                     stack.setTagCompound(new NBTTagCompound());
@@ -76,7 +76,7 @@ public class ToolEventHandler {
     }
 
     public boolean isEmpowered(ItemStack stack) {
-        ItemPickaxeGelidEnderium pick = (ItemPickaxeGelidEnderium) stack.getItem();
+        ItemPickaxeGelid pick = (ItemPickaxeGelid) stack.getItem();
         return pick.getMode(stack) == 1 && pick.getEnergyStored(stack) >= pick.getEnergyPerUseCharged();
     }
 }

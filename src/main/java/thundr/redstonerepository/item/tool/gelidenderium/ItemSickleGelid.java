@@ -1,13 +1,13 @@
-package thundr.redstonerepository.items.tools.gelidenderium;
+package thundr.redstonerepository.item.tool.gelidenderium;
 
 import cofh.redstonearsenal.item.tool.ItemSickleFlux;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-public class ItemSickleGelidEnderium extends ItemSickleFlux {
+public class ItemSickleGelid extends ItemSickleFlux {
 
-    public ItemSickleGelidEnderium(Item.ToolMaterial toolMaterial) {
+    public ItemSickleGelid(Item.ToolMaterial toolMaterial) {
         super(toolMaterial);
         this.maxEnergy = GelidEnderiumEnergy.maxEnergy;
         this.energyPerUse = GelidEnderiumEnergy.energyPerUse;
