@@ -21,7 +21,7 @@ public class GuiFeeder extends GuiContainerCore {
     ElementButton addFood;
     ElementEnergyItem energy;
     ElementHungerPoints hungerPoints;
-    String PATH_BUTTON = "redstonerepository:textures/gui/storage_1.png";
+    String PATH_BUTTON = "redstonerepository:textures/gui/feeder.png";
     ItemStack feederStack;
     ItemFeeder baseFeeder;
     ContainerFeeder containerFeeder;
