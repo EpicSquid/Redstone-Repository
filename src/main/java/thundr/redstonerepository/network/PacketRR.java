@@ -43,7 +43,6 @@ public class PacketRR extends PacketBase {
     public enum PacketTypes {
         ADD_FOOD;
 
-
         PacketTypes() {
         }
     }
