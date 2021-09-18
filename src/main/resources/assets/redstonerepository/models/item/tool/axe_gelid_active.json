@@ -1,6 +1,6 @@
 {
-	"parent": "redstonerepository:item/tool/axe_gelid",
-	"textures": {
-		"layer0": "redstonerepository:items/tool/axe_gelid_active"
-	}
+  "parent": "redstonerepository:item/tool/axe_gelid",
+  "textures": {
+    "layer0": "redstonerepository:items/tool/axe_gelid_active"
+  }
 }
