@@ -34,9 +34,9 @@
           "layer0": "redstonerepository:items/material/plate_gelid_enderium"
         }
       },
-      "gemgelid": {
+      "gemgelidcrystal": {
         "textures": {
-          "layer0": "redstonerepository:items/material/gem_gelid"
+          "layer0": "redstonerepository:items/material/gem_gelid_crystal"
         }
       },
       "rodgelid": {

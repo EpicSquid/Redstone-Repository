@@ -1,0 +1,6 @@
+{
+	"parent": "redstonerepository:item/tool/excavator_gelid",
+	"textures": {
+		"layer0": "redstonerepository:items/tool/excavator_gelid_active"
+	}
+}

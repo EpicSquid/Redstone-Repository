@@ -230,7 +230,7 @@ public class RedstoneRepositoryEquipment {
             this.enable[2] = RedstoneRepository.CONFIG_COMMON.getConfiguration().get(category, "Leggings", true).getBoolean(true);
             this.enable[3] = RedstoneRepository.CONFIG_COMMON.getConfiguration().get(category, "Boots", true).getBoolean(true);
             this.create();
-            this.itemHelmet.setArmorTextures(TEXTURE).setUnlocalizedName(ENDERIUM_LOCALE + "helm").setCreativeTab(RedstoneRepository.tabCommon);
+            this.itemHelmet.setArmorTextures(TEXTURE).setUnlocalizedName(ENDERIUM_LOCALE + "helmet").setCreativeTab(RedstoneRepository.tabCommon);
             this.itemHelmet.setShowInCreative(this.enable[0]);
             this.itemHelmet.setRegistryName("armor.helmet_" + this.name);
             ForgeRegistries.ITEMS.register(this.itemHelmet);
