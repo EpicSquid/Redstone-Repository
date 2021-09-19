@@ -33,7 +33,7 @@ public class PacketRR extends PacketBase {
                     return;
                 }
             }
-            RedstoneRepository.LOGGER.error("Unknown Packet Type " + type);
+            RedstoneRepository.LOGGER.error("Unknown Packet Type: " + type);
         } catch (Exception e) {
             RedstoneRepository.LOGGER.error("Packet malformed!");
             e.printStackTrace();

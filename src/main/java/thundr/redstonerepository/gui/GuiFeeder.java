@@ -6,7 +6,9 @@ import cofh.core.gui.element.tab.TabInfo;
 import cofh.core.util.helpers.StringHelper;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
 import org.lwjgl.input.Keyboard;
+import thundr.redstonerepository.RedstoneRepository;
 import thundr.redstonerepository.gui.element.ElementEnergyItem;
 import thundr.redstonerepository.gui.element.ElementHungerPoints;
 import thundr.redstonerepository.init.RedstoneRepositoryProps;
@@ -21,7 +23,8 @@ public class GuiFeeder extends GuiContainerCore {
     ElementButton addFood;
     ElementEnergyItem energy;
     ElementHungerPoints hungerPoints;
-    String PATH_BUTTON = "redstonerepository:textures/gui/feeder.png";
+    ResourceLocation TEXTURE = new ResourceLocation(RedstoneRepository.MODID, "textures/gui/feeder.png");
+    //String PATH_BUTTON = new ResourceLocation(RedstoneRepository.MODID, "textures/gui/feeder.png").toString();
     ItemStack feederStack;
     ItemFeeder baseFeeder;
     ContainerFeeder containerFeeder;
@@ -31,7 +34,7 @@ public class GuiFeeder extends GuiContainerCore {
         this.name = containerFeeder.getInventoryName();
         this.xSize = 176;
         this.ySize = 148;
-        this.texture = RedstoneRepositoryProps.FEEDER_GUI_STORAGE;
+        this.texture = this.TEXTURE;
         this.feederStack = containerFeeder.getContainerStack();
         this.baseFeeder = (ItemFeeder) containerFeeder.getContainerStack().getItem();
         this.containerFeeder = containerFeeder;
@@ -43,7 +46,8 @@ public class GuiFeeder extends GuiContainerCore {
         if (!this.myInfo.isEmpty()) {
             this.addTab(new TabInfo(this, this.myInfo));
         }
-        this.addFood = new ElementButton(this, 101, 26, "AddFood", 177, 64, 177, 80, 177, 96, 16, 16, this.PATH_BUTTON);
+        //this.addFood = new ElementButton(this, 101, 26, "AddFood", 177, 64, 177, 80, 177, 96, 16, 16, this.PATH_BUTTON);
+        this.addFood = new ElementButton(this, 101, 26, "AddFood", 177, 64, 177, 80, 177, 96, 16, 16, this.TEXTURE.toString());
         this.energy = new ElementEnergyItem(this, 151, 6, ((ContainerFeeder) this.inventorySlots).getContainerStack());
         this.hungerPoints = new ElementHungerPoints(this, 160, 6, ((ContainerFeeder) this.inventorySlots).getContainerStack());
         this.addElement(this.addFood);
@@ -111,8 +115,6 @@ public class GuiFeeder extends GuiContainerCore {
     @Override
     protected void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY) {
         // TODO Auto-generated method stub
-
     }
-
 }
 

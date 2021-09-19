@@ -39,13 +39,17 @@ public class RedstoneRepository {
 
     public static final String DEPENDENCIES = "required-after:redstonearsenal@[2.3.11,);required-after:cofhcore@[4.3.11,);required-after:thermalfoundation@[2.3.11,);required-after:thermalexpansion@[5.3.11,);after:baubles;";
     public static final String GUI_FACTORY = "thundr.redstonerepository.gui.ConfigGuiFactory";
+
     public static final Logger LOGGER = LogManager.getLogger(MODID);
     public static final ConfigHandler CONFIG_COMMON = new ConfigHandler(VERSION);
     public static final ConfigHandler CONFIG_CLIENT = new ConfigHandler(VERSION);
+
     @Instance(MODID)
     public static RedstoneRepository INSTANCE;
+
     @SidedProxy(clientSide = "thundr.redstonerepository.proxies.ClientProxy", serverSide = "thundr.redstonerepository.proxies.CommonProxy")
     public static CommonProxy PROXY;
+
     public static CreativeTabs tabCommon;
 
     public RedstoneRepository() {

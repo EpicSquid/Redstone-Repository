@@ -8,11 +8,13 @@ import cofh.core.util.helpers.StringHelper;
 import cofh.redstoneflux.api.IEnergyContainerItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+import thundr.redstonerepository.RedstoneRepository;
 
 import java.util.List;
 
 public class ElementEnergyItem extends ElementBase {
-    public static final ResourceLocation DEFAULT_TEXTURE = new ResourceLocation("redstonerepository:textures/gui/energy.png");
+
+    public static final ResourceLocation DEFAULT_TEXTURE = new ResourceLocation(RedstoneRepository.MODID, "textures/gui/energy.png");
     public static final int DEFAULT_SCALE = 56;
     protected IEnergyContainerItem storage;
     protected ItemStack stack;

@@ -7,13 +7,14 @@ import cofh.core.util.helpers.RenderHelper;
 import cofh.core.util.helpers.StringHelper;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+import thundr.redstonerepository.RedstoneRepository;
 import thundr.redstonerepository.api.IHungerStorageItem;
 
 import java.util.List;
 
 public class ElementHungerPoints extends ElementBase {
 
-    public static final ResourceLocation DEFAULT_TEXTURE = new ResourceLocation("redstonerepository:textures/gui/hunger.png");
+    public static final ResourceLocation DEFAULT_TEXTURE = new ResourceLocation(RedstoneRepository.MODID, "textures/gui/hunger.png");
     public static final int DEFAULT_SCALE = 56;
     protected IHungerStorageItem storage;
     protected ItemStack stack;

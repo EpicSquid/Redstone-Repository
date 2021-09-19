@@ -32,13 +32,13 @@ public class ItemFeeder extends ItemCoreRF implements IBauble, IInventoryContain
     private int saturationFillMax;
 
     public ItemFeeder() {
-        super("Redstone Repository");
+        super(RedstoneRepository.MODID);
         this.setMaxStackSize(1);
         this.setCreativeTab(RedstoneRepository.tabCommon);
     }
 
     public ItemFeeder(int hungerPointsMax, int maxEnergy, int maxTransfer, int energyPerUse, int saturationFillMax) {
-        super("Redstone Repository");
+        super(RedstoneRepository.MODID);
         this.setMaxStackSize(1);
         this.setCreativeTab(RedstoneRepository.tabCommon);
         this.setNoRepair();

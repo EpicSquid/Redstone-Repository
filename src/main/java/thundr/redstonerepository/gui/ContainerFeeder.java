@@ -11,6 +11,8 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 
+import javax.annotation.Nonnull;
+
 public class ContainerFeeder extends ContainerInventoryItem implements ISlotValidator {
 
     static final String NAME = "item.redstonerepository.bauble.feeder.name";
@@ -57,7 +59,7 @@ public class ContainerFeeder extends ContainerInventoryItem implements ISlotVali
     }
 
     @Override
-    public boolean canInteractWith(EntityPlayer playerIn) {
+    public boolean canInteractWith(@Nonnull EntityPlayer player) {
         // TODO Auto-generated method stub
         return true;
     }

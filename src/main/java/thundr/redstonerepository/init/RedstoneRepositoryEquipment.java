@@ -158,22 +158,22 @@ public class RedstoneRepositoryEquipment {
 
         protected void register() {
             if (this.enable[1]) {
-                RecipeHelper.addShapedRecipe(this.toolBattleWrench, "IWI", " G ", " R ", 'I', "ingotGelidEnderium", Character.valueOf('G'), "gearGelidEnderium", Character.valueOf('R'), ItemMaterial.rodGelid, Character.valueOf('W'), RAEquipment.ToolSet.FLUX.itemBattleWrench);
+                RecipeHelper.addShapedRecipe(this.toolBattleWrench, "IWI", " G ", " R ", 'I', "ingotGelidEnderium", Character.valueOf('G'), "gearGelidEnderium", Character.valueOf('R'), ItemMaterial.rodGelidObsidian, Character.valueOf('W'), RAEquipment.ToolSet.FLUX.itemBattleWrench);
             }
             if (this.enable[2]) {
-                RecipeHelper.addShapedRecipe(this.toolSword, " I ", " S ", " R ", 'I', "ingotGelidEnderium", 'R', ItemMaterial.rodGelid, 'S', RAEquipment.ToolSet.FLUX.itemSword);
+                RecipeHelper.addShapedRecipe(this.toolSword, " I ", " S ", " R ", 'I', "ingotGelidEnderium", 'R', ItemMaterial.rodGelidObsidian, 'S', RAEquipment.ToolSet.FLUX.itemSword);
             }
             if (this.enable[3]) {
-                RecipeHelper.addShapedRecipe(this.toolShovel, " I ", " S ", " R ", 'I', "ingotGelidEnderium", 'R', ItemMaterial.rodGelid, 'S', RAEquipment.ToolSet.FLUX.itemShovel);
+                RecipeHelper.addShapedRecipe(this.toolShovel, " I ", " S ", " R ", 'I', "ingotGelidEnderium", 'R', ItemMaterial.rodGelidObsidian, 'S', RAEquipment.ToolSet.FLUX.itemShovel);
             }
             if (this.enable[4]) {
-                RecipeHelper.addShapedRecipe(this.toolPickaxe, "III", " P ", " R ", 'I', "ingotGelidEnderium", 'R', ItemMaterial.rodGelid, 'P', RAEquipment.ToolSet.FLUX.itemPickaxe);
+                RecipeHelper.addShapedRecipe(this.toolPickaxe, "III", " P ", " R ", 'I', "ingotGelidEnderium", 'R', ItemMaterial.rodGelidObsidian, 'P', RAEquipment.ToolSet.FLUX.itemPickaxe);
             }
             if (this.enable[5]) {
-                RecipeHelper.addShapedRecipe(this.toolAxe, "II ", "IA ", " R ", 'I', "ingotGelidEnderium", 'R', ItemMaterial.rodGelid, 'A', RAEquipment.ToolSet.FLUX.itemAxe);
+                RecipeHelper.addShapedRecipe(this.toolAxe, "II ", "IA ", " R ", 'I', "ingotGelidEnderium", 'R', ItemMaterial.rodGelidObsidian, 'A', RAEquipment.ToolSet.FLUX.itemAxe);
             }
             if (this.enable[8]) {
-                RecipeHelper.addShapedRecipe(this.toolSickle, " I ", " SI", "RI ", 'I', "ingotGelidEnderium", 'R', ItemMaterial.rodGelid, 'S', RAEquipment.ToolSet.FLUX.itemSickle);
+                RecipeHelper.addShapedRecipe(this.toolSickle, " I ", " SI", "RI ", 'I', "ingotGelidEnderium", 'R', ItemMaterial.rodGelidObsidian, 'S', RAEquipment.ToolSet.FLUX.itemSickle);
             }
         }
 
@@ -254,16 +254,16 @@ public class RedstoneRepositoryEquipment {
 
         protected void register() {
             if (this.enable[0]) {
-                RecipeHelper.addShapedRecipe(this.armorHelmet, "III", "IAI", 'I', ItemMaterial.plateArmorGelidEnderium, 'A', RAEquipment.ArmorSet.FLUX.itemHelmet);
+                RecipeHelper.addShapedRecipe(this.armorHelmet, "III", "IAI", 'I', ItemMaterial.armorplatingGelidEnderium, 'A', RAEquipment.ArmorSet.FLUX.itemHelmet);
             }
             if (this.enable[1]) {
-                RecipeHelper.addShapedRecipe(this.armorPlate, "IAI", "III", "III", 'I', ItemMaterial.plateArmorGelidEnderium, 'A', RAEquipment.ArmorSet.FLUX.itemPlate);
+                RecipeHelper.addShapedRecipe(this.armorPlate, "IAI", "III", "III", 'I', ItemMaterial.armorplatingGelidEnderium, 'A', RAEquipment.ArmorSet.FLUX.itemPlate);
             }
             if (this.enable[2]) {
-                RecipeHelper.addShapedRecipe(this.armorLegs, "III", "IAI", "I I", 'I', ItemMaterial.plateArmorGelidEnderium, 'A', RAEquipment.ArmorSet.FLUX.itemLegs);
+                RecipeHelper.addShapedRecipe(this.armorLegs, "III", "IAI", "I I", 'I', ItemMaterial.armorplatingGelidEnderium, 'A', RAEquipment.ArmorSet.FLUX.itemLegs);
             }
             if (this.enable[3]) {
-                RecipeHelper.addShapedRecipe(this.armorBoots, "IAI", "I I", 'I', ItemMaterial.plateArmorGelidEnderium, 'A', RAEquipment.ArmorSet.FLUX.itemBoots);
+                RecipeHelper.addShapedRecipe(this.armorBoots, "IAI", "I I", 'I', ItemMaterial.armorplatingGelidEnderium, 'A', RAEquipment.ArmorSet.FLUX.itemBoots);
             }
         }
 
@@ -341,7 +341,7 @@ public class RedstoneRepositoryEquipment {
         public boolean initialize() {
             mushroomStewBucket = FluidUtil.getFilledBucket(FluidRegistry.getFluidStack("mushroom_stew", 1000));
             if (enable[0]) {
-                RecipeHelper.addShapedRecipe(capacitorAmuletGelid, " S ", "ACA", "AGA", 'S', ItemMaterial.stringFluxed, 'A', ItemMaterial.plateArmorGelidEnderium, 'G', ItemMaterial.ingotGelidEnderium, 'C', resonantCapacitor);
+                RecipeHelper.addShapedRecipe(capacitorAmuletGelid, " S ", "ACA", "AGA", 'S', ItemMaterial.stringFluxed, 'A', ItemMaterial.armorplatingGelidEnderium, 'G', ItemMaterial.ingotGelidEnderium, 'C', resonantCapacitor);
             }
             if (enable[1]) {
                 RecipeHelper.addShapedRecipe(feederStack, "SCS", "PMP", " G ", 'S', ItemMaterial.stringFluxed, 'C', hardenedCapacitor, 'M', mushroomStewBucket, 'P', ItemMaterial.plateGelidEnderium, 'G', ItemMaterial.gearGelidEnderium);

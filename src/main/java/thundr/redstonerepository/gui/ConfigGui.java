@@ -11,12 +11,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ConfigGui extends GuiConfig {
+
     public ConfigGui(GuiScreen parentScreen) {
         super(parentScreen, ConfigGui.getConfigElements(parentScreen), RedstoneRepository.MODID, false, false, GuiConfig.getAbridgedConfigPath(RedstoneRepository.CONFIG_COMMON.getConfiguration().toString()));
     }
 
     private static List<IConfigElement> getConfigElements(GuiScreen parent) {
-        ArrayList<IConfigElement> list = new ArrayList<IConfigElement>();
+        ArrayList<IConfigElement> list = new ArrayList<>();
         for (String section : RedstoneRepository.CONFIG_COMMON.getCategoryNames()) {
             ConfigCategory category = RedstoneRepository.CONFIG_COMMON.getCategory(section);
             if (category.isChild()) continue;

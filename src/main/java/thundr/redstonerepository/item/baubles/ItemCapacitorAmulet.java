@@ -27,6 +27,7 @@ import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.CapabilityInject;
 import net.minecraftforge.energy.IEnergyStorage;
 import net.minecraftforge.fml.common.Optional;
+import thundr.redstonerepository.RedstoneRepository;
 import thundr.redstonerepository.init.RedstoneRepositoryEquipment;
 import thundr.redstonerepository.item.ItemCoreRF;
 
@@ -43,7 +44,7 @@ public class ItemCapacitorAmulet extends ItemCoreRF implements IBauble, IEnergyC
     private static final Capability<IBaublesItemHandler> CAPABILITY_BAUBLES = null;
 
     public ItemCapacitorAmulet(int capacity, int transfer) {
-        super("redstonerepository");
+        super(RedstoneRepository.MODID);
         this.maxEnergy = capacity;
         this.maxTransfer = transfer;
         this.setHasSubtypes(true);
