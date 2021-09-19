@@ -26,6 +26,7 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
     public static ItemStack rodGelidObsidian;
     public static ItemStack plateArmorGelidEnderium;
     public static ItemStack stringFluxed;
+    public static ItemStack coinGelidEnderium;
 
     public ItemMaterial() {
         super(RedstoneRepository.MODID);
@@ -46,6 +47,7 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
         rodGelidObsidian = this.addItem(6, "rodGelidObsidian", EnumRarity.RARE);
         plateArmorGelidEnderium = this.addItem(7, "plateArmorGelidEnderium", EnumRarity.RARE);
         stringFluxed = this.addOreDictItem(8, "stringFluxed", EnumRarity.UNCOMMON);
+        coinGelidEnderium = this.addOreDictItem(9, "coinGelidEnderium", EnumRarity.RARE);
 
         return true;
     }
@@ -62,10 +64,12 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
         FluidStack fluidCryotheum = new FluidStack(FluidRegistry.getFluid("cryotheum"), 1000);
         FluidStack fluidRedstone = new FluidStack(FluidRegistry.getFluid("redstone"), 200);
 
-        ThermalExpansionHelper.addSmelterRecipe(4000, dustGelidEnderium, new ItemStack(Blocks.SAND), ingotGelidEnderium);
-        ThermalExpansionHelper.addTransposerFill(4000, dustEnderium, dustGelidEnderium, fluidCryotheum, false);
-        ThermalExpansionHelper.addTransposerFill(4000, new ItemStack(Items.EMERALD), gemGelidCrystal, fluidCryotheum, false);
-        ThermalExpansionHelper.addTransposerFill(2000, new ItemStack(Items.STRING), stringFluxed, fluidRedstone, false);
+        ThermalExpansionHelper.addSmelterRecipe(4_000, dustGelidEnderium, new ItemStack(Blocks.SAND), ingotGelidEnderium);
+        ThermalExpansionHelper.addTransposerFill(4_000, dustEnderium, dustGelidEnderium, fluidCryotheum, false);
+        ThermalExpansionHelper.addTransposerFill(4_000, new ItemStack(Items.EMERALD), gemGelidCrystal, fluidCryotheum, false);
+        ThermalExpansionHelper.addTransposerFill(2_000, new ItemStack(Items.STRING), stringFluxed, fluidRedstone, false);
+        ThermalExpansionHelper.addCompactorCoinRecipe(5_000, ingotGelidEnderium, coinGelidEnderium);
+        ThermalExpansionHelper.addNumismaticFuel(coinGelidEnderium, 200_000);
 
         return true;
     }

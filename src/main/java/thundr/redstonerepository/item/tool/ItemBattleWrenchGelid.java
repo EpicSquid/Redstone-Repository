@@ -16,7 +16,6 @@ import thundr.redstonerepository.item.GelidEnderiumEnergy;
 import java.util.ArrayList;
 import java.util.List;
 
-//@Optional.InterfaceList({@Optional.Interface(iface = "buildcraft.api.tools.IToolWrench", modid = "buildcraftcore"), @Optional.Interface(iface = "crazypants.enderio.api.tool.ITool", modid = "enderio")})
 public class ItemBattleWrenchGelid extends ItemBattleWrenchFlux {
 
     public int radius = 10;
@@ -55,15 +54,6 @@ public class ItemBattleWrenchGelid extends ItemBattleWrenchFlux {
     public int getRGBDurabilityForDisplay(ItemStack stack) {
         return 1333581;
     }
-
-/*    //@Optional.Method(modid = "buildcraftcore")
-    public boolean canWrench(EntityPlayer player, EnumHand hand, ItemStack wrench, RayTraceResult rayTrace) {
-        return true;
-    }
-
-    //@Optional.Method(modid = "buildcraftcore")
-    public void wrenchUsed(EntityPlayer player, EnumHand hand, ItemStack wrench, RayTraceResult rayTrace) {
-    }*/
 
 }
 

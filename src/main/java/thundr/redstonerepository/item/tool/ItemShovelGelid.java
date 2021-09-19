@@ -30,9 +30,6 @@ public class ItemShovelGelid extends ItemShovelFlux {
         this.maxTransfer = GelidEnderiumEnergy.maxTransfer;
     }
 
-    /*
-     * Enabled aggressive block sorting
-     */
     public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         ItemStack stack = player.getHeldItem(hand);
         if (!player.isSneaking() && stack.getItem() instanceof ItemShovelGelid) {

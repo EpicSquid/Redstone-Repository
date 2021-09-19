@@ -1,10 +1,20 @@
 package thundr.redstonerepository.item.tool;
 
 import cofh.redstonearsenal.item.tool.ItemWrenchFlux;
+import net.minecraft.item.EnumRarity;
+import net.minecraft.item.ItemStack;
 
 public class ItemWrenchGelid extends ItemWrenchFlux {
 
     public ItemWrenchGelid(ToolMaterial toolMaterial) {
         super(toolMaterial);
+    }
+
+    public EnumRarity getRarity(ItemStack stack) {
+        return EnumRarity.RARE;
+    }
+
+    public int getRGBDurabilityForDisplay(ItemStack stack) {
+        return 1333581;
     }
 }
