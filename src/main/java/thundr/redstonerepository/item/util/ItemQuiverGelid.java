@@ -40,6 +40,7 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import thundr.redstonerepository.RedstoneRepository;
+import thundr.redstonerepository.entity.projectile.EntityArrowGelid;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -213,7 +214,7 @@ public class ItemQuiverGelid extends ItemCore implements IInitializer, IModelReg
 
     @Override
     public EntityArrow createEntityArrow(World world, ItemStack item, EntityLivingBase shooter) {
-        return new EntityArrowFlux(world, shooter, isEmpowered(item));
+        return new EntityArrowGelid(world, shooter, isEmpowered(item));
     }
 
     @Override
