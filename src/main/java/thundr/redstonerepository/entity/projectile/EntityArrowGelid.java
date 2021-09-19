@@ -267,7 +267,7 @@ public class EntityArrowGelid extends EntityArrow {
     public void spawnParticles(int particleCount) {
         if (particleCount > 0) {
             for (int i = 0; i < particleCount; i++) {
-                getEntityWorld().spawnParticle(EnumParticleTypes.REDSTONE, posX + (rand.nextDouble() - 0.5D) * width, posY + rand.nextDouble() * height, posZ + (rand.nextDouble() - 0.5D) * width, 0.0D, 0.0D, 0.0D, new int[0]);
+                getEntityWorld().spawnParticle(EnumParticleTypes.SNOWBALL, posX + (rand.nextDouble() - 0.5D) * width, posY + rand.nextDouble() * height, posZ + (rand.nextDouble() - 0.5D) * width, 0.0D, 0.0D, 0.0D, new int[0]);
             }
         }
     }
