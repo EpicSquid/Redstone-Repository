@@ -2,7 +2,6 @@ package thundr.redstonerepository.init;
 
 import cofh.core.gui.CreativeTabCore;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import thundr.redstonerepository.RedstoneRepository;

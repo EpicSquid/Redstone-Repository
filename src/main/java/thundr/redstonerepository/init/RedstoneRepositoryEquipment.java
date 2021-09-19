@@ -26,11 +26,11 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import thundr.redstonerepository.RedstoneRepository;
-import thundr.redstonerepository.item.tool.*;
-import thundr.redstonerepository.item.util.ItemFeeder;
 import thundr.redstonerepository.item.ItemMaterial;
 import thundr.redstonerepository.item.armor.ItemArmorGelid;
+import thundr.redstonerepository.item.tool.*;
 import thundr.redstonerepository.item.util.ItemCapacitorAmulet;
+import thundr.redstonerepository.item.util.ItemFeeder;
 
 import java.util.Locale;
 
