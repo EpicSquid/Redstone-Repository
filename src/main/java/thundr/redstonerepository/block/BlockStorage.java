@@ -199,22 +199,22 @@ public class BlockStorage extends BlockCore implements IInitializer, IModelRegis
 
         Type(int metadata, String name, ItemStack stack, int light, float hardness, float resistance) {
 
-            this(metadata, name, stack, light, hardness, resistance, EnumRarity.UNCOMMON);
+            this(metadata, name, stack, light, hardness, resistance, EnumRarity.RARE);
         }
 
         Type(int metadata, String name, ItemStack stack, float hardness, float resistance) {
 
-            this(metadata, name, stack, 0, hardness, resistance, EnumRarity.UNCOMMON);
+            this(metadata, name, stack, 0, hardness, resistance, EnumRarity.RARE);
         }
 
         Type(int metadata, String name, ItemStack stack, int light) {
 
-            this(metadata, name, stack, light, 25.0F, 120.0F, EnumRarity.UNCOMMON);
+            this(metadata, name, stack, light, 25.0F, 120.0F, EnumRarity.RARE);
         }
 
         Type(int metadata, String name, ItemStack stack) {
 
-            this(metadata, name, stack, 0, 25.0F, 120.0F, EnumRarity.UNCOMMON);
+            this(metadata, name, stack, 0, 25.0F, 120.0F, EnumRarity.RARE);
         }
 
         public int getMetadata() {
