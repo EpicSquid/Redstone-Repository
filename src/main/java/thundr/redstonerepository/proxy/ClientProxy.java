@@ -1,4 +1,4 @@
-package thundr.redstonerepository.proxies;
+package thundr.redstonerepository.proxy;
 
 import cofh.core.render.IModelRegister;
 import cofh.core.render.entity.RenderArrowCore;

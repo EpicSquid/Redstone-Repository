@@ -22,7 +22,7 @@ import thundr.redstonerepository.init.RedstoneRepositoryEquipment;
 import thundr.redstonerepository.init.RedstoneRepositoryItems;
 import thundr.redstonerepository.init.RedstoneRepositoryProps;
 import thundr.redstonerepository.network.PacketRR;
-import thundr.redstonerepository.proxies.CommonProxy;
+import thundr.redstonerepository.proxy.CommonProxy;
 import thundr.redstonerepository.util.ArmorEventHandler;
 import thundr.redstonerepository.util.ToolEventHandler;
 
@@ -47,7 +47,7 @@ public class RedstoneRepository {
     @Instance(MODID)
     public static RedstoneRepository INSTANCE;
 
-    @SidedProxy(clientSide = "thundr.redstonerepository.proxies.ClientProxy", serverSide = "thundr.redstonerepository.proxies.CommonProxy")
+    @SidedProxy(clientSide = "thundr.redstonerepository.proxy.ClientProxy", serverSide = "thundr.redstonerepository.proxy.CommonProxy")
     public static CommonProxy PROXY;
 
     public static CreativeTabs tabCommon;
