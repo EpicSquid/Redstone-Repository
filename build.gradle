@@ -91,8 +91,10 @@ dependencies {
     runtime "curse.maven:thermal-expansion-69163:2926431"
     compile "curse.maven:redstone-arsenal-70631:2939416"
 
-    compileOnly "curse.maven:ender-io-64578:3328811"
-    compileOnly "curse.maven:buildcraft-core-231305:3204464"
+    //runtime "curse.maven:ender-io-64578:3328811"
+    //runtime "curse.maven:buildcraft-core-231305:3204464"
+
+    runtime "curse.maven:simply-jetpacks-2-251792:3294422"
 }
 
 processResources {

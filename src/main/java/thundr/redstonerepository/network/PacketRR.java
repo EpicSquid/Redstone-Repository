@@ -6,7 +6,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import thundr.redstonerepository.RedstoneRepository;
 import thundr.redstonerepository.gui.ContainerFeeder;
-import thundr.redstonerepository.items.ItemFeeder;
+import thundr.redstonerepository.item.util.ItemFeeder;
 
 public class PacketRR extends PacketBase {
 
@@ -33,7 +33,7 @@ public class PacketRR extends PacketBase {
                     return;
                 }
             }
-            RedstoneRepository.LOGGER.error("Unknown Packet Type " + type);
+            RedstoneRepository.LOGGER.error("Unknown Packet Type: " + type);
         } catch (Exception e) {
             RedstoneRepository.LOGGER.error("Packet malformed!");
             e.printStackTrace();
@@ -42,7 +42,6 @@ public class PacketRR extends PacketBase {
 
     public enum PacketTypes {
         ADD_FOOD;
-
 
         PacketTypes() {
         }

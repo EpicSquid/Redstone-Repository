@@ -62,11 +62,8 @@ public class ArmorEventHandler {
 
     private boolean doFullArmorDrain(int toDrain, ArmorSummary summary, EntityPlayer player) {
         if (summary.totalEnergyStored >= toDrain) {
-            Iterator armor = player.getArmorInventoryList().iterator();
-            summary.enderiumPieces.forEach((key, value) -> {
-                        value.extractEnergy((ItemStack) armor.next(), toDrain / 4, false);
-                    }
-            );
+            Iterator<ItemStack> armor = player.getArmorInventoryList().iterator();
+            summary.enderiumPieces.forEach((key, value) -> value.extractEnergy(armor.next(), toDrain / 4, false));
             return true;
         }
         return false;
@@ -74,16 +71,16 @@ public class ArmorEventHandler {
 
     public static class ArmorSummary {
         private final ArrayList<ItemStack> armorStacks = new ArrayList<>();
-        public LinkedHashMap<String, Integer> energyStored = new LinkedHashMap();
+        public LinkedHashMap<String, Integer> energyStored = new LinkedHashMap<>();
         public int totalEnergyStored = 0;
-        public LinkedHashMap<String, IArmorEnderium> enderiumPieces = new LinkedHashMap();
+        public LinkedHashMap<String, IArmorEnderium> enderiumPieces = new LinkedHashMap<>();
         public boolean isFullSet = false;
 
         public ArmorSummary getSummary(EntityPlayer player) {
             this.energyStored.put("Boots", 0);
-            this.energyStored.put("Legs", 0);
-            this.energyStored.put("Chest", 0);
-            this.energyStored.put("Head", 0);
+            this.energyStored.put("Leggings", 0);
+            this.energyStored.put("Chestplate", 0);
+            this.energyStored.put("Helmet", 0);
             this.armorStacks.add(player.getItemStackFromSlot(EntityEquipmentSlot.FEET));
             this.armorStacks.add(player.getItemStackFromSlot(EntityEquipmentSlot.LEGS));
             this.armorStacks.add(player.getItemStackFromSlot(EntityEquipmentSlot.CHEST));
@@ -104,21 +101,21 @@ public class ArmorEventHandler {
                         break;
                     }
                     case 1: {
-                        this.energyStored.replace("Legs", 0, energy);
+                        this.energyStored.replace("Leggings", 0, energy);
                         this.totalEnergyStored += energy;
-                        this.enderiumPieces.put("Legs", armor);
+                        this.enderiumPieces.put("Leggings", armor);
                         break;
                     }
                     case 2: {
-                        this.energyStored.replace("Chest", 0, energy);
+                        this.energyStored.replace("Chestplate", 0, energy);
                         this.totalEnergyStored += energy;
-                        this.enderiumPieces.put("Chest", armor);
+                        this.enderiumPieces.put("Chestplate", armor);
                         break;
                     }
                     case 3: {
-                        this.energyStored.replace("Head", 0, energy);
+                        this.energyStored.replace("Helmet", 0, energy);
                         this.totalEnergyStored += energy;
-                        this.enderiumPieces.put("Head", armor);
+                        this.enderiumPieces.put("Helmet", armor);
                         break;
                     }
                 }

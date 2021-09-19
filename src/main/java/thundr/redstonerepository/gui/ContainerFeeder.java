@@ -11,9 +11,9 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 
-public class ContainerFeeder extends ContainerInventoryItem implements ISlotValidator {
+import javax.annotation.Nonnull;
 
-    static final String NAME = "item.redstonerepository.bauble.feeder.name";
+public class ContainerFeeder extends ContainerInventoryItem implements ISlotValidator {
 
     public ContainerFeeder(ItemStack stack, InventoryPlayer inventoryPlayer) {
         super(stack, inventoryPlayer);
@@ -45,7 +45,7 @@ public class ContainerFeeder extends ContainerInventoryItem implements ISlotVali
 
     public String getInventoryName() {
         //return this.containerWrapper.hasCustomName() ? this.containerWrapper.getName() : StringHelper.localize("item.redstonerepository.bauble.feeder.name");
-        return StringHelper.localize("item.redstonerepository.bauble.feeder.name");
+        return StringHelper.localize("item.redstonerepository.util.feeder.name");
     }
 
     protected int getPlayerInventoryVerticalOffset() {
@@ -57,7 +57,7 @@ public class ContainerFeeder extends ContainerInventoryItem implements ISlotVali
     }
 
     @Override
-    public boolean canInteractWith(EntityPlayer playerIn) {
+    public boolean canInteractWith(@Nonnull EntityPlayer player) {
         // TODO Auto-generated method stub
         return true;
     }

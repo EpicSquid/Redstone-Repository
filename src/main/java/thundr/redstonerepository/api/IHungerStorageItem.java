@@ -4,12 +4,13 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 
 public interface IHungerStorageItem {
-    int receiveHungerPoints(ItemStack var1, int var2, boolean var3);
 
-    int useHungerPoints(ItemStack var1, int var2, EntityPlayer var3);
+    int receiveHungerPoints(ItemStack stack, int amount, boolean simulate);
 
-    int getHungerPoints(ItemStack var1);
+    int useHungerPoints(ItemStack stack, int amount, EntityPlayer player);
 
-    int getMaxHungerPoints(ItemStack var1);
+    int getHungerPoints(ItemStack stack);
+
+    int getMaxHungerPoints(ItemStack stack);
 }
 
