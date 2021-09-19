@@ -386,7 +386,7 @@ public class RedstoneRepositoryEquipment {
                 RecipeHelper.addShapedRecipe(this.toolSickle, " I ", " SI", "RI ", 'I', "ingotGelidEnderium", 'R', ItemMaterial.rodGelidObsidian, 'S', RAEquipment.ToolSet.FLUX.itemSickle);
             }
             if (this.enable[6]) {
-                RecipeHelper.addShapedRecipe(this.toolBow, " I ", "RS ", " I ", 'I', "ingotGelidEnderium", 'R', ItemMaterial.rodGelidObsidian, 'S', RAEquipment.ToolSet.FLUX.itemBow);
+                RecipeHelper.addShapedRecipe(this.toolBow, " IX", "RSX", " IX", 'I', "ingotGelidEnderium", 'R', ItemMaterial.rodGelidObsidian, 'S', RAEquipment.ToolSet.FLUX.itemBow, 'X', "stringFluxed");
             }
             if (this.enable[7]) {
                 RecipeHelper.addShapedRecipe(this.toolShield, "IGI", "ISI", " I ", 'I', "ingotGelidEnderium", 'G', ItemMaterial.gemGelidCrystal, 'S', RAEquipment.ToolSet.FLUX.itemShield);
@@ -398,7 +398,7 @@ public class RedstoneRepositoryEquipment {
                 RecipeHelper.addShapedRecipe(this.toolExcavator, " I ", "ISI", " R ", 'I', "ingotGelidEnderium", 'R', ItemMaterial.rodGelidObsidian, 'S', RAEquipment.ToolSet.FLUX.itemExcavator);
             }
             if (this.enable[10]) {
-                RecipeHelper.addShapedRecipe(this.toolFishingRod, "  I", " S ", "R  ", 'I', "ingotGelidEnderium", 'R', ItemMaterial.rodGelidObsidian, 'S', RAEquipment.ToolSet.FLUX.itemFishingRod);
+                RecipeHelper.addShapedRecipe(this.toolFishingRod, "  I", " SX", "R X", 'I', "ingotGelidEnderium", 'R', ItemMaterial.rodGelidObsidian, 'S', RAEquipment.ToolSet.FLUX.itemFishingRod, 'X', "stringFluxed");
             }
             if (this.enable[11]) {
                 RecipeHelper.addShapedRecipe(this.toolWrench, "ISI", " R ", " I ", 'I', "ingotGelidEnderium", 'R', ItemMaterial.rodGelidObsidian, 'S', RAEquipment.ToolSet.FLUX.itemWrench);

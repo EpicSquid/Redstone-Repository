@@ -270,7 +270,7 @@ public class ItemQuiverGelid extends ItemCore implements IInitializer, IModelReg
         if (!enable) {
             return false;
         }
-        addShapedRecipe(quiverGelidEnderium, "AA ", "GIS", "IGS", 'A', Items.ARROW, 'G', "gemGelidCrystal", 'I', "ingotGelidEnderium", 'S', "string");
+        addShapedRecipe(quiverGelidEnderium, "AA ", "GIS", "IGS", 'A', Items.ARROW, 'G', "gemGelidCrystal", 'I', "ingotGelidEnderium", 'S', "stringFluxed");
         return true;
     }
 
