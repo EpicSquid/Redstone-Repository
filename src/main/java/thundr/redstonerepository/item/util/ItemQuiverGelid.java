@@ -11,7 +11,6 @@ import cofh.core.util.core.IInitializer;
 import cofh.core.util.helpers.EnergyHelper;
 import cofh.core.util.helpers.MathHelper;
 import cofh.core.util.helpers.StringHelper;
-import cofh.redstonearsenal.RedstoneArsenal;
 import cofh.redstonearsenal.entity.projectile.EntityArrowFlux;
 import cofh.redstonearsenal.init.RAProps;
 import cofh.redstoneflux.api.IEnergyContainerItem;
@@ -64,8 +63,8 @@ public class ItemQuiverGelid extends ItemCore implements IInitializer, IModelReg
         setMaxDamage(0);
         setNoRepair();
         setMaxStackSize(1);
-        setUnlocalizedName("gelidQuiver");
-        setCreativeTab(RedstoneArsenal.tabBasicCombat);
+        setUnlocalizedName("redstonerepository.util.gelidQuiver");
+        setCreativeTab(RedstoneRepository.tabCommon);
         addPropertyOverride(new ResourceLocation("active"), (stack, world, entity) -> ItemQuiverGelid.this.getEnergyStored(stack) > 0 && !ItemQuiverGelid.this.isEmpowered(stack) ? 1F : 0F);
         addPropertyOverride(new ResourceLocation("empowered"), (stack, world, entity) -> ItemQuiverGelid.this.isEmpowered(stack) ? 1F : 0F);
     }
@@ -155,21 +154,11 @@ public class ItemQuiverGelid extends ItemCore implements IInitializer, IModelReg
     }
 
     @Override
-    public int getRGBDurabilityForDisplay(ItemStack stack) {
-        return CoreProps.RGB_DURABILITY_FLUX;
-    }
-
-    @Override
     public double getDurabilityForDisplay(ItemStack stack) {
         if (stack.getTagCompound() == null) {
             EnergyHelper.setDefaultEnergyTag(stack, 0);
         }
         return MathHelper.clamp(1.0D - ((double) stack.getTagCompound().getInteger(CoreProps.ENERGY) / (double) getMaxEnergyStored(stack)), 0.0D, 1.0D);
-    }
-
-    @Override
-    public EnumRarity getRarity(ItemStack stack) {
-        return isEmpowered(stack) ? EnumRarity.RARE : EnumRarity.UNCOMMON;
     }
 
     @Override
@@ -287,5 +276,13 @@ public class ItemQuiverGelid extends ItemCore implements IInitializer, IModelReg
     private static void config() {
         String category = "Equipment.Tools.Gelid";
         enable = RedstoneRepository.CONFIG_COMMON.get(category, "Quiver", true);
+    }
+
+    public EnumRarity getRarity(ItemStack stack) {
+        return EnumRarity.RARE;
+    }
+
+    public int getRGBDurabilityForDisplay(ItemStack stack) {
+        return 1333581;
     }
 }
