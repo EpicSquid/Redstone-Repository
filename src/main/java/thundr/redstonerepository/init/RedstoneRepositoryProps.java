@@ -26,7 +26,7 @@ public class RedstoneRepositoryProps {
 
             @Nonnull
             @Override
-            @SideOnly(value = Side.CLIENT)
+            @SideOnly(Side.CLIENT)
             public ItemStack getTabIconItem() {
                 return new ItemStack(RedstoneRepositoryEquipment.ToolSet.GELID.itemSword);
             }

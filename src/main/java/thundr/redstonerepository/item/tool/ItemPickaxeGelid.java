@@ -72,7 +72,7 @@ public class ItemPickaxeGelid extends ItemPickaxeFlux {
         return EnumActionResult.FAIL;
     }
 
-    @SideOnly(value = Side.CLIENT)
+    @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add("\u00a7aSneak right click to bind an inventory when empowered.");
         super.addInformation(stack, worldIn, tooltip, flagIn);

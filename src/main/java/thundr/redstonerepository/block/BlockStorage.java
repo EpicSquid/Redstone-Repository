@@ -23,6 +23,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.NonNullList;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Explosion;
@@ -144,10 +145,10 @@ public class BlockStorage extends BlockCore implements IInitializer, IModelRegis
     }
 
     @Override
-    @SideOnly(value = Side.CLIENT)
+    @SideOnly(Side.CLIENT)
     public void registerModels() {
         for (int i = 0; i < Type.values().length; ++i) {
-            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), i, new ModelResourceLocation(RedstoneRepository.MODID + ":" + this.name, "type=" + Type.values()[i].getName()));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), i, new ModelResourceLocation(new ResourceLocation(RedstoneRepository.MODID, this.name), "type=" + Type.values()[i].getName()));
         }
     }
 
