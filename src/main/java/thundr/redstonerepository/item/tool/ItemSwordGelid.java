@@ -1,4 +1,4 @@
-package thundr.redstonerepository.item.tool.gelidenderium;
+package thundr.redstonerepository.item.tool;
 
 import cofh.core.util.helpers.DamageHelper;
 import cofh.redstonearsenal.item.tool.ItemSwordFlux;
@@ -12,6 +12,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.world.World;
+import thundr.redstonerepository.item.GelidEnderiumEnergy;
 
 import javax.annotation.Nullable;
 import java.util.ArrayList;
@@ -47,7 +48,7 @@ public class ItemSwordGelid extends ItemSwordFlux {
             entity.attackEntityFrom(DamageHelper.causePlayerFluxDamage(thePlayer), (float) fluxDamage * potionDamage);
             int toExtract = this.isEmpowered(stack) ? this.energyPerUseCharged : this.energyPerUse;
             this.extractEnergy(stack, toExtract, thePlayer.capabilities.isCreativeMode);
-            if (this.isEmpowered(stack) && (entities = new ArrayList(thePlayer.world.getEntitiesWithinAABB(EntityMob.class, bb = new AxisAlignedBB(entity.posX - (double) this.radius, entity.posY - (double) this.radius, entity.posZ - (double) this.radius, entity.posX + (double) this.radius, entity.posY + (double) this.radius, entity.posZ + (double) this.radius)))).size() > 1 && this.getEnergyStored(stack) >= this.energyPerUseCharged * entities.size()) {
+            if (this.isEmpowered(stack) && (entities = new ArrayList<>(thePlayer.world.getEntitiesWithinAABB(EntityMob.class, bb = new AxisAlignedBB(entity.posX - (double) this.radius, entity.posY - (double) this.radius, entity.posZ - (double) this.radius, entity.posX + (double) this.radius, entity.posY + (double) this.radius, entity.posZ + (double) this.radius)))).size() > 1 && this.getEnergyStored(stack) >= this.energyPerUseCharged * entities.size()) {
                 for (EntityMob i : entities) {
                     i.attackEntityFrom(DamageHelper.causePlayerFluxDamage(thePlayer), (float) fluxDamage * potionDamage);
                 }

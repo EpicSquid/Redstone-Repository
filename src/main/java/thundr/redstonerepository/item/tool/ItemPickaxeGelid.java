@@ -1,4 +1,4 @@
-package thundr.redstonerepository.item.tool.gelidenderium;
+package thundr.redstonerepository.item.tool;
 
 import cofh.core.util.RayTracer;
 import cofh.core.util.helpers.StringHelper;
@@ -24,6 +24,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.items.CapabilityItemHandler;
+import thundr.redstonerepository.item.GelidEnderiumEnergy;
 
 import javax.annotation.Nullable;
 import java.util.ArrayList;

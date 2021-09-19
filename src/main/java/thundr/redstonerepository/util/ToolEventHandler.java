@@ -15,7 +15,7 @@ import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemHandlerHelper;
 import thundr.redstonerepository.RedstoneRepository;
-import thundr.redstonerepository.item.tool.gelidenderium.ItemPickaxeGelid;
+import thundr.redstonerepository.item.tool.ItemPickaxeGelid;
 
 public class ToolEventHandler {
 

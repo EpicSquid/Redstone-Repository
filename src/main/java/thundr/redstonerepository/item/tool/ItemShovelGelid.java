@@ -1,4 +1,4 @@
-package thundr.redstonerepository.item.tool.gelidenderium;
+package thundr.redstonerepository.item.tool;
 
 import cofh.redstonearsenal.item.tool.ItemShovelFlux;
 import net.minecraft.block.Block;
@@ -15,6 +15,7 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IPlantable;
+import thundr.redstonerepository.item.GelidEnderiumEnergy;
 
 import javax.annotation.Nullable;
 import java.util.List;

@@ -15,8 +15,6 @@ import javax.annotation.Nonnull;
 
 public class ContainerFeeder extends ContainerInventoryItem implements ISlotValidator {
 
-    static final String NAME = "item.redstonerepository.bauble.feeder.name";
-
     public ContainerFeeder(ItemStack stack, InventoryPlayer inventoryPlayer) {
         super(stack, inventoryPlayer);
         this.bindPlayerInventory(inventoryPlayer);
@@ -47,7 +45,7 @@ public class ContainerFeeder extends ContainerInventoryItem implements ISlotVali
 
     public String getInventoryName() {
         //return this.containerWrapper.hasCustomName() ? this.containerWrapper.getName() : StringHelper.localize("item.redstonerepository.bauble.feeder.name");
-        return StringHelper.localize("item.redstonerepository.bauble.feeder.name");
+        return StringHelper.localize("item.redstonerepository.util.feeder.name");
     }
 
     protected int getPlayerInventoryVerticalOffset() {

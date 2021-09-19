@@ -1,9 +1,10 @@
-package thundr.redstonerepository.item.tool.gelidenderium;
+package thundr.redstonerepository.item.tool;
 
 import cofh.redstonearsenal.item.tool.ItemSickleFlux;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import thundr.redstonerepository.item.GelidEnderiumEnergy;
 
 public class ItemSickleGelid extends ItemSickleFlux {
 

@@ -26,11 +26,11 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import thundr.redstonerepository.RedstoneRepository;
+import thundr.redstonerepository.item.tool.*;
 import thundr.redstonerepository.item.util.ItemFeeder;
 import thundr.redstonerepository.item.ItemMaterial;
 import thundr.redstonerepository.item.armor.ItemArmorGelid;
-import thundr.redstonerepository.item.baubles.ItemCapacitorAmulet;
-import thundr.redstonerepository.item.tool.gelidenderium.*;
+import thundr.redstonerepository.item.util.ItemCapacitorAmulet;
 
 import java.util.Locale;
 
@@ -310,12 +310,12 @@ public class RedstoneRepositoryEquipment {
         public boolean preInit() {
             this.config();
             itemCapacitorAmulet = new ItemCapacitorAmulet(capacity, transfer);
-            itemCapacitorAmulet.setUnlocalizedName("redstonerepository.bauble.capacitor.gelid").setCreativeTab(RedstoneRepository.tabCommon);
+            itemCapacitorAmulet.setUnlocalizedName("redstonerepository.util.gelidCapacitor").setCreativeTab(RedstoneRepository.tabCommon);
             itemCapacitorAmulet.setRegistryName("capacitor_gelid");
             ForgeRegistries.ITEMS.register(itemCapacitorAmulet);
             capacitorAmuletGelid = EnergyHelper.setDefaultEnergyTag(new ItemStack(itemCapacitorAmulet), 0);
             itemFeeder = new ItemFeeder(hungerPointsMax, feederCapacity, feederMaxTransfer, feederEnergyPerUse, feederMaxSat);
-            itemFeeder.setUnlocalizedName("redstonerepository.bauble.feeder").setCreativeTab(RedstoneRepository.tabCommon);
+            itemFeeder.setUnlocalizedName("redstonerepository.util.feeder").setCreativeTab(RedstoneRepository.tabCommon);
             itemFeeder.setRegistryName("feeder");
             ForgeRegistries.ITEMS.register(itemFeeder);
             feederStack = EnergyHelper.setDefaultEnergyTag(new ItemStack(itemFeeder), 0);

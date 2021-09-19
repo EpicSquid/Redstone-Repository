@@ -1,4 +1,4 @@
-package thundr.redstonerepository.item.baubles;
+package thundr.redstonerepository.item.util;
 
 import baubles.api.BaubleType;
 import baubles.api.IBauble;

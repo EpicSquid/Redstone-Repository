@@ -1,4 +1,4 @@
-package thundr.redstonerepository.item.tool.gelidenderium;
+package thundr.redstonerepository.item.tool;
 
 import cofh.redstonearsenal.item.tool.ItemAxeFlux;
 import net.minecraft.block.Block;
@@ -22,6 +22,7 @@ import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
+import thundr.redstonerepository.item.GelidEnderiumEnergy;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
