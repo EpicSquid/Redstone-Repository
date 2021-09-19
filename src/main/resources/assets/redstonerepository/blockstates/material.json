@@ -39,9 +39,9 @@
           "layer0": "redstonerepository:items/material/gem_gelid_crystal"
         }
       },
-      "rodgelid": {
+      "rodgelidobsidian": {
         "textures": {
-          "layer0": "redstonerepository:items/material/rod_gelid"
+          "layer0": "redstonerepository:items/material/rod_gelid_obsidian"
         }
       },
       "platearmorgelidenderium": {

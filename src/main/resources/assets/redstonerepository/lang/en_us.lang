@@ -2,14 +2,14 @@
 itemGroup.redstonerepository.creativeTab=Redstone Repository
 
 # Items
+item.redstonerepository.material.gemGelidCrystal.name=Gelid Crystal
 item.redstonerepository.material.dustGelidEnderium.name=Gelid Enderium Dust
 item.redstonerepository.material.gearGelidEnderium.name=Gelid Enderium Gear
-item.redstonerepository.material.gemGelid.name=Gelid Crystal
 item.redstonerepository.material.ingotGelidEnderium.name=Gelid Enderium Ingot
 item.redstonerepository.material.nuggetGelidEnderium.name=Gelid Enderium Nugget
 item.redstonerepository.material.plateGelidEnderium.name=Gelid Enderium Plate
 item.redstonerepository.material.plateArmorGelidEnderium.name=Gelid Enderium Armor Plating
-item.redstonerepository.material.rodGelid.name=Gelid Obsidian Rod
+item.redstonerepository.material.rodGelidObsidian.name=Gelid Obsidian Rod
 item.redstonerepository.material.stringFluxed.name=Fluxed String
 item.redstonerepository.bauble.capacitor.gelid.name=Gelid Flux Capacitor Amulet
 item.redstonerepository.bauble.feeder.name=Endoscopic Gastrostomizer
@@ -29,8 +29,8 @@ item.redstonerepository.armor.enderium.gelid.leggings.name=Enderium Flux Legging
 item.redstonerepository.armor.enderium.gelid.boots.name=Enderium Flux Boots
 
 # Blocks
-tile.redstonerepository.storage.blockGelidEnderium.name=Gelid Enderium Block
-tile.redstonerepository.storage.blockGelidCrystal.name=Gelid Crystal Block
+tile.redstonerepository.storage.gelidEnderium.name=Gelid Enderium Block
+tile.redstonerepository.storage.gelidCrystal.name=Gelid Crystal Block
 
 # Tooltips
 info.redstonerepository.tooltip.getenergy=Charge: %d / %d RF

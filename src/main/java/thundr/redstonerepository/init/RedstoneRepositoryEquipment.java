@@ -26,7 +26,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import thundr.redstonerepository.RedstoneRepository;
-import thundr.redstonerepository.item.ItemFeeder;
+import thundr.redstonerepository.item.util.ItemFeeder;
 import thundr.redstonerepository.item.ItemMaterial;
 import thundr.redstonerepository.item.armor.ItemArmorGelid;
 import thundr.redstonerepository.item.baubles.ItemCapacitorAmulet;
@@ -158,7 +158,7 @@ public class RedstoneRepositoryEquipment {
 
         protected void register() {
             if (this.enable[1]) {
-                RecipeHelper.addShapedRecipe(this.toolBattleWrench, "IWI", " G ", " R ", 'I', "ingotGelidEnderium", Character.valueOf('G'), "gearGelidEnderium", Character.valueOf('R'), ItemMaterial.rodGelidObsidian, Character.valueOf('W'), RAEquipment.ToolSet.FLUX.itemBattleWrench);
+                RecipeHelper.addShapedRecipe(this.toolBattleWrench, "IWI", " G ", " R ", 'I', "ingotGelidEnderium", 'G', "gearGelidEnderium", 'R', ItemMaterial.rodGelidObsidian, 'W', RAEquipment.ToolSet.FLUX.itemBattleWrench);
             }
             if (this.enable[2]) {
                 RecipeHelper.addShapedRecipe(this.toolSword, " I ", " S ", " R ", 'I', "ingotGelidEnderium", 'R', ItemMaterial.rodGelidObsidian, 'S', RAEquipment.ToolSet.FLUX.itemSword);
@@ -179,7 +179,7 @@ public class RedstoneRepositoryEquipment {
 
         @SideOnly(value = Side.CLIENT)
         public void registerModel(Item item, String stackName) {
-            ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation("redstonerepository:tools/" + stackName, "inventory"));
+            ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation("redstonerepository:tool/" + stackName, "inventory"));
         }
 
         @SideOnly(value = Side.CLIENT)
@@ -254,16 +254,16 @@ public class RedstoneRepositoryEquipment {
 
         protected void register() {
             if (this.enable[0]) {
-                RecipeHelper.addShapedRecipe(this.armorHelmet, "III", "IAI", 'I', ItemMaterial.armorplatingGelidEnderium, 'A', RAEquipment.ArmorSet.FLUX.itemHelmet);
+                RecipeHelper.addShapedRecipe(this.armorHelmet, "III", "IAI", 'I', ItemMaterial.plateArmorGelidEnderium, 'A', RAEquipment.ArmorSet.FLUX.itemHelmet);
             }
             if (this.enable[1]) {
-                RecipeHelper.addShapedRecipe(this.armorPlate, "IAI", "III", "III", 'I', ItemMaterial.armorplatingGelidEnderium, 'A', RAEquipment.ArmorSet.FLUX.itemPlate);
+                RecipeHelper.addShapedRecipe(this.armorPlate, "IAI", "III", "III", 'I', ItemMaterial.plateArmorGelidEnderium, 'A', RAEquipment.ArmorSet.FLUX.itemPlate);
             }
             if (this.enable[2]) {
-                RecipeHelper.addShapedRecipe(this.armorLegs, "III", "IAI", "I I", 'I', ItemMaterial.armorplatingGelidEnderium, 'A', RAEquipment.ArmorSet.FLUX.itemLegs);
+                RecipeHelper.addShapedRecipe(this.armorLegs, "III", "IAI", "I I", 'I', ItemMaterial.plateArmorGelidEnderium, 'A', RAEquipment.ArmorSet.FLUX.itemLegs);
             }
             if (this.enable[3]) {
-                RecipeHelper.addShapedRecipe(this.armorBoots, "IAI", "I I", 'I', ItemMaterial.armorplatingGelidEnderium, 'A', RAEquipment.ArmorSet.FLUX.itemBoots);
+                RecipeHelper.addShapedRecipe(this.armorBoots, "IAI", "I I", 'I', ItemMaterial.plateArmorGelidEnderium, 'A', RAEquipment.ArmorSet.FLUX.itemBoots);
             }
         }
 
@@ -341,7 +341,7 @@ public class RedstoneRepositoryEquipment {
         public boolean initialize() {
             mushroomStewBucket = FluidUtil.getFilledBucket(FluidRegistry.getFluidStack("mushroom_stew", 1000));
             if (enable[0]) {
-                RecipeHelper.addShapedRecipe(capacitorAmuletGelid, " S ", "ACA", "AGA", 'S', ItemMaterial.stringFluxed, 'A', ItemMaterial.armorplatingGelidEnderium, 'G', ItemMaterial.ingotGelidEnderium, 'C', resonantCapacitor);
+                RecipeHelper.addShapedRecipe(capacitorAmuletGelid, " S ", "ACA", "AGA", 'S', ItemMaterial.stringFluxed, 'A', ItemMaterial.plateArmorGelidEnderium, 'G', ItemMaterial.ingotGelidEnderium, 'C', resonantCapacitor);
             }
             if (enable[1]) {
                 RecipeHelper.addShapedRecipe(feederStack, "SCS", "PMP", " G ", 'S', ItemMaterial.stringFluxed, 'C', hardenedCapacitor, 'M', mushroomStewBucket, 'P', ItemMaterial.plateGelidEnderium, 'G', ItemMaterial.gearGelidEnderium);
@@ -351,8 +351,8 @@ public class RedstoneRepositoryEquipment {
 
         @SideOnly(value = Side.CLIENT)
         public void registerModels() {
-            ModelLoader.setCustomModelResourceLocation(itemCapacitorAmulet, 0, new ModelResourceLocation("redstonerepository:capacitor_gelid", "inventory"));
-            ModelLoader.setCustomModelResourceLocation(itemFeeder, 0, new ModelResourceLocation("redstonerepository:feeder", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(itemCapacitorAmulet, 0, new ModelResourceLocation("redstonerepository:util/capacitor_gelid", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(itemFeeder, 0, new ModelResourceLocation("redstonerepository:util/feeder", "inventory"));
         }
     }
 

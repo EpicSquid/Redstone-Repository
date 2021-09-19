@@ -24,7 +24,7 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
     public static ItemStack plateGelidEnderium;
     public static ItemStack gemGelidCrystal;
     public static ItemStack rodGelidObsidian;
-    public static ItemStack armorplatingGelidEnderium;
+    public static ItemStack plateArmorGelidEnderium;
     public static ItemStack stringFluxed;
 
     public ItemMaterial() {
@@ -43,7 +43,7 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
         plateGelidEnderium = this.addOreDictItem(4, "plateGelidEnderium", EnumRarity.RARE);
         gemGelidCrystal = this.addOreDictItem(5, "gemGelidCrystal", EnumRarity.RARE);
         rodGelidObsidian = this.addItem(6, "rodGelidObsidian", EnumRarity.RARE);
-        armorplatingGelidEnderium = this.addItem(7, "armorplatingGelidEnderium", EnumRarity.RARE);
+        plateArmorGelidEnderium = this.addItem(7, "armorplatingGelidEnderium", EnumRarity.RARE);
         stringFluxed = this.addOreDictItem(8, "stringFluxed", EnumRarity.UNCOMMON);
         return true;
     }
@@ -54,7 +54,7 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
         RecipeHelper.addReverseStorageRecipe(gemGelidCrystal, "blockGelidCrystal");
         RecipeHelper.addGearRecipe(gearGelidEnderium, "ingotGelidEnderium");
         RecipeHelper.addShapedRecipe(rodGelidObsidian, "  O", " B ", "O  ", 'B', cofh.redstonearsenal.item.ItemMaterial.rodObsidian, 'O', "gemGelidCrystal");
-        RecipeHelper.addShapedRecipe(armorplatingGelidEnderium, " I ", "IGI", " I ", 'G', "gemGelidCrystal", 'I', "plateGelidEnderium");
+        RecipeHelper.addShapedRecipe(plateArmorGelidEnderium, " I ", "IGI", " I ", 'G', "gemGelidCrystal", 'I', "plateGelidEnderium");
         ItemStack dustEnderium = ItemHelper.cloneStack(OreDictionary.getOres("dustEnderium", false).get(0), 1);
         FluidStack fluidCryotheum = new FluidStack(FluidRegistry.getFluid("cryotheum"), 1000);
         FluidStack fluidRedstone = new FluidStack(FluidRegistry.getFluid("redstone"), 200);

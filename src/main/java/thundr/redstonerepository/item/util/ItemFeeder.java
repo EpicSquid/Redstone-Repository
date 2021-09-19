@@ -1,4 +1,4 @@
-package thundr.redstonerepository.item;
+package thundr.redstonerepository.item.util;
 
 import baubles.api.BaubleType;
 import baubles.api.IBauble;
@@ -20,6 +20,7 @@ import net.minecraftforge.fml.common.Optional;
 import thundr.redstonerepository.RedstoneRepository;
 import thundr.redstonerepository.api.IHungerStorageItem;
 import thundr.redstonerepository.init.RedstoneRepositoryEquipment;
+import thundr.redstonerepository.item.ItemCoreRF;
 import thundr.redstonerepository.util.HungerHelper;
 
 import javax.annotation.Nullable;

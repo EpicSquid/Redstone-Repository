@@ -6,7 +6,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import thundr.redstonerepository.RedstoneRepository;
 import thundr.redstonerepository.gui.ContainerFeeder;
-import thundr.redstonerepository.item.ItemFeeder;
+import thundr.redstonerepository.item.util.ItemFeeder;
 
 public class PacketRR extends PacketBase {
 
