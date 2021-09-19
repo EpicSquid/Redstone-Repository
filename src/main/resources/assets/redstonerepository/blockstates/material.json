@@ -53,6 +53,11 @@
         "textures": {
           "layer0": "redstonerepository:items/material/string_fluxed"
         }
+      },
+      "coingelidenderium": {
+        "textures": {
+          "layer0": "redstonerepository:items/material/coin_gelid_enderium"
+        }
       }
     }
   }

@@ -386,22 +386,22 @@ public class RedstoneRepositoryEquipment {
                 RecipeHelper.addShapedRecipe(this.toolSickle, " I ", " SI", "RI ", 'I', "ingotGelidEnderium", 'R', ItemMaterial.rodGelidObsidian, 'S', RAEquipment.ToolSet.FLUX.itemSickle);
             }
             if (this.enable[6]) {
-                RecipeHelper.addShapedRecipe(this.toolBow, " I ", " SI", "RI ", 'I', "ingotGelidEnderium", 'R', ItemMaterial.rodGelidObsidian, 'S', RAEquipment.ToolSet.FLUX.itemBow);
+                RecipeHelper.addShapedRecipe(this.toolBow, " I ", "RS ", " I ", 'I', "ingotGelidEnderium", 'R', ItemMaterial.rodGelidObsidian, 'S', RAEquipment.ToolSet.FLUX.itemBow);
             }
             if (this.enable[7]) {
-                RecipeHelper.addShapedRecipe(this.toolShield, " I ", " SI", "RI ", 'I', "ingotGelidEnderium", 'R', ItemMaterial.rodGelidObsidian, 'S', RAEquipment.ToolSet.FLUX.itemShield);
+                RecipeHelper.addShapedRecipe(this.toolShield, "IGI", "ISI", " I ", 'I', "ingotGelidEnderium", 'G', ItemMaterial.gemGelidCrystal, 'S', RAEquipment.ToolSet.FLUX.itemShield);
             }
             if (this.enable[8]) {
-                RecipeHelper.addShapedRecipe(this.toolHammer, " I ", " SI", "RI ", 'I', "ingotGelidEnderium", 'R', ItemMaterial.rodGelidObsidian, 'S', RAEquipment.ToolSet.FLUX.itemHammer);
+                RecipeHelper.addShapedRecipe(this.toolHammer, "III", "ISI", " R ", 'I', "ingotGelidEnderium", 'R', ItemMaterial.rodGelidObsidian, 'S', RAEquipment.ToolSet.FLUX.itemHammer);
             }
             if (this.enable[9]) {
-                RecipeHelper.addShapedRecipe(this.toolExcavator, " I ", " SI", "RI ", 'I', "ingotGelidEnderium", 'R', ItemMaterial.rodGelidObsidian, 'S', RAEquipment.ToolSet.FLUX.itemExcavator);
+                RecipeHelper.addShapedRecipe(this.toolExcavator, " I ", "ISI", " R ", 'I', "ingotGelidEnderium", 'R', ItemMaterial.rodGelidObsidian, 'S', RAEquipment.ToolSet.FLUX.itemExcavator);
             }
             if (this.enable[10]) {
-                RecipeHelper.addShapedRecipe(this.toolFishingRod, " I ", " SI", "RI ", 'I', "ingotGelidEnderium", 'R', ItemMaterial.rodGelidObsidian, 'S', RAEquipment.ToolSet.FLUX.itemFishingRod);
+                RecipeHelper.addShapedRecipe(this.toolFishingRod, "  I", " S ", "R  ", 'I', "ingotGelidEnderium", 'R', ItemMaterial.rodGelidObsidian, 'S', RAEquipment.ToolSet.FLUX.itemFishingRod);
             }
             if (this.enable[11]) {
-                RecipeHelper.addShapedRecipe(this.toolWrench, " I ", " SI", "RI ", 'I', "ingotGelidEnderium", 'R', ItemMaterial.rodGelidObsidian, 'S', RAEquipment.ToolSet.FLUX.itemWrench);
+                RecipeHelper.addShapedRecipe(this.toolWrench, "ISI", " R ", " I ", 'I', "ingotGelidEnderium", 'R', ItemMaterial.rodGelidObsidian, 'S', RAEquipment.ToolSet.FLUX.itemWrench);
             }
         }
 
