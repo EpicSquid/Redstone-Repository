@@ -8,6 +8,7 @@ import cofh.core.util.helpers.RecipeHelper;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.EnumRarity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
@@ -68,7 +69,7 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
         ThermalExpansionHelper.addTransposerFill(4_000, dustEnderium, dustGelidEnderium, fluidCryotheum, false);
         ThermalExpansionHelper.addTransposerFill(4_000, new ItemStack(Items.EMERALD), gemGelidCrystal, fluidCryotheum, false);
         ThermalExpansionHelper.addTransposerFill(2_000, new ItemStack(Items.STRING), stringFluxed, fluidRedstone, false);
-        ThermalExpansionHelper.addCompactorCoinRecipe(5_000, ingotGelidEnderium, coinGelidEnderium);
+        ThermalExpansionHelper.addCompactorCoinRecipe(5_000, ingotGelidEnderium, ItemHelper.cloneStack(coinGelidEnderium, 3));
         ThermalExpansionHelper.addNumismaticFuel(coinGelidEnderium, 200_000);
 
         return true;
