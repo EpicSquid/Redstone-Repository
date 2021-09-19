@@ -29,7 +29,6 @@ import thundr.redstonerepository.util.ToolEventHandler;
 import java.io.File;
 
 @Mod(modid = RedstoneRepository.MODID, name = RedstoneRepository.MODNAME, dependencies = RedstoneRepository.DEPENDENCIES, guiFactory = RedstoneRepository.GUI_FACTORY)
-//, acceptedMinecraftVersions = "[1.12.2]")
 public class RedstoneRepository {
 
     public static final String MODID = "redstonerepository";
