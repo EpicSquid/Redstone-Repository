@@ -11,7 +11,6 @@ import cofh.core.util.core.IInitializer;
 import cofh.core.util.helpers.EnergyHelper;
 import cofh.core.util.helpers.MathHelper;
 import cofh.core.util.helpers.StringHelper;
-import cofh.redstonearsenal.entity.projectile.EntityArrowFlux;
 import cofh.redstonearsenal.init.RAProps;
 import cofh.redstoneflux.api.IEnergyContainerItem;
 import cofh.redstoneflux.util.EnergyContainerItemWrapper;
