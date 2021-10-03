@@ -5,7 +5,7 @@
 
 # Redstone Repository (Revolved)
 
-Re-enhancing the Flux Revolution!
+Re-Enhancing the Flux Revolution!
 
 Home of the Minecraft mod: Redstone Repository
 
