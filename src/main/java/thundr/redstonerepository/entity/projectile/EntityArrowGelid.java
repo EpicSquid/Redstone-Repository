@@ -167,7 +167,6 @@ public class EntityArrowGelid extends EntityArrow {
             this.setFlag(6, this.isGlowing());
         }
         this.onEntityUpdate();
-
         if (this.prevRotationPitch == 0.0F && this.prevRotationYaw == 0.0F) {
             float f = MathHelper.sqrt(this.motionX * this.motionX + this.motionZ * this.motionZ);
             this.rotationYaw = (float) (MathHelper.atan2(this.motionX, this.motionZ) * (180D / Math.PI));
@@ -177,10 +176,8 @@ public class EntityArrowGelid extends EntityArrow {
         }
         BlockPos blockpos = new BlockPos(this.xTile, this.yTile, this.zTile);
         IBlockState iblockstate = this.world.getBlockState(blockpos);
-
         if (iblockstate.getMaterial() != Material.AIR) {
             AxisAlignedBB axisalignedbb = iblockstate.getCollisionBoundingBox(this.world, blockpos);
-
             if (axisalignedbb != Block.NULL_AABB && axisalignedbb.offset(blockpos).contains(new Vec3d(this.posX, this.posY, this.posZ))) {
                 this.inGround = true;
             }
@@ -198,18 +195,15 @@ public class EntityArrowGelid extends EntityArrow {
             RayTraceResult traceResult = this.world.rayTraceBlocks(vec3d1, vec3d, false, true, false);
             vec3d1 = new Vec3d(this.posX, this.posY, this.posZ);
             vec3d = new Vec3d(this.posX + this.motionX, this.posY + this.motionY, this.posZ + this.motionZ);
-
             if (traceResult != null) {
                 vec3d = new Vec3d(traceResult.hitVec.x, traceResult.hitVec.y, traceResult.hitVec.z);
             }
             Entity entity = this.findEntityOnPath(vec3d1, vec3d);
-
             if (entity != null) {
                 traceResult = new RayTraceResult(entity);
             }
             if (traceResult != null && traceResult.entityHit instanceof EntityPlayer) {
                 EntityPlayer entityplayer = (EntityPlayer) traceResult.entityHit;
-
                 if (this.shootingEntity instanceof EntityPlayer && !((EntityPlayer) this.shootingEntity).canAttackPlayer(entityplayer)) {
                     traceResult = null;
                 }
@@ -220,12 +214,7 @@ public class EntityArrowGelid extends EntityArrow {
             this.posX += this.motionX;
             this.posY += this.motionY;
             this.posZ += this.motionZ;
-            float f4 = MathHelper.sqrt(this.motionX * this.motionX + this.motionZ * this.motionZ);
             this.rotationYaw = (float) (MathHelper.atan2(this.motionX, this.motionZ) * (180D / Math.PI));
-
-            for (this.rotationPitch = (float) (MathHelper.atan2(this.motionY, (double) f4) * (180D / Math.PI)); this.rotationPitch - this.prevRotationPitch < -180.0F; this.prevRotationPitch -= 360.0F) {
-                ;
-            }
             while (this.rotationPitch - this.prevRotationPitch >= 180.0F) {
                 this.prevRotationPitch += 360.0F;
             }
@@ -237,7 +226,6 @@ public class EntityArrowGelid extends EntityArrow {
             }
             this.rotationPitch = this.prevRotationPitch + (this.rotationPitch - this.prevRotationPitch) * 0.2F;
             this.rotationYaw = this.prevRotationYaw + (this.rotationYaw - this.prevRotationYaw) * 0.2F;
-
             if (this.isInWater()) {
                 for (int i = 0; i < 4; ++i) {
                     this.world.spawnParticle(EnumParticleTypes.WATER_BUBBLE, this.posX - this.motionX * 0.25D, this.posY - this.motionY * 0.25D, this.posZ - this.motionZ * 0.25D, this.motionX, this.motionY, this.motionZ);
@@ -249,7 +237,6 @@ public class EntityArrowGelid extends EntityArrow {
             if (this.isWet()) {
                 this.extinguish();
             }
-
             this.setPosition(this.posX, this.posY, this.posZ);
             this.doBlockCollisions();
         }
@@ -267,7 +254,8 @@ public class EntityArrowGelid extends EntityArrow {
     public void spawnParticles(int particleCount) {
         if (particleCount > 0) {
             for (int i = 0; i < particleCount; i++) {
-                getEntityWorld().spawnParticle(EnumParticleTypes.SNOWBALL, posX + (rand.nextDouble() - 0.5D) * width, posY + rand.nextDouble() * height, posZ + (rand.nextDouble() - 0.5D) * width, 0.0D, 0.0D, 0.0D, new int[0]);
+                //getEntityWorld().spawnParticle(EnumParticleTypes.SNOWBALL, posX + (rand.nextDouble() - 0.5D) * width, posY + rand.nextDouble() * height, posZ + (rand.nextDouble() - 0.5D) * width, 0.0D, 0.0D, 0.0D, new int[0]);
+                getEntityWorld().spawnParticle(EnumParticleTypes.REDSTONE, posX + (rand.nextDouble() - 0.5D) * width, posY + rand.nextDouble() * height, posZ + (rand.nextDouble() - 0.5D) * width, 0.0D, 0.0D, 0.0D, new int[0]);
             }
         }
     }
