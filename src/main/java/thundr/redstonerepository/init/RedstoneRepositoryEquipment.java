@@ -458,16 +458,19 @@ public class RedstoneRepositoryEquipment {
 
         public boolean preInit() {
             this.config();
+
             itemCapacitorAmulet = new ItemCapacitorAmulet(capacity, transfer);
             itemCapacitorAmulet.setUnlocalizedName("redstonerepository.util.gelidCapacitor").setCreativeTab(RedstoneRepository.tabCommon);
             itemCapacitorAmulet.setRegistryName("util.capacitor_gelid");
             ForgeRegistries.ITEMS.register(itemCapacitorAmulet);
             capacitorAmuletGelid = EnergyHelper.setDefaultEnergyTag(new ItemStack(itemCapacitorAmulet), 0);
+
             itemFeeder = new ItemFeeder(hungerPointsMax, feederCapacity, feederMaxTransfer, feederEnergyPerUse, feederMaxSat);
             itemFeeder.setUnlocalizedName("redstonerepository.util.feeder").setCreativeTab(RedstoneRepository.tabCommon);
             itemFeeder.setRegistryName("util.feeder");
             ForgeRegistries.ITEMS.register(itemFeeder);
             feederStack = EnergyHelper.setDefaultEnergyTag(new ItemStack(itemFeeder), 0);
+
             RedstoneRepository.PROXY.addIModelRegister(this);
             return true;
         }

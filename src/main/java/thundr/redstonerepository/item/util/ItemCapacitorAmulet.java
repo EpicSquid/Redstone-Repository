@@ -6,35 +6,27 @@ import baubles.api.cap.IBaublesItemHandler;
 import cofh.api.item.INBTCopyIngredient;
 import cofh.core.init.CoreEnchantments;
 import cofh.core.item.IEnchantableItem;
-import cofh.core.render.IModelRegister;
 import cofh.core.util.CoreUtils;
-import cofh.core.util.core.IInitializer;
 import cofh.core.util.helpers.EnergyHelper;
 import cofh.core.util.helpers.StringHelper;
 import cofh.redstoneflux.api.IEnergyContainerItem;
 import com.google.common.collect.Iterables;
-import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.CapabilityInject;
 import net.minecraftforge.energy.IEnergyStorage;
 import net.minecraftforge.fml.common.Optional;
-import net.minecraftforge.fml.common.registry.ForgeRegistries;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 import thundr.redstonerepository.RedstoneRepository;
 import thundr.redstonerepository.init.RedstoneRepositoryEquipment;
 import thundr.redstonerepository.item.ItemCoreRF;
@@ -45,20 +37,13 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-import static cofh.core.util.helpers.RecipeHelper.addShapedRecipe;
-
 @Optional.Interface(iface = "baubles.api.IBauble", modid = "baubles")
-public class ItemCapacitorAmulet extends ItemCoreRF implements IInitializer, IModelRegister, IBauble, IEnergyContainerItem, IEnchantableItem, INBTCopyIngredient {
-
-    public static ItemStack capacitorGelid;
+public class ItemCapacitorAmulet extends ItemCoreRF implements IBauble, IEnergyContainerItem, IEnchantableItem, INBTCopyIngredient {
 
     protected int maxEnergy = 320000;
     protected int maxTransfer = 4000;
     protected int energyPerUse = 800;
     protected int energyPerUseCharged = 6400;
-
-    protected boolean showInCreative = true;
-    public static boolean enable;
 
     @CapabilityInject(value = IBaublesItemHandler.class)
     private static final Capability<IBaublesItemHandler> CAPABILITY_BAUBLES = null;
@@ -70,13 +55,14 @@ public class ItemCapacitorAmulet extends ItemCoreRF implements IInitializer, IMo
         setMaxStackSize(1);
         setUnlocalizedName("redstonerepository.util.gelidCapacitor");
         setCreativeTab(RedstoneRepository.tabCommon);
+        addPropertyOverride(new ResourceLocation("active"), (stack, world, entity) -> this.isActive(stack) ? 1.0f : 0.0f);
     }
 
     public ItemCapacitorAmulet(int capacity, int transfer) {
         super(RedstoneRepository.MODID);
         this.maxEnergy = capacity;
         this.maxTransfer = transfer;
-        setUnlocalizedName("redstonerepository.util.capacitorGelid");
+        setUnlocalizedName("redstonerepository.util.gelidCapacitor");
         setCreativeTab(RedstoneRepository.tabCommon);
         setHasSubtypes(true);
         setMaxStackSize(1);
@@ -209,40 +195,6 @@ public class ItemCapacitorAmulet extends ItemCoreRF implements IInitializer, IMo
 
     public EnumRarity getRarity(ItemStack stack) {
         return EnumRarity.RARE;
-    }
-
-    @SideOnly(Side.CLIENT)
-    @Override
-    public void registerModels() {
-        ModelLoader.setCustomModelResourceLocation(this, 0, new ModelResourceLocation(new ResourceLocation(RedstoneRepository.MODID, "util/capacitor_gelid"), "inventory"));
-    }
-
-    @Override
-    public boolean preInit() {
-        this.setRegistryName("util.capacitor_gelid");
-        ForgeRegistries.ITEMS.register(this);
-        config();
-        this.showInCreative = enable;
-        capacitorGelid = EnergyHelper.setDefaultEnergyTag(new ItemStack(this, 1, 0), 0);
-        RedstoneRepository.PROXY.addIModelRegister(this);
-        return true;
-    }
-
-    private static void config() {
-        String category = "Equipment.Tools.Gelid";
-        enable = RedstoneRepository.CONFIG_COMMON.get(category, "Capacitor", true);
-        //capacitorTransfer = RedstoneRepository.CONFIG_COMMON.get(category, "Capacitor.BaseTransfer", 100000, "Set the base transfer rate of the Gelid Capacitor Amulet in RF/t (Default 100,000) ");
-        //capacitorCapacity = RedstoneRepository.CONFIG_COMMON.get(category, "Capacitor.BaseCapacity", 100000000, "Set the base capacitorCapacity of the Gelid Capacitor Amulet in RF/t (Default 100,000,000) ");
-
-    }
-
-    @Override
-    public boolean initialize() {
-        if (!enable) {
-            return false;
-        }
-        addShapedRecipe(capacitorGelid, "AA ", "GIS", "IGS", 'A', Items.ARROW, 'G', "gemGelidCrystal", 'I', "ingotGelidEnderium", 'S', "stringFluxed");
-        return true;
     }
 }
 
