@@ -46,6 +46,7 @@ import java.util.List;
 
 import static cofh.core.util.helpers.RecipeHelper.addShapedRecipe;
 
+// TODO: rework this because it is hard-coded. (Credit to King Lemming)
 public class ItemQuiverGelid extends ItemCore implements IInitializer, IModelRegister, IEnchantableItem, IEnergyContainerItem, IMultiModeItem, IToolQuiver {
 
     public static ItemStack quiverGelidEnderium;

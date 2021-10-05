@@ -61,9 +61,9 @@ public class ItemCapacitorAmulet extends ItemCoreRF implements IBauble, IEnergyC
             if (handler == null) {
                 return Collections.emptyList();
             } else {
-                IntStream var10000 = IntStream.range(0, handler.getSlots());
+                IntStream stream = IntStream.range(0, handler.getSlots());
                 handler.getClass();
-                return var10000.mapToObj(handler::getStackInSlot).filter((stack) -> !stack.isEmpty()).collect(Collectors.toList());
+                return stream.mapToObj(handler::getStackInSlot).filter((stack) -> !stack.isEmpty()).collect(Collectors.toList());
             }
         }
     }
