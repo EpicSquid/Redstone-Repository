@@ -31,6 +31,7 @@ import thundr.redstonerepository.RedstoneRepository;
 
 import javax.annotation.Nullable;
 
+// TODO: rework this because it is hard-coded. (Credit to King Lemming)
 public class EntityArrowGelid extends EntityArrow {
 
     private static DataParameter<Boolean> EMPOWERED = EntityDataManager.createKey(EntityArrowGelid.class, DataSerializers.BOOLEAN);

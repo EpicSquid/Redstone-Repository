@@ -40,17 +40,34 @@ import java.util.stream.IntStream;
 @Optional.Interface(iface = "baubles.api.IBauble", modid = "baubles")
 public class ItemCapacitorAmulet extends ItemCoreRF implements IBauble, IEnergyContainerItem, IEnchantableItem, INBTCopyIngredient {
 
+    protected int maxEnergy = 320000;
+    protected int maxTransfer = 4000;
+    protected int energyPerUse = 800;
+    protected int energyPerUseCharged = 6400;
+
     @CapabilityInject(value = IBaublesItemHandler.class)
     private static final Capability<IBaublesItemHandler> CAPABILITY_BAUBLES = null;
+
+    public ItemCapacitorAmulet() {
+        super(RedstoneRepository.MODID);
+        setMaxDamage(0);
+        setNoRepair();
+        setMaxStackSize(1);
+        setUnlocalizedName("redstonerepository.util.gelidCapacitor");
+        setCreativeTab(RedstoneRepository.tabCommon);
+        addPropertyOverride(new ResourceLocation("active"), (stack, world, entity) -> this.isActive(stack) ? 1.0f : 0.0f);
+    }
 
     public ItemCapacitorAmulet(int capacity, int transfer) {
         super(RedstoneRepository.MODID);
         this.maxEnergy = capacity;
         this.maxTransfer = transfer;
-        this.setHasSubtypes(true);
-        this.setMaxStackSize(1);
-        this.setNoRepair();
-        this.addPropertyOverride(new ResourceLocation("active"), (stack, world, entity) -> this.isActive(stack) ? 1.0f : 0.0f);
+        setUnlocalizedName("redstonerepository.util.gelidCapacitor");
+        setCreativeTab(RedstoneRepository.tabCommon);
+        setHasSubtypes(true);
+        setMaxStackSize(1);
+        setNoRepair();
+        addPropertyOverride(new ResourceLocation("active"), (stack, world, entity) -> this.isActive(stack) ? 1.0f : 0.0f);
     }
 
     private static Iterable<ItemStack> getBaubles(Entity entity) {
@@ -61,9 +78,9 @@ public class ItemCapacitorAmulet extends ItemCoreRF implements IBauble, IEnergyC
             if (handler == null) {
                 return Collections.emptyList();
             } else {
-                IntStream var10000 = IntStream.range(0, handler.getSlots());
+                IntStream stream = IntStream.range(0, handler.getSlots());
                 handler.getClass();
-                return var10000.mapToObj(handler::getStackInSlot).filter((stack) -> !stack.isEmpty()).collect(Collectors.toList());
+                return stream.mapToObj(handler::getStackInSlot).filter((stack) -> !stack.isEmpty()).collect(Collectors.toList());
             }
         }
     }

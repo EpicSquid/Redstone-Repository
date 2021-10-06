@@ -13,6 +13,7 @@ import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
+import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.*;
 import net.minecraft.world.World;
@@ -32,23 +33,33 @@ public class ItemFeeder extends ItemCoreRF implements IBauble, IInventoryContain
     public int hungerPointsMax;
     private int saturationFillMax;
 
+    protected int maxEnergy = 320000;
+    protected int maxTransfer = 4000;
+    protected int energyPerUse = 800;
+    protected int energyPerUseCharged = 6400;
+
     public ItemFeeder() {
         super(RedstoneRepository.MODID);
-        this.setMaxStackSize(1);
-        this.setCreativeTab(RedstoneRepository.tabCommon);
+        setMaxDamage(0);
+        setNoRepair();
+        setMaxStackSize(1);
+        setUnlocalizedName("redstonerepository.util.feeder");
+        setCreativeTab(RedstoneRepository.tabCommon);
+        addPropertyOverride(new ResourceLocation("active"), (stack, world, entity) -> this.getMode(stack) == MODE.ENABLED.getValue() ? 1.0f : 0.0f);
     }
 
     public ItemFeeder(int hungerPointsMax, int maxEnergy, int maxTransfer, int energyPerUse, int saturationFillMax) {
         super(RedstoneRepository.MODID);
         this.setMaxStackSize(1);
-        this.setCreativeTab(RedstoneRepository.tabCommon);
         this.setNoRepair();
+        setUnlocalizedName("redstonerepository.util.feeder");
+        setCreativeTab(RedstoneRepository.tabCommon);
         this.hungerPointsMax = hungerPointsMax;
         this.maxEnergy = maxEnergy;
         this.maxTransfer = maxTransfer;
         this.energyPerUse = energyPerUse;
         this.saturationFillMax = saturationFillMax;
-        this.addPropertyOverride(new ResourceLocation("active"), (stack, world, entity) -> this.getMode(stack) == MODE.ENABLED.getValue() ? 1.0f : 0.0f);
+        addPropertyOverride(new ResourceLocation("active"), (stack, world, entity) -> this.getMode(stack) == MODE.ENABLED.getValue() ? 1.0f : 0.0f);
     }
 
     //@Optional.Method(modid = "baubles")
@@ -164,6 +175,10 @@ public class ItemFeeder extends ItemCoreRF implements IBauble, IInventoryContain
         return this.hungerPointsMax + this.hungerPointsMax * enchant / 2;
     }
 
+    public EnumRarity getRarity(ItemStack stack) {
+        return EnumRarity.RARE;
+    }
+
     public enum MODE {
         DISABLED(0),
         ENABLED(1);
@@ -178,6 +193,5 @@ public class ItemFeeder extends ItemCoreRF implements IBauble, IInventoryContain
             return this.value;
         }
     }
-
 }
 
