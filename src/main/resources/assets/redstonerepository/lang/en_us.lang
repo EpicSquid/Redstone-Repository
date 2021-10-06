@@ -30,6 +30,10 @@ item.redstonerepository.util.gelidQuiver.name=Gelid Flux-Infused Quiver
 item.redstonerepository.util.gelidCapacitor.name=Gelid Flux Capacitor Amulet
 item.redstonerepository.util.feeder.name=Endoscopic Gastrostomizer
 
+item.redstonerepository.util.ring.base.name=Gelid Enderium Ring
+item.redstonerepository.util.ring.effect.name=Alchemical Stasis Ring
+item.redstonerepository.util.ring.mining.name=Destructive Stabilization Ring
+
 item.redstonerepository.armor.gelidHelmet.name=Enderium Flux Helmet
 item.redstonerepository.armor.gelidChestplate.name=Enderium Flux Chestplate
 item.redstonerepository.armor.gelidLeggings.name=Enderium Flux Leggings
