@@ -1,5 +1,5 @@
 {
-  "parent": "redstonerepository:item/feeder",
+  "parent": "redstonerepository:item/util/feeder",
   "textures": {
     "layer0": "redstonerepository:items/util/feeder_active"
   }

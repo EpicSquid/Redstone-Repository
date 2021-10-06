@@ -567,6 +567,5 @@ public class RedstoneRepositoryEquipment {
             ModelLoader.setCustomModelResourceLocation(itemMiningRing, 0, new ModelResourceLocation(new ResourceLocation(RedstoneRepository.MODID, "util/ring_mining"), "inventory"));
         }
     }
-
 }
 
