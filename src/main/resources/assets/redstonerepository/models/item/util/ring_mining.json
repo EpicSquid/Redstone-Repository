@@ -8,7 +8,7 @@
       "predicate": {
         "active": 1.0
       },
-      "model": "redstonerepository:item/ring_mining_active"
+      "model": "redstonerepository:item/util/ring_mining_active"
     }
   ]
 }

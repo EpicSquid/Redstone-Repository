@@ -95,7 +95,7 @@ public class ToolEventHandler {
             if (event.getEntity() instanceof EntityPlayer) {
                 EntityPlayer player = (EntityPlayer) event.getEntity();
                 for (ItemStack itemStack : BaublesHelper.getBaubles(player)) {
-                    //make sure we have a player with a ring on
+                    // Make sure we have a player with a ring on
                     if (itemStack.getItem() instanceof ItemRingEffect) {
                         ItemRingEffect ring = (ItemRingEffect) itemStack.getItem();
                         if (ring.isActive(itemStack)) {
@@ -122,7 +122,6 @@ public class ToolEventHandler {
             for (ItemStack itemStack : BaublesHelper.getBaubles(player)) {
                 if (itemStack.getItem() instanceof ItemRingMining) {
                     ItemRingMining ring = (ItemRingMining) itemStack.getItem();
-
                     if (ring.isActive(itemStack) && !player.onGround) {
                         event.setNewSpeed(event.getOriginalSpeed() * 5.0f);
                         ring.useEnergy(itemStack, 1, false);

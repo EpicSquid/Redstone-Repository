@@ -88,9 +88,9 @@ public class ItemFeeder extends ItemCoreRF implements IBauble, IInventoryContain
         }
         tooltip.add(StringHelper.getInfoText("info.redstonerepository.feeder.title"));
         if (this.getMode(stack) == MODE.ENABLED.getValue()) {
-            tooltip.add(StringHelper.localizeFormat("info.redstonerepository.feeder.active", "\u00a7a", "\u00a7r", StringHelper.getKeyName(KeyBindingItemMultiMode.INSTANCE.getKey())));
+            tooltip.add(StringHelper.localizeFormat("info.redstonerepository.tooltip.active", "\u00a7a", "\u00a7r", StringHelper.getKeyName(KeyBindingItemMultiMode.INSTANCE.getKey())));
         } else {
-            tooltip.add(StringHelper.localizeFormat("info.redstonerepository.feeder.disabled", "\u00a7c", "\u00a7r", StringHelper.getKeyName(KeyBindingItemMultiMode.INSTANCE.getKey())));
+            tooltip.add(StringHelper.localizeFormat("info.redstonerepository.tooltip.disabled", "\u00a7c", "\u00a7r", StringHelper.getKeyName(KeyBindingItemMultiMode.INSTANCE.getKey())));
         }
         if (!RedstoneRepositoryEquipment.EquipmentInit.enable[1]) {
             tooltip.add("\u00a74Baubles not loaded: Recipe disabled.");

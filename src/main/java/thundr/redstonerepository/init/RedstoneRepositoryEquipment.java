@@ -68,6 +68,7 @@ public class RedstoneRepositoryEquipment {
         for (ToolSet e : ToolSet.values()) {
             e.initialize();
         }
+        equipInit.initialize();
     }
 
     static {
@@ -435,8 +436,6 @@ public class RedstoneRepositoryEquipment {
 
         @GameRegistry.ItemStackHolder(value = "thermalexpansion:capacitor", meta = 4)
         public static final ItemStack resonantCapacitor = null;
-        @GameRegistry.ItemStackHolder(value = "thermalexpansion:capacitor", meta = 1)
-        public static final ItemStack hardenedCapacitor = null;
 
         public static ItemFeeder itemFeeder;
         public static ItemCapacitorAmulet itemCapacitorAmulet;
@@ -488,7 +487,7 @@ public class RedstoneRepositoryEquipment {
 
             itemBaseRing = new ItemRingBase();
             itemBaseRing.setUnlocalizedName("redstonerepository.util.ring.base").setCreativeTab(RedstoneRepository.tabCommon);
-            itemBaseRing.setRegistryName("util.ring_effect");
+            itemBaseRing.setRegistryName("util.ring_base");
             ForgeRegistries.ITEMS.register(itemBaseRing);
             baseRingStack = EnergyHelper.setDefaultEnergyTag(new ItemStack(itemBaseRing), 0);
 
@@ -545,7 +544,7 @@ public class RedstoneRepositoryEquipment {
                 RecipeHelper.addShapedRecipe(capacitorAmuletGelid, " S ", "ACA", "AGA", 'S', ItemMaterial.stringFluxed, 'A', ItemMaterial.plateArmorGelidEnderium, 'G', ItemMaterial.ingotGelidEnderium, 'C', resonantCapacitor);
             }
             if (enable[1]) {
-                RecipeHelper.addShapedRecipe(feederStack, "SCS", "PMP", " G ", 'S', ItemMaterial.stringFluxed, 'C', hardenedCapacitor, 'M', mushroomStewBucket, 'P', ItemMaterial.plateGelidEnderium, 'G', ItemMaterial.gearGelidEnderium);
+                RecipeHelper.addShapedRecipe(feederStack, "SCS", "PMP", " G ", 'S', ItemMaterial.stringFluxed, 'C', resonantCapacitor, 'M', mushroomStewBucket, 'P', ItemMaterial.plateGelidEnderium, 'G', ItemMaterial.gearGelidEnderium);
             }
             if (enable[2]){
                 RecipeHelper.addShapedRecipe(effectRingStack, "GMP", "NBN", "LSR", 'B', baseRingStack, 'N', Items.NETHER_STAR, 'G', Items.GHAST_TEAR, 'M', Items.MAGMA_CREAM, 'P', Items.BLAZE_POWDER, 'L', Items.SPECKLED_MELON, 'S', Items.FERMENTED_SPIDER_EYE, 'R', Items.RABBIT_FOOT);

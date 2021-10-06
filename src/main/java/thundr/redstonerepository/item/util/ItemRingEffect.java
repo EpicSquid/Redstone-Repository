@@ -9,6 +9,7 @@ import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -16,6 +17,8 @@ import net.minecraft.nbt.NBTTagInt;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.Optional;
 import thundr.redstonerepository.RedstoneRepository;
@@ -57,7 +60,12 @@ public class ItemRingEffect extends ItemCoreRF implements IBauble {
         maxEnergy = effectRingCapacity;
         maxTransfer = effectRingTransfer;
         energyPerUse = 2000 * powerMultiplier;
+        setMaxDamage(0);
+        setNoRepair();
         setMaxStackSize(1);
+        setUnlocalizedName("redstonerepository.util.ring.effect");
+        setCreativeTab(RedstoneRepository.tabCommon);
+        addPropertyOverride(new ResourceLocation("active"), (stack, world, entity) -> this.getMode(stack) == MODE.ENABLED.getValue() ? 1.0f : 0.0f);
     }
 
     @Override
@@ -69,7 +77,7 @@ public class ItemRingEffect extends ItemCoreRF implements IBauble {
             return;
         }
         tooltip.add(StringHelper.getInfoText("info.redstonerepository.ring.effect.title"));
-        if (isActive(stack)) {
+        if (this.getMode(stack) == ItemRingEffect.MODE.ENABLED.getValue()) {
             tooltip.add(StringHelper.localizeFormat("info.redstonerepository.tooltip.active", StringHelper.BRIGHT_GREEN, StringHelper.END, StringHelper.getKeyName(KeyBindingItemMultiMode.INSTANCE.getKey())));
         } else {
             tooltip.add(StringHelper.localizeFormat("info.redstonerepository.tooltip.disabled", StringHelper.LIGHT_RED, StringHelper.END, StringHelper.getKeyName(KeyBindingItemMultiMode.INSTANCE.getKey())));
@@ -222,6 +230,29 @@ public class ItemRingEffect extends ItemCoreRF implements IBauble {
         } else {
             ring.getTagCompound().setTag(EFFECTS, tagListIds);
             ring.getTagCompound().setTag(AMPLIFIER, tagListEffects);
+        }
+    }
+
+    public void onModeChange(EntityPlayer player, ItemStack stack) {
+        if (this.getMode(stack) == MODE.ENABLED.getValue()) {
+            player.world.playSound(null, player.getPosition(), SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP, SoundCategory.PLAYERS, 0.2f, 0.8f);
+        } else {
+            player.world.playSound(null, player.getPosition(), SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP, SoundCategory.PLAYERS, 0.2f, 0.5f);
+        }
+    }
+
+    public enum MODE {
+        DISABLED(0),
+        ENABLED(1);
+
+        private final int value;
+
+        MODE(int newValue) {
+            this.value = newValue;
+        }
+
+        public int getValue() {
+            return this.value;
         }
     }
 }

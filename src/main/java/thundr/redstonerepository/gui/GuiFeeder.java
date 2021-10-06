@@ -22,18 +22,17 @@ public class GuiFeeder extends GuiContainerCore {
     ElementButton addFood;
     ElementEnergyItem energy;
     ElementHungerPoints hungerPoints;
-    ResourceLocation TEXTURE = new ResourceLocation(RedstoneRepository.MODID, "textures/gui/feeder.png");
+    public static final  ResourceLocation TEXTURE = new ResourceLocation(RedstoneRepository.MODID, "textures/gui/feeder.png");
     //String PATH_BUTTON = new ResourceLocation(RedstoneRepository.MODID, "textures/gui/feeder.png").toString();
     ItemStack feederStack;
     ItemFeeder baseFeeder;
     ContainerFeeder containerFeeder;
 
     public GuiFeeder(InventoryPlayer inventoryPlayer, ContainerFeeder containerFeeder) {
-        super(containerFeeder);
+        super(containerFeeder, TEXTURE);
         this.name = containerFeeder.getInventoryName();
         this.xSize = 176;
         this.ySize = 148;
-        this.texture = this.TEXTURE;
         this.feederStack = containerFeeder.getContainerStack();
         this.baseFeeder = (ItemFeeder) containerFeeder.getContainerStack().getItem();
         this.containerFeeder = containerFeeder;
@@ -46,7 +45,7 @@ public class GuiFeeder extends GuiContainerCore {
             this.addTab(new TabInfo(this, this.myInfo));
         }
         //this.addFood = new ElementButton(this, 101, 26, "AddFood", 177, 64, 177, 80, 177, 96, 16, 16, this.PATH_BUTTON);
-        this.addFood = new ElementButton(this, 101, 26, "AddFood", 177, 64, 177, 80, 177, 96, 16, 16, this.TEXTURE.toString());
+        this.addFood = new ElementButton(this, 101, 26, "AddFood", 177, 64, 177, 80, 177, 96, 16, 16, this.texture.toString());
         this.energy = new ElementEnergyItem(this, 151, 6, ((ContainerFeeder) this.inventorySlots).getContainerStack());
         this.hungerPoints = new ElementHungerPoints(this, 160, 6, ((ContainerFeeder) this.inventorySlots).getContainerStack());
         this.addElement(this.addFood);
@@ -85,6 +84,11 @@ public class GuiFeeder extends GuiContainerCore {
         this.updateButtons();
     }
 
+    @Override
+    protected void drawGuiContainerBackgroundLayer(float v, int i, int i1) {
+        // TODO: this!
+    }
+
     public void handleElementButtonClick(String button, int mouseButton) {
         ItemStack tmpStack = this.containerFeeder.inventorySlots.get(this.containerFeeder.inventorySlots.size() - 1).getStack().copy();
         if (mouseButton == 0) {
@@ -109,11 +113,6 @@ public class GuiFeeder extends GuiContainerCore {
             }
         }
         GuiFeeder.playClickSound(0.7f);
-    }
-
-    @Override
-    protected void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY) {
-        // TODO Auto-generated method stub
     }
 }
 

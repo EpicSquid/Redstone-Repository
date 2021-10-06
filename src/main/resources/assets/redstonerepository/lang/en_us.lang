@@ -58,6 +58,8 @@ info.redstonerepository.tooltip.forModules=for Modules
 info.redstonerepository.tooltip.forDetails=for bound details
 info.redstonerepository.tooltip.control=Control
 info.redstonerepository.tooltip.hold=Hold
+info.redstonerepository.tooltip.active=Currently %sactive%s. Press (%s) while in hand to deactivate.
+info.redstonerepository.tooltip.disabled=Currently %sdisabled%s. Press (%s) while in hand to activate.
 
 info.redstonerepository.capacitor.title=Charges items in your inventory. Must be placed in the Baubles slot. 
 info.redstonerepository.capacitor.activate=Use while sneaking to activate.
@@ -65,8 +67,9 @@ info.redstonerepository.capacitor.deactivate=Use while sneaking to deactivate.
 
 info.redstonerepository.feeder.title=Automatically restores hunger and saturation when activated. Must be placed in the Baubles slot.
 info.redstonerepository.feeder.short=Automatic food eating bauble.
-info.redstonerepository.feeder.active=Currently %sactive%s. Press (%s) while in hand to deactivate.
-info.redstonerepository.feeder.disabled=Currently %sdisabled%s. Press (%s) while in hand to activate.
+
+info.redstonerepository.ring.effect.title=Freezes potion effects in place. No way in, no way out.
+info.redstonerepository.ring.mining.title=Mining speed will not be slowed when in air .
 
 # Chat Messages
 info.redstonerepository.chat.table.tinker.instruct=Right click top with powersuit to begin upgrading.
