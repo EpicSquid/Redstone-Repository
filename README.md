@@ -18,6 +18,6 @@ This addon allows you to upgrade these tools to Enderium based tiers for even mo
 - Baubles is also required to play this mod! It can be found [here](https://www.curseforge.com/minecraft/mc-mods/baubles "Baubles Link")
 - You also need Thermal Foundation, Thermal Expansion, and CoFH Core to play this mod!
 
-This mod is "Revolved" because it was pulled from CurseForge by its creator thundR, who later reposted the mod as MIT. This meant it could be reposted here.
+This mod is "Revolved" because it was pulled from CurseForge by its creator, thundR, who later reposted the mod as MIT. This meant it could be reposted here.
 
 Downloads for the mod can be found on [CurseForge](https://www.curseforge.com/minecraft/mc-mods/redstone-repository-revolved "CurseForge - Redstone Repository Revolved")
