@@ -101,12 +101,20 @@ public class ItemCoreRF extends ItemCore implements IMultiModeItem, IEnergyConta
         return this.maxTransfer;
     }
 
-    protected int useEnergy(ItemStack stack, int count, boolean simulate) {
+    public int useEnergy(ItemStack stack, int count, boolean simulate) {
         if (this.isCreative) {
             return 0;
         }
         int unbreakingLevel = MathHelper.clamp(EnchantmentHelper.getEnchantmentLevel(Enchantments.UNBREAKING, stack), 0, 4);
         return this.extractEnergy(stack, count * this.energyPerUse * (5 - unbreakingLevel) / 5, simulate);
+    }
+
+    protected int useEnergyExact(ItemStack stack, int toUse, boolean simulate) {
+        if (isCreative) {
+            return 0;
+        }
+        int unbreakingLevel = MathHelper.clamp(EnchantmentHelper.getEnchantmentLevel(Enchantments.UNBREAKING, stack), 0, 4);
+        return extractEnergy(stack, toUse * (5 - unbreakingLevel) / 5, simulate);
     }
 
     public int receiveEnergy(ItemStack container, int maxReceive, boolean simulate) {
