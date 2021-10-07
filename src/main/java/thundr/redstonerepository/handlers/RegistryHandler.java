@@ -35,6 +35,7 @@ public class RegistryHandler {
     public static final RegistryObject<RRItem> ROD_GELID = ITEMS.register("rod_gelid", RRItem::new);
     public static final RegistryObject<RRItem> GEM_GELID = ITEMS.register("gem_gelid", RRItem::new);
     public static final RegistryObject<RRItem> DUST_GELID_ENDERIUM = ITEMS.register("dust_gelid_enderium", RRItem::new);
+    public static final RegistryObject<RRItem> COIN_GELID_ENDERIUM = ITEMS.register("coin_gelid_enderium", RRItem::new);
     public static final RegistryObject<RRItem> GEAR_GELID_ENDERIUM = ITEMS.register("gear_gelid_enderium", RRItem::new);
     public static final RegistryObject<RRItem> INGOT_GELID_ENDERIUM = ITEMS.register("ingot_gelid_enderium", RRItem::new);
     public static final RegistryObject<RRItem> PLATE_GELID_ENDERIUM = ITEMS.register("plate_gelid_enderium", RRItem::new);
@@ -46,5 +47,23 @@ public class RegistryHandler {
     public static final RegistryObject<GelidEnderiumArmor> GELID_ENDERIUM_LEGGINGS = ITEMS.register("gelid_enderium_leggings", () -> new GelidEnderiumArmor(EquipmentSlotType.LEGS));
     public static final RegistryObject<GelidEnderiumArmor> GELID_ENDERIUM_BOOTS = ITEMS.register("gelid_enderium_boots", () -> new GelidEnderiumArmor(EquipmentSlotType.FEET));
 
+    public static final RegistryObject<RRItem> AXE_GELID = ITEMS.register("axe_gelid", RRItem::new);
+    public static final RegistryObject<RRItem> BATTLE_WRENCH_GELID = ITEMS.register("battle_wrench_gelid", RRItem::new);
+    public static final RegistryObject<RRItem> BOW_GELID = ITEMS.register("bow_gelid", RRItem::new);
+    public static final RegistryObject<RRItem> EXCAVATOR_GELID = ITEMS.register("excavator_gelid", RRItem::new);
+    public static final RegistryObject<RRItem> FISHING_ROD_GELID = ITEMS.register("fishing_rod_gelid", RRItem::new);
+    public static final RegistryObject<RRItem> HAMMER_GELID = ITEMS.register("hammer_gelid", RRItem::new);
+    public static final RegistryObject<RRItem> PICKAXE_GELID = ITEMS.register("pickaxe_gelid", RRItem::new);
+    public static final RegistryObject<RRItem> SHIELD_GELID = ITEMS.register("shield_gelid", RRItem::new);
+    public static final RegistryObject<RRItem> SHOVEL_GELID = ITEMS.register("shovel_gelid", RRItem::new);
+    public static final RegistryObject<RRItem> SICKLE_GELID = ITEMS.register("sickle_gelid", RRItem::new);
+    public static final RegistryObject<RRItem> SWORD_GELID = ITEMS.register("sword_gelid", RRItem::new);
+    public static final RegistryObject<RRItem> WRENCH_GELID = ITEMS.register("wrench_gelid", RRItem::new);
 
+    public static final RegistryObject<RRItem> CAPACITOR_GELID = ITEMS.register("capacitor_gelid", RRItem::new);
+    public static final RegistryObject<RRItem> FEEDER = ITEMS.register("feeder", RRItem::new);
+    public static final RegistryObject<RRItem> QUIVER_GELID = ITEMS.register("quiver_gelid", RRItem::new);
+    public static final RegistryObject<RRItem> RING_BASE = ITEMS.register("ring_base", RRItem::new);
+    public static final RegistryObject<RRItem> RING_EFFECT = ITEMS.register("ring_effect", RRItem::new);
+    public static final RegistryObject<RRItem> RING_MINING = ITEMS.register("ring_mining", RRItem::new);
 }
