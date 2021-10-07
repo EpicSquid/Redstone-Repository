@@ -2,7 +2,7 @@
 - **General**
     - Version 2.0 Release for 1.16.5
 
-# 2.2.0 - xx-09-2021
+# 2.2.0 - 06-10-2021
 - **General**
     - Version 2.0 Release for 1.12.2
 

@@ -4,9 +4,18 @@
 ![Redstone Repository Revolved Logo](https://raw.githubusercontent.com/EpicSquid/Redstone-Repository/master/src/main/resources/assets/redstonerepository/logo.png "Redstone Repository Revolved Logo")
 
 # Redstone Repository (Revolved)
+Re-Enhancing the Flux Revolution!
 
-Re-enhancing the Flux Revolution!
+**Description:**
 
-Home of the Minecraft mod: Redstone Repository
+Redstone Repository Revolved is an addon to Redstone Arsenal which adds tools and weaponry which utilize Redstone Flux.
+This addon allows you to upgrade these tools to Enderium based tiers for even more power.
+
+
+**Dependencies:**
+
+- Redstone Arsenal is required to play this mod! It can be found [here](https://www.curseforge.com/minecraft/mc-mods/redstone-arsenal "Redstone Arsenal Link")
+
+This mod is "Revolved" because it was pulled from CurseForge by its creator, thundR, who later reposted the mod as MIT. This meant it could be reposted here.
 
 Downloads for the mod can be found on [CurseForge](https://www.curseforge.com/minecraft/mc-mods/redstone-repository-revolved "CurseForge - Redstone Repository Revolved")
