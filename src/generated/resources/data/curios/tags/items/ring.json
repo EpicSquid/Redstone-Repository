@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "redstonerepository:ring_base",
+    "redstonerepository:ring_effect",
+    "redstonerepository:ring_mining"
+  ]
+}

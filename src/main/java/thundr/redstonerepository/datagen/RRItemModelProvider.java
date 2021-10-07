@@ -1,6 +1,7 @@
 package thundr.redstonerepository.datagen;
 
 import net.minecraft.data.DataGenerator;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.client.model.generators.ModelFile;
@@ -16,6 +17,8 @@ public class RRItemModelProvider extends ItemModelProvider {
     @Override
     protected void registerModels() {
         ModelFile itemGenerated = getExistingFile(mcLoc("item/generated"));
+        ModelFile itemShield = getExistingFile(mcLoc("item/shield"));
+        ModelFile itemShieldBlocking = getExistingFile(mcLoc("item/shield_blocking"));
 
         // Redstone Repository:
         builder(itemGenerated, "string_fluxed");
@@ -41,7 +44,10 @@ public class RRItemModelProvider extends ItemModelProvider {
         builder(itemGenerated, "fishing_rod_gelid");
         builder(itemGenerated, "hammer_gelid");
         builder(itemGenerated, "pickaxe_gelid");
-        builder(itemGenerated, "shield_gelid");
+        builder(itemShield, "shield_gelid");
+                /*.override()
+                .predicate(new ResourceLocation(RedstoneRepository.MODID, "blocking"), 1)
+                .model(builder(itemShieldBlocking, "shield_gelid_blocking"));*/
         builder(itemGenerated, "shovel_gelid");
         builder(itemGenerated, "sickle_gelid");
         builder(itemGenerated, "sword_gelid");
@@ -61,4 +67,10 @@ public class RRItemModelProvider extends ItemModelProvider {
     private ItemModelBuilder builder(ModelFile itemGenerated, String name) {
         return getBuilder(name).parent(itemGenerated).texture("layer0", "item/" + name);
     }
+
+/*    private ItemModelBuilder builderShield(ModelFile itemGenerated, String name) {
+        return getBuilder(name).parent(itemGenerated).texture("layer0", "item/" + name)
+                .override(new ResourceLocation(RedstoneRepository.MODID, "item/")).predicate().model();
+    }*/
+
 }

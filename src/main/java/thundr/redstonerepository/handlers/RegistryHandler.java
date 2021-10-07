@@ -4,6 +4,7 @@ import net.minecraft.enchantment.Enchantment;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.item.Item;
+import net.minecraft.item.Rarity;
 import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraft.particles.ParticleType;
 import net.minecraftforge.fml.RegistryObject;
@@ -31,7 +32,7 @@ public class RegistryHandler {
     }
 
     // Items:
-    public static final RegistryObject<RRItem> STRING_FLUXED = ITEMS.register("string_fluxed", RRItem::new);
+    public static final RegistryObject<RRItem> STRING_FLUXED = ITEMS.register("string_fluxed", () -> new RRItem(Rarity.UNCOMMON));
     public static final RegistryObject<RRItem> ROD_GELID = ITEMS.register("rod_gelid", RRItem::new);
     public static final RegistryObject<RRItem> GEM_GELID = ITEMS.register("gem_gelid", RRItem::new);
     public static final RegistryObject<RRItem> DUST_GELID_ENDERIUM = ITEMS.register("dust_gelid_enderium", RRItem::new);
@@ -63,7 +64,7 @@ public class RegistryHandler {
     public static final RegistryObject<RRItem> CAPACITOR_GELID = ITEMS.register("capacitor_gelid", RRItem::new);
     public static final RegistryObject<RRItem> FEEDER = ITEMS.register("feeder", RRItem::new);
     public static final RegistryObject<RRItem> QUIVER_GELID = ITEMS.register("quiver_gelid", RRItem::new);
-    public static final RegistryObject<RRItem> RING_BASE = ITEMS.register("ring_base", RRItem::new);
-    public static final RegistryObject<RRItem> RING_EFFECT = ITEMS.register("ring_effect", RRItem::new);
-    public static final RegistryObject<RRItem> RING_MINING = ITEMS.register("ring_mining", RRItem::new);
+    public static final RegistryObject<RRItem> RING_BASE = ITEMS.register("ring_base", () -> new RRItem(Rarity.EPIC));
+    public static final RegistryObject<RRItem> RING_EFFECT = ITEMS.register("ring_effect", () -> new RRItem(Rarity.EPIC));
+    public static final RegistryObject<RRItem> RING_MINING = ITEMS.register("ring_mining", () -> new RRItem(Rarity.EPIC));
 }

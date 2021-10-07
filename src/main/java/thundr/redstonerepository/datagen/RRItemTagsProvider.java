@@ -23,11 +23,16 @@ public class RRItemTagsProvider extends ItemTagsProvider {
         ;
 
         // Curios:
-        tag(RRTags.CURIOS_HEAD)
-                .add(RegistryHandler.ROD_GELID.get())
-        ;
         tag(RRTags.CURIOS_BELT)
-                .add(RegistryHandler.STRING_FLUXED.get())
+                .add(RegistryHandler.FEEDER.get())
+        ;
+        tag(RRTags.CURIOS_RING)
+                .add(RegistryHandler.RING_BASE.get())
+                .add(RegistryHandler.RING_EFFECT.get())
+                .add(RegistryHandler.RING_MINING.get())
+        ;
+        tag(RRTags.CURIOS_NECKLACE)
+                .add(RegistryHandler.CAPACITOR_GELID.get())
         ;
     }
 }
