@@ -1,5 +1,8 @@
-package thundr.redstonerepository.handlers;
+package dev.tomheaton.redstonerepository.handlers;
 
+import dev.tomheaton.redstonerepository.RedstoneRepository;
+import dev.tomheaton.redstonerepository.item.GelidEnderiumArmor;
+import dev.tomheaton.redstonerepository.item.RRItem;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.inventory.container.ContainerType;
@@ -11,9 +14,6 @@ import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
-import thundr.redstonerepository.RedstoneRepository;
-import thundr.redstonerepository.item.GelidEnderiumArmor;
-import thundr.redstonerepository.item.RRItem;
 
 public class RegistryHandler {
 

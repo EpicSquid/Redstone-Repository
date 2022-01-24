@@ -1,4 +1,4 @@
-package thundr.redstonerepository.item;
+package dev.tomheaton.redstonerepository.item;
 
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.IArmorMaterial;

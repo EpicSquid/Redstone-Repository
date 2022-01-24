@@ -1,5 +1,7 @@
-package thundr.redstonerepository.datagen;
+package dev.tomheaton.redstonerepository.datagen;
 
+import dev.tomheaton.redstonerepository.RedstoneRepository;
+import dev.tomheaton.redstonerepository.handlers.RegistryHandler;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.FrameType;
 import net.minecraft.advancements.ICriterionInstance;
@@ -10,8 +12,6 @@ import net.minecraft.block.Blocks;
 import net.minecraft.util.IItemProvider;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.TranslationTextComponent;
-import thundr.redstonerepository.RedstoneRepository;
-import thundr.redstonerepository.handlers.RegistryHandler;
 
 import javax.annotation.Nullable;
 import java.util.function.Consumer;

@@ -1,8 +1,9 @@
-package thundr.redstonerepository.datagen;
+package dev.tomheaton.redstonerepository.datagen;
 
 import com.google.common.collect.Sets;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import dev.tomheaton.redstonerepository.RedstoneRepository;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.data.AdvancementProvider;
 import net.minecraft.data.DataGenerator;
@@ -11,7 +12,6 @@ import net.minecraft.data.IDataProvider;
 import net.minecraft.util.ResourceLocation;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import thundr.redstonerepository.RedstoneRepository;
 
 import javax.annotation.Nonnull;
 import java.io.IOException;

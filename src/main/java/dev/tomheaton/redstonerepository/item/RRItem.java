@@ -1,9 +1,9 @@
-package thundr.redstonerepository.item;
+package dev.tomheaton.redstonerepository.item;
 
+import dev.tomheaton.redstonerepository.RedstoneRepository;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Rarity;
-import thundr.redstonerepository.RedstoneRepository;
 
 public class RRItem extends Item {
 

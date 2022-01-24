@@ -1,4 +1,4 @@
-package thundr.redstonerepository;
+package dev.tomheaton.redstonerepository;
 
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;

@@ -16,7 +16,7 @@ apply plugin: 'idea'
 apply plugin: 'maven-publish'
 
 version = "${minecraft_version}-${mod_version}"
-group = 'thundr.redstonerepository'
+group = 'dev.tomheaton.redstonerepository'
 archivesBaseName = "RedstoneRepository"
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(8)
@@ -138,11 +138,11 @@ jar {
     manifest {
         attributes([
                 "Specification-Title": "redstonerepository",
-                "Specification-Vendor": "thundr",
+                "Specification-Vendor": "tomheaton",
                 "Specification-Version": "1",
                 "Implementation-Title": project.name,
                 "Implementation-Version": "${version}",
-                "Implementation-Vendor" :"thundr",
+                "Implementation-Vendor" :"tomheaton",
                 "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
     }

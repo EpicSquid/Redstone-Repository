@@ -1,11 +1,11 @@
-package thundr.redstonerepository.datagen;
+package dev.tomheaton.redstonerepository.datagen;
 
+import dev.tomheaton.redstonerepository.RedstoneRepository;
+import dev.tomheaton.redstonerepository.handlers.RegistryHandler;
 import net.minecraft.data.BlockTagsProvider;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.ItemTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import thundr.redstonerepository.RedstoneRepository;
-import thundr.redstonerepository.handlers.RegistryHandler;
 
 import javax.annotation.Nullable;
 

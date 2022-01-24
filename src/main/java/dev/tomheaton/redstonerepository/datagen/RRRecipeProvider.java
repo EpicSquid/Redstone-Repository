@@ -1,6 +1,8 @@
-package thundr.redstonerepository.datagen;
+package dev.tomheaton.redstonerepository.datagen;
 
 import com.google.gson.JsonObject;
+import dev.tomheaton.redstonerepository.RedstoneRepository;
+import dev.tomheaton.redstonerepository.handlers.RegistryHandler;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.IFinishedRecipe;
 import net.minecraft.data.RecipeProvider;
@@ -11,8 +13,6 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
-import thundr.redstonerepository.RedstoneRepository;
-import thundr.redstonerepository.handlers.RegistryHandler;
 
 import javax.annotation.Nonnull;
 import java.util.function.Consumer;

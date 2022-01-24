@@ -10,7 +10,7 @@ displayName="Redstone Repository"
 updateJSONURL="https://raw.githubusercontent.com/EpicSquid/Redstone-Repository/1.16/updates/update.json"
 displayURL="https://www.curseforge.com/minecraft/mc-mods/redstone-repository-revolved"
 logoFile="logo.png"
-credits="TehNut"
+credits="TehNut, thundR, IronFractal"
 authors="EpicSquid, StormedPanda"
 description='''
 Redstone Repository
@@ -31,26 +31,26 @@ versionRange="[1.16.5,1.17)"
 ordering="NONE"
 side="BOTH"
 
-#[[dependencies.redstonerepository]]
-#modId="cofhcore"
-#mandatory=true
-#versionRange="[,)"
-#ordering="NONE"
-#side="BOTH"
+[[dependencies.redstonerepository]]
+modId="cofhcore"
+mandatory=true
+versionRange="[1.4,)"
+ordering="NONE"
+side="BOTH"
 
-#[[dependencies.redstonerepository]]
-#modId="thermal"
-#mandatory=true
-#versionRange="[,)"
-#ordering="NONE"
-#side="BOTH"
+[[dependencies.redstonerepository]]
+modId="thermal"
+mandatory=true
+versionRange="[1.4,)"
+ordering="NONE"
+side="BOTH"
 
-#[[dependencies.redstonerepository]]
-#modId="redstonearsenal"
-#mandatory=true
-#versionRange="[,)"
-#ordering="NONE"
-#side="BOTH"
+[[dependencies.redstonerepository]]
+modId="redstone_arsenal"
+mandatory=true
+versionRange="[0.8.0b.2,)"
+ordering="NONE"
+side="BOTH"
 
 [[dependencies.redstonerepository]]
 modId="curios"

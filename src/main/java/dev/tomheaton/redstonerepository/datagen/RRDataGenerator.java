@@ -1,12 +1,12 @@
-package thundr.redstonerepository.datagen;
+package dev.tomheaton.redstonerepository.datagen;
 
+import dev.tomheaton.redstonerepository.RedstoneRepository;
 import net.minecraft.data.BlockTagsProvider;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.GatherDataEvent;
-import thundr.redstonerepository.RedstoneRepository;
 
 @Mod.EventBusSubscriber(modid = RedstoneRepository.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public final class RRDataGenerator {

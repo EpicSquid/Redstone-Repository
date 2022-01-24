@@ -1,5 +1,7 @@
-package thundr.redstonerepository;
+package dev.tomheaton.redstonerepository;
 
+import dev.tomheaton.redstonerepository.config.RedstoneRepositoryConfig;
+import dev.tomheaton.redstonerepository.handlers.RegistryHandler;
 import net.minecraft.inventory.container.PlayerContainer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
@@ -16,8 +18,6 @@ import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import thundr.redstonerepository.config.RedstoneRepositoryConfig;
-import thundr.redstonerepository.handlers.RegistryHandler;
 import top.theillusivec4.curios.api.CuriosApi;
 import top.theillusivec4.curios.api.SlotTypeMessage;
 import top.theillusivec4.curios.api.SlotTypePreset;

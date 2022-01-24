@@ -1,6 +1,6 @@
-package thundr.redstonerepository.config;
+package dev.tomheaton.redstonerepository.config;
 
-import thundr.redstonerepository.RedstoneRepository;
+import dev.tomheaton.redstonerepository.RedstoneRepository;
 
 public class RedstoneRepositoryConfig {
 
