@@ -65,7 +65,7 @@ public class RegistryHandler {
     public static final RegistryObject<RRItem> GELID_TRIDENT = ITEMS.register("gelid_trident", RRItem::new);
     public static final RegistryObject<RRItem> GELID_BOW = ITEMS.register("gelid_bow", RRItem::new);
     public static final RegistryObject<RRItem> GELID_CROSSBOW = ITEMS.register("gelid_crossbow", RRItem::new);
-    public static final RegistryObject<RRItem> GELID_QUIVER = ITEMS.register("quiver", RRItem::new);
+    public static final RegistryObject<RRItem> GELID_QUIVER = ITEMS.register("gelid_quiver", RRItem::new);
 
     public static final RegistryObject<RRItem> GELID_CAPACITOR = ITEMS.register("gelid_capacitor", RRItem::new);
     public static final RegistryObject<RRItem> GELID_FEEDER = ITEMS.register("gelid_feeder", RRItem::new);
