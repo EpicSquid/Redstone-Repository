@@ -1,5 +1,6 @@
 package dev.tomheaton.redstonerepository;
 
+import dev.tomheaton.redstonerepository.handlers.RegistryHandler;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -18,6 +19,6 @@ public class RRItemGroup extends ItemGroup {
     @OnlyIn(Dist.CLIENT)
     @Override
     public ItemStack makeIcon() {
-        return new ItemStack(Items.REDSTONE);
+        return new ItemStack(RegistryHandler.GELID_SWORD.get());
     }
 }
