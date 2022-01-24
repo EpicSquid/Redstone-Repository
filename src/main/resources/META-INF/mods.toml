@@ -32,7 +32,7 @@ ordering="NONE"
 side="BOTH"
 
 [[dependencies.redstonerepository]]
-modId="cofhcore"
+modId="cofh_core"
 mandatory=true
 versionRange="[1.4,)"
 ordering="NONE"
