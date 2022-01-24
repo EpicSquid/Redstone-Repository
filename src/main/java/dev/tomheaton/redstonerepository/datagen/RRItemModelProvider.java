@@ -43,20 +43,20 @@ public class RRItemModelProvider extends ItemModelProvider {
                 /*.override()
                 .predicate(new ResourceLocation(RedstoneRepository.MODID, "blocking"), 1)
                 .model(builder(itemShieldBlocking, "gelid_shield_blocking"));*/
-        builder(itemGenerated, "gelid_axe");
-        builder(itemGenerated, "gelid_bow");
-        builder(itemGenerated, "gelid_excavator");
-        builder(itemGenerated, "gelid_fishing_rod");
-        builder(itemGenerated, "gelid_hammer");
-        builder(itemGenerated, "gelid_pickaxe");
-        builder(itemGenerated, "gelid_shovel");
-        builder(itemGenerated, "gelid_sickle");
-        builder(itemGenerated, "gelid_wrench");
         builder(itemGenerated, "gelid_trident");
+        builder(itemGenerated, "gelid_bow");
         builder(itemGenerated, "gelid_crossbow");
-
         builder(itemGenerated, "gelid_quiver");
 
+        builder(itemGenerated, "gelid_pickaxe");
+        builder(itemGenerated, "gelid_shovel");
+        builder(itemGenerated, "gelid_axe");
+        builder(itemGenerated, "gelid_hoe");
+        builder(itemGenerated, "gelid_sickle");
+        builder(itemGenerated, "gelid_hammer");
+        builder(itemGenerated, "gelid_excavator");
+        builder(itemGenerated, "gelid_fishing_rod");
+        builder(itemGenerated, "gelid_wrench");
 
         builder(itemGenerated, "gelid_capacitor");
         builder(itemGenerated, "gelid_feeder");

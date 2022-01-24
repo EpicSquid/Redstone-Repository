@@ -10,8 +10,6 @@
   "item.redstonerepository.gelid_plate": "Gelid Enderium Plate",
   "item.redstonerepository.gelid_plating": "Gelid Enderium Plating",
   "item.redstonerepository.gelid_obsidian_rod": "Gelid Enderium Obsidian Rod",
-  "block.redstonerepository.gelid_metal_block": "Gelid Enderium Metal Block",
-  "block.redstonerepository.gelid_gem_block": "Gelid Enderium Gem Block",
 
   "item.redstonerepository.gelid_sword": "Gelid Enderium Sword",
   "item.redstonerepository.gelid_shield": "Gelid Enderium Shield",
@@ -38,16 +36,14 @@
   "item.redstonerepository.gelid_elytra": "Gelid Enderium Elytra",
   "item.redstonerepository.gelid_controller": "Gelid Enderium Elytra Controller",
 
-  "item.redstonerepository.capacitor_gelid": "Gelid Flux Capacitor Amulet",
-  "item.redstonerepository.feeder": "Endoscopic Gastrostomizer",
+  "item.redstonerepository.gelid_capacitor": "Gelid Flux Capacitor Amulet",
+  "item.redstonerepository.gelid_feeder": "Gelid Endoscopic Gastrostomizer",
   "item.redstonerepository.ring_base": "Gelid Enderium Ring",
   "item.redstonerepository.ring_effect": "Alchemical Stasis Ring",
   "item.redstonerepository.ring_mining": "Destructive Stabilization Ring",
 
-  "item.redstonerepository.gelid_enderium_helmet": "Enderium Flux Helmet",
-  "item.redstonerepository.gelid_enderium_chestplate": "Enderium Flux Chestplate",
-  "item.redstonerepository.gelid_enderium_leggings": "Enderium Flux Leggings",
-  "item.redstonerepository.gelid_enderium_boots": "Enderium Flux Boots",
+  "block.redstonerepository.gelid_metal_block": "Gelid Enderium Metal Block",
+  "block.redstonerepository.gelid_gem_block": "Gelid Enderium Gem Block",
 
   "tooltip.redstonerepository.getenergy": "Charge: %d / %d RF",
   "tooltip.redstonerepository.peruse": "%d RF Per Use",
