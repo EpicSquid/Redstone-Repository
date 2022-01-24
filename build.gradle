@@ -113,7 +113,7 @@ dependencies {
     //compileOnly fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}:api")
     runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}")
 
-    compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}:${jei_version}:api")
+//    compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}:${jei_version}:api")
     runtimeOnly fg.deobf("mezz.jei:jei-${minecraft_version}:${jei_version}")
 
     //compileOnly fg.deobf("mcjty.theoneprobe:TheOneProbe-1.16:${top_version}:api")
@@ -122,14 +122,16 @@ dependencies {
     compileOnly fg.deobf("top.theillusivec4.curios:curios-forge:${minecraft_version}-${curios_version}:api")
     runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:${minecraft_version}-${curios_version}")
 
-    implementation fg.deobf("curse.maven:cofhcore-69162:3407019")
-    implementation fg.deobf("curse.maven:thermalfoundation-222880:3412300")
-    implementation fg.deobf("curse.maven:thermalexpansion-69163:3404884")
-    implementation fg.deobf("curse.maven:thermalinnovation-291737:3404886")
-    //runtimeOnly fg.deobf("curse.maven:thermal-dynamics-227443:x")
-    //runtimeOnly fg.deobf("curse.maven:redstone-arsenal-70631:x")
-    
-    runtimeOnly fg.deobf("curse.maven:configured-457570:3434071")
+    runtimeOnly fg.deobf("curse.maven:cofhcore-69162:3621734")
+    runtimeOnly fg.deobf("curse.maven:thermalfoundation-222880:3621736")
+    runtimeOnly fg.deobf("curse.maven:thermalexpansion-69163:3607549")
+    runtimeOnly fg.deobf("curse.maven:thermalinnovation-291737:3556270")
+//    runtimeOnly fg.deobf("curse.maven:thermal-dynamics-227443:x")
+    implementation fg.deobf("curse.maven:redstone-arsenal-70631:3621740")
+
+    runtimeOnly fg.deobf("curse.maven:configured-457570:3546348")
+
+    runtimeOnly fg.deobf("curse.maven:simply-jetpacks-2-251792:3616295")
 }
 
 jar {
