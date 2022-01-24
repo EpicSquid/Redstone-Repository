@@ -1,0 +1,35 @@
+{
+  "parent": "redstonerepository:root",
+  "display": {
+    "icon": {
+      "item": "redstonerepository:gelid_obsidian_rod"
+    },
+    "title": {
+      "translate": "advancement.redstonerepository.gelid_obsidian_rod.title"
+    },
+    "description": {
+      "translate": "advancement.redstonerepository.gelid_obsidian_rod.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "redstonerepository:gelid_obsidian_rod"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_item"
+    ]
+  ]
+}

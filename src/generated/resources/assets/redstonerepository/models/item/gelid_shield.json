@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/shield",
+  "textures": {
+    "layer0": "redstonerepository:item/gelid_shield"
+  }
+}

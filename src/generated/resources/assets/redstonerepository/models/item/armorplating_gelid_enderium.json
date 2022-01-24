@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "redstonerepository:item/armorplating_gelid_enderium"
-  }
-}

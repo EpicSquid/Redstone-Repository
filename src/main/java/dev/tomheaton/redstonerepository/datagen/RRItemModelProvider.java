@@ -36,7 +36,7 @@ public class RRItemModelProvider extends ItemModelProvider {
         builder(itemGenerated, "gelid_leggings");
         builder(itemGenerated, "gelid_boots");
         builder(itemGenerated, "gelid_elytra");
-        builder(itemGenerated, "gelid_controller");
+        builder(itemGenerated, "gelid_elytra_controller");
 
         builder(itemGenerated, "gelid_sword");
         builder(itemShield, "gelid_shield");

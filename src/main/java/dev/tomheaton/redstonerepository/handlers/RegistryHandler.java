@@ -69,7 +69,7 @@ public class RegistryHandler {
 
     public static final RegistryObject<RRItem> GELID_CAPACITOR = ITEMS.register("gelid_capacitor", RRItem::new);
     public static final RegistryObject<RRItem> GELID_FEEDER = ITEMS.register("gelid_feeder", RRItem::new);
-    public static final RegistryObject<RRItem> RING_BASE = ITEMS.register("ring_base", () -> new RRItem(Rarity.EPIC));
-    public static final RegistryObject<RRItem> RING_EFFECT = ITEMS.register("ring_effect", () -> new RRItem(Rarity.EPIC));
-    public static final RegistryObject<RRItem> RING_MINING = ITEMS.register("ring_mining", () -> new RRItem(Rarity.EPIC));
+    public static final RegistryObject<RRItem> GELID_RING_BASE = ITEMS.register("gelid_ring_base", () -> new RRItem(Rarity.EPIC));
+    public static final RegistryObject<RRItem> GELID_RING_EFFECT = ITEMS.register("gelid_ring_effect", () -> new RRItem(Rarity.EPIC));
+    public static final RegistryObject<RRItem> GELID_RING_MINING = ITEMS.register("gelid_ring_mining", () -> new RRItem(Rarity.EPIC));
 }

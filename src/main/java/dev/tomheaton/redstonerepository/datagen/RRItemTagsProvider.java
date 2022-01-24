@@ -27,12 +27,12 @@ public class RRItemTagsProvider extends ItemTagsProvider {
                 .add(RegistryHandler.GELID_FEEDER.get())
         ;
         tag(RRTags.CURIOS_RING)
-                .add(RegistryHandler.RING_BASE.get())
-                .add(RegistryHandler.RING_EFFECT.get())
-                .add(RegistryHandler.RING_MINING.get())
+                .add(RegistryHandler.GELID_RING_BASE.get())
+                .add(RegistryHandler.GELID_RING_EFFECT.get())
+                .add(RegistryHandler.GELID_RING_MINING.get())
         ;
         tag(RRTags.CURIOS_NECKLACE)
-                .add(RegistryHandler.CAPACITOR_GELID.get())
+                .add(RegistryHandler.GELID_CAPACITOR.get())
         ;
     }
 }

@@ -1,0 +1,35 @@
+{
+  "parent": "redstonerepository:root",
+  "display": {
+    "icon": {
+      "item": "redstonerepository:flux_string"
+    },
+    "title": {
+      "translate": "advancement.redstonerepository.flux_string.title"
+    },
+    "description": {
+      "translate": "advancement.redstonerepository.flux_string.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "redstonerepository:flux_string"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_item"
+    ]
+  ]
+}

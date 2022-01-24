@@ -38,9 +38,9 @@
 
   "item.redstonerepository.gelid_capacitor": "Gelid Flux Capacitor Amulet",
   "item.redstonerepository.gelid_feeder": "Gelid Endoscopic Gastrostomizer",
-  "item.redstonerepository.ring_base": "Gelid Enderium Ring",
-  "item.redstonerepository.ring_effect": "Alchemical Stasis Ring",
-  "item.redstonerepository.ring_mining": "Destructive Stabilization Ring",
+  "item.redstonerepository.gelid_ring_base": "Gelid Enderium Ring",
+  "item.redstonerepository.gelid_ring_effect": "Gelid Alchemical Stasis Ring",
+  "item.redstonerepository.gelid_ring_mining": "Gelid Destructive Stabilization Ring",
 
   "block.redstonerepository.gelid_metal_block": "Gelid Enderium Metal Block",
   "block.redstonerepository.gelid_gem_block": "Gelid Enderium Gem Block",

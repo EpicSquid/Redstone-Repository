@@ -1,8 +1,8 @@
 {
   "replace": false,
   "values": [
-    "redstonerepository:ring_base",
-    "redstonerepository:ring_effect",
-    "redstonerepository:ring_mining"
+    "redstonerepository:gelid_ring_base",
+    "redstonerepository:gelid_ring_effect",
+    "redstonerepository:gelid_ring_mining"
   ]
 }

@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "redstonerepository:string_fluxed"
+      "item": "redstonerepository:flux_string"
     },
     "title": {
       "translate": "advancement.redstonerepository.root.title"
