@@ -1,0 +1,6 @@
+{
+  "parent": "redstonerepository:item/util/capacitor_gelid",
+  "textures": {
+    "layer0": "redstonerepository:items/util/capacitor_gelid_active"
+  }
+}

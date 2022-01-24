@@ -1,0 +1,6 @@
+{
+  "parent": "redstonerepository:item/util/quiver_gelid",
+  "textures": {
+    "layer0": "redstonerepository:items/util/quiver_gelid_empowered"
+  }
+}

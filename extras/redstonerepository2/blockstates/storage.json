@@ -1,0 +1,21 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "cube_all",
+    "transform": "forge:default-block"
+  },
+  "variants": {
+    "type": {
+      "gelidenderium": {
+        "textures": {
+          "all": "redstonerepository:blocks/storage/gelid_enderium"
+        }
+      },
+      "gelidcrystal": {
+        "textures": {
+          "all": "redstonerepository:blocks/storage/gelid_crystal"
+        }
+      }
+    }
+  }
+}

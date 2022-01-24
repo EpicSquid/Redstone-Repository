@@ -1,0 +1,22 @@
+[
+  {
+    "modid": "redstonerepository",
+    "name": "Redstone Repository",
+    "description": "Re-Enhancing the Flux Revolution!",
+    "mcversion": "${mcversion}",
+    "version": "${version}",
+    "url": "https://www.curseforge.com/minecraft/mc-mods/redstone-repository-revolved",
+    "updateUrl": "https://raw.githubusercontent.com/EpicSquid/Redstone-Repository/master/updates/update.json",
+    "authorList": [
+      "EpicSquid",
+      "StormedPanda"
+    ],
+    "credits": "TehNut",
+    "parent": "",
+    "logoFile": "assets/redstonerepository/logo.png",
+    "screenshots": [],
+    "dependencies": [
+      "forge,cofhcore,redstonearsenal"
+    ]
+  }
+]

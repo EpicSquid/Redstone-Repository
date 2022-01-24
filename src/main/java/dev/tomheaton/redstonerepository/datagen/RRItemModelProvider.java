@@ -20,44 +20,49 @@ public class RRItemModelProvider extends ItemModelProvider {
         ModelFile itemShieldBlocking = getExistingFile(mcLoc("item/shield_blocking"));
 
         // Redstone Repository:
-        builder(itemGenerated, "string_fluxed");
-        builder(itemGenerated, "rod_gelid");
-        builder(itemGenerated, "gem_gelid");
-        builder(itemGenerated, "dust_gelid_enderium");
-        builder(itemGenerated, "gear_gelid_enderium");
-        builder(itemGenerated, "nugget_gelid_enderium");
-        builder(itemGenerated, "ingot_gelid_enderium");
-        builder(itemGenerated, "plate_gelid_enderium");
-        builder(itemGenerated, "armorplating_gelid_enderium");
-        builder(itemGenerated, "coin_gelid_enderium");
+        builder(itemGenerated, "gelid_coin");
+        builder(itemGenerated, "gelid_dust");
+        builder(itemGenerated, "gelid_gear");
+        builder(itemGenerated, "gelid_gem");
+        builder(itemGenerated, "gelid_ingot");
+        builder(itemGenerated, "gelid_nugget");
+        builder(itemGenerated, "gelid_plate");
+        builder(itemGenerated, "gelid_plating");
+        builder(itemGenerated, "flux_string");
+        builder(itemGenerated, "gelid_obsidian_rod");
 
-        builder(itemGenerated, "gelid_enderium_helmet");
-        builder(itemGenerated, "gelid_enderium_chestplate");
-        builder(itemGenerated, "gelid_enderium_leggings");
-        builder(itemGenerated, "gelid_enderium_boots");
+        builder(itemGenerated, "gelid_helmet");
+        builder(itemGenerated, "gelid_chestplate");
+        builder(itemGenerated, "gelid_leggings");
+        builder(itemGenerated, "gelid_boots");
+        builder(itemGenerated, "gelid_elytra");
+        builder(itemGenerated, "gelid_controller");
 
-        builder(itemGenerated, "axe_gelid");
-        builder(itemGenerated, "battle_wrench_gelid");
-        builder(itemGenerated, "bow_gelid");
-        builder(itemGenerated, "excavator_gelid");
-        builder(itemGenerated, "fishing_rod_gelid");
-        builder(itemGenerated, "hammer_gelid");
-        builder(itemGenerated, "pickaxe_gelid");
-        builder(itemShield, "shield_gelid");
+        builder(itemGenerated, "gelid_sword");
+        builder(itemShield, "gelid_shield");
                 /*.override()
                 .predicate(new ResourceLocation(RedstoneRepository.MODID, "blocking"), 1)
-                .model(builder(itemShieldBlocking, "shield_gelid_blocking"));*/
-        builder(itemGenerated, "shovel_gelid");
-        builder(itemGenerated, "sickle_gelid");
-        builder(itemGenerated, "sword_gelid");
-        builder(itemGenerated, "wrench_gelid");
+                .model(builder(itemShieldBlocking, "gelid_shield_blocking"));*/
+        builder(itemGenerated, "gelid_axe");
+        builder(itemGenerated, "gelid_bow");
+        builder(itemGenerated, "gelid_excavator");
+        builder(itemGenerated, "gelid_fishing_rod");
+        builder(itemGenerated, "gelid_hammer");
+        builder(itemGenerated, "gelid_pickaxe");
+        builder(itemGenerated, "gelid_shovel");
+        builder(itemGenerated, "gelid_sickle");
+        builder(itemGenerated, "gelid_wrench");
+        builder(itemGenerated, "gelid_trident");
+        builder(itemGenerated, "gelid_crossbow");
 
-        builder(itemGenerated, "capacitor_gelid");
-        builder(itemGenerated, "feeder");
-        builder(itemGenerated, "quiver_gelid");
-        builder(itemGenerated, "ring_base");
-        builder(itemGenerated, "ring_effect");
-        builder(itemGenerated, "ring_mining");
+        builder(itemGenerated, "gelid_quiver");
+
+
+        builder(itemGenerated, "gelid_capacitor");
+        builder(itemGenerated, "gelid_feeder");
+        builder(itemGenerated, "gelid_ring_base");
+        builder(itemGenerated, "gelid_ring_effect");
+        builder(itemGenerated, "gelid_ring_mining");
 
         // Patchouli:
         builder(itemGenerated, "guidebook");

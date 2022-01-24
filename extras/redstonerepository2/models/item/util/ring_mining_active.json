@@ -1,0 +1,6 @@
+{
+  "parent": "redstonerepository:item/util/ring_mining",
+  "textures": {
+    "layer0": "redstonerepository:items/util/ring_mining_active"
+  }
+}
