@@ -1,0 +1,94 @@
+{
+  "itemGroup.redstonerepository": "Redstone Repository",
+
+  "item.redstonerepository.gelid_coin": "Студёная индериевая монета",
+  "item.redstonerepository.gelid_dust": "Студёный индериевый пыль",
+  "item.redstonerepository.gelid_gear": "Студёная индериевая шестерня",
+  "item.redstonerepository.gelid_gem": "Студёный индериевый самоцвет",
+  "item.redstonerepository.gelid_ingot": "Студёный индериевый слиток",
+  "item.redstonerepository.gelid_nugget": "Студёный кусочек индерия",
+  "item.redstonerepository.gelid_plate": "Студёная индериевая пластина",
+  "item.redstonerepository.gelid_plating": "Студёная индериевая обшивка",
+  "item.redstonerepository.flux_string": "Наполненная флаксом нить",
+  "item.redstonerepository.gelid_obsidian_rod": "Студёный индериевый обсидиановый стержень",
+
+  "item.redstonerepository.gelid_sword": "Студёный индериевый меч",
+  "item.redstonerepository.gelid_shield": "Студёный индериевый шит",
+  "item.redstonerepository.gelid_trident": "Студёный индериевый трезубец",
+  "item.redstonerepository.gelid_bow": "Студёный индериевый лук",
+  "item.redstonerepository.gelid_crossbow": "Студёный индериевый арбалет",
+  "item.redstonerepository.gelid_crossbow.loaded_from": "Заряжен:",
+  "item.redstonerepository.gelid_quiver": "Студёный индериевый колчан",
+
+  "item.redstonerepository.gelid_pickaxe": "Студёный индериевая кирка",
+  "item.redstonerepository.gelid_shovel": "Студёный индериевая лопата",
+  "item.redstonerepository.gelid_axe": "Студёный индериевый топор",
+  "item.redstonerepository.gelid_hoe": "Студёный индериевая мотыга",
+  "item.redstonerepository.gelid_sickle": "Студёный индериевый серп",
+  "item.redstonerepository.gelid_hammer": "Студёный индериевый молот",
+  "item.redstonerepository.gelid_excavator": "Студёный индериевый землекоп",
+  "item.redstonerepository.gelid_wrench": "Студёный индериевый боевой гаечный ключ",
+  "item.redstonerepository.gelid_fishing_rod": "Студёный индериевая удочка",
+
+  "item.redstonerepository.gelid_helmet": "Студёный индериевый шлем",
+  "item.redstonerepository.gelid_chestplate": "Студёный индериевый нагрудник",
+  "item.redstonerepository.gelid_leggings": "Студёный индериевые поножи",
+  "item.redstonerepository.gelid_boots": "Студёный индериевые ботинки",
+  "item.redstonerepository.gelid_elytra": "Студёный индериевые элитры",
+  "item.redstonerepository.gelid_controller": "Студёный индериевый регулятор элитр",
+
+  "item.redstonerepository.gelid_capacitor": "Студёный флаксовый конденсатор-амулет",
+  "item.redstonerepository.gelid_feeder": "Студёный эндоскопический гастрономизер",
+  "item.redstonerepository.gelid_ring_base": "Студёный индериевые кольцо",
+  "item.redstonerepository.gelid_ring_effect": "Студёный алхимическое стазисное кольцо",
+  "item.redstonerepository.gelid_ring_mining": "Студёное убойное кольцо стабилизации",
+
+  "block.redstonerepository.gelid_metal_block": "Студёный металлический блок из индерия",
+  "block.redstonerepository.gelid_gem_block": "Студёный ювелирный блок из индерия",
+
+  "tooltip.redstonerepository.getenergy": "Заряд: %d / %d РФ",
+  "tooltip.redstonerepository.peruse": "%d РФ за использование",
+  "tooltip.redstonerepository.perdamage": "%d РФ за урон",
+  "tooltip.redstonerepository.extinguish": "Нажми %s, чтобы потушить.",
+  "tooltip.redstonerepository.empower": "Нажми %s, чтобы задействовать.",
+  "tooltip.redstonerepository.damage": "+%d урон от атаки",
+  "tooltip.redstonerepository.damage.flux": "+%d урон от флакса",
+  "tooltip.redstonerepository.durability": "Прочность",
+  "tooltip.redstonerepository.bound": "Связанный блок:",
+  "tooltip.redstonerepository.side": "Сторона вставки:",
+  "tooltip.redstonerepository.forModules": "для модулей",
+  "tooltip.redstonerepository.forDetails": "для связанных деталей",
+  "tooltip.redstonerepository.control": "Регулировка",
+  "tooltip.redstonerepository.hold": "Удержание",
+  "tooltip.redstonerepository.active": "В данный момент %sактивен%s. Нажми (%s) находящийся в руке, чтобы отключить.",
+  "tooltip.redstonerepository.disabled": "В данный момент %sнеактивен%s. Нажми (%s) находящийся в руке, чтобы активировать.",
+
+  "info.redstonerepository.capacitor.title": "Заряжает предметы в инвентаре. Должен быть помещён в слот Baubles.",
+  "info.redstonerepository.capacitor.activate": "Используй, находясь в крадении, чтобы активировать.",
+  "info.redstonerepository.capacitor.deactivate": "Используй, находясь в крадении, чтобы деактивировать.",
+
+  "info.redstonerepository.feeder.title": "Автоматически восстанавливает голод/насыщение, когда активирован. Должен быть помещён в слот Baubles.",
+  "info.redstonerepository.feeder.short": "Автоматически кормит.",
+
+  "info.redstonerepository.ring_effect.title": "Замораживает имеющиеся эффекты зелий. Нет ни входа, ни выхода.",
+  "info.redstonerepository.ring_mining.title": "Скорость добычи не будет замедленным находясь в воздухе.",
+
+  "info.redstonerepository.chat.table.tinker.instruct": "Пкм по верхней части верстака, чтобы улучшить экзоскелет.",
+  "info.redstonerepository.chat.boundto.txt": "Привязанный к:",
+  "info.redstonerepository.chat.unbound.txt": "Предмет несвязанный!",
+
+  "info.redstonerepository.console.recipes.remove": "Удаляет рецепты",
+  "info.redstonerepository.console.recipes.remove.vanilla.armor": "Ванильная броня",
+  "info.redstonerepository.console.compat.thermalexpansion": "Регистрирование совместимости с Thermal Expansion.",
+
+  "config.redstonerepository.title": "Конфигурация Redstone Repository",
+
+  "tab.redstonerepository.feeder.0": "Это автоматический питатель. Он будет снабжать тебя едой.",
+  "tab.redstonerepository.feeder.1": "Он требует еду для восстановления Очков голода (ОГ).",
+  "tab.redstonerepository.feeder.2": "Чтобы тебя накормить, он потребляет RF и ОГ.",
+
+  "info.redstonerepository.hungerPoints": "Хранит очки голода.",
+
+  "gui.redstonerepository.food.1": "ОГ за предмет:",
+  "gui.redstonerepository.food.2": "Всего ОГ:"
+}
